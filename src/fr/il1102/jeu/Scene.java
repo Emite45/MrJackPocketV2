@@ -221,7 +221,7 @@ public class Scene extends JPanel {
 		
 		//Alibi
 		
-		//g2.drawImage(tabAlibi[0].getImgAlibi(), 0, 0, null);
+		g2.drawImage(tabAlibi[0].getImgAlibi(), 0, 0, null);
 		//g2.drawImage(this.imgSherlock, 0, 0, null);
 
 	}
