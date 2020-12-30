@@ -3,7 +3,7 @@ package fr.il1102.jeu;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.util.ArrayList;
+
 import java.util.Random;
 
 import javax.swing.ImageIcon;
@@ -88,8 +88,7 @@ public class Scene extends JPanel {
 	public Alibi WilliamGull;
 	
 
-	public Alibi[] tabAlibi = {InspLestrade,JeremyBert,JohnPizer,JohnSmith,JosephLane, Madame, MissStealthy, SgtGoodley, WilliamGull};
-	
+	public Alibi[] tabAlibi = {InspLestrade,JeremyBert,JohnPizer ,JohnSmith,JosephLane, Madame, MissStealthy, SgtGoodley, WilliamGull};
 
 
 	
@@ -146,17 +145,16 @@ public class Scene extends JPanel {
 		icoJT8 = new ImageIcon(getClass().getResource("/images/Jeton_Temps8_face_Tour_de_jeu.png"));
 		this.imgJT8 = this.icoJT8.getImage();
 		
-		this.InspLestrade = new Alibi(80, 80, "/images/InspLestrade-alibi.png");
-		this.JeremyBert= new Alibi(80, 80, "/images/JeremyBert-alibi.png");
-		this.JohnPizer= new Alibi(80, 80, "/images/JohnPizer-alibi.png");
-		this.JohnSmith= new Alibi(80, 80, "/images/JohnSmith-alibi.png");
-		this.JosephLane= new Alibi(80, 80, "/images/JosephLane-alibi.png");
-		this.Madame= new Alibi(80, 80, "/images/Madame-alibi.png");
-		this.MissStealthy= new Alibi(80, 80, "/images/MissStealthy-alibi.png");
-		this.SgtGoodley= new Alibi(80, 80, "/images/SgtGoodley-alibi.png");
-		this.WilliamGull= new Alibi(80, 80, "/images/WilliamGull-alibi.png");
+		this.InspLestrade = new Alibi("/images/InspLestrade-alibi.png");
+		this.JeremyBert= new Alibi("/images/JeremyBert-alibi.png");
+		this.JohnPizer= new Alibi("/images/JohnPizer-alibi.png");
+		this.JohnSmith= new Alibi("/images/JohnSmith-alibi.png");
+		this.JosephLane= new Alibi("/images/JosephLane-alibi.png");
+		this.Madame= new Alibi("/images/Madame-alibi.png");
+		this.MissStealthy= new Alibi("/images/MissStealthy-alibi.png");
+		this.SgtGoodley= new Alibi("/images/SgtGoodley-alibi.png");
+		this.WilliamGull= new Alibi("/images/WilliamGull-alibi.png");
 		
-
 	
 	}
 	
@@ -221,7 +219,8 @@ public class Scene extends JPanel {
 		
 		//Alibi
 		
-		g2.drawImage(tabAlibi[0].getImgAlibi(), 0, 0, null);
+		g2.drawImage(this.tabAlibi[3].imgAlibi, 0, 0, null);
+		
 		//g2.drawImage(this.imgSherlock, 0, 0, null);
 
 	}

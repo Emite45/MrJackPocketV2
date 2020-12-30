@@ -24,6 +24,8 @@ public class Main {
 		
 		fenetre.setContentPane(scene); // On associe la scene à la fenetre de l'application
 		fenetre.setVisible(true);
+		
+
 
 	}
 }

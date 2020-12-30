@@ -10,18 +10,23 @@ public class Alibi extends Objet {
 
 	// Variables
 
-	private ImageIcon icoAlibi;
-	private Image imgAlibi;
+	public ImageIcon icoAlibi;
+	public Image imgAlibi;
 	
 	private final int PAUSE = 15;
 
 	// Constructeur
+	
 
-	public Alibi(int hauteur, int largeur, String src) {
-		super(hauteur, largeur);
 
-		this.icoAlibi = new ImageIcon(getClass().getResource(src));
+	public Alibi( String str) {
+		super(80,80);
+
+		
+		this.icoAlibi = new ImageIcon(getClass().getResource(str));
 		this.imgAlibi = this.icoAlibi.getImage();
+
+
 
 	}
 
@@ -31,9 +36,12 @@ public class Alibi extends Objet {
 		return imgAlibi;
 	}
 	
+	
+	
+	
+	
 	// Methodes
 	
-
 
 	public Image alibi(String nom) {
 
@@ -46,6 +54,7 @@ public class Alibi extends Objet {
 		img = ico.getImage();
 		return img;
 	}
+
 
 
 }
