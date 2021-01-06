@@ -1,29 +1,34 @@
 package fr.il1102.objet;
 
 import java.awt.Image;
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 
-public class Alibi extends Objet {
+public class Alibi {
 
 	// Variables
 
 	public ImageIcon icoAlibi;
 	public Image imgAlibi;
+	private String str;
+	private int largeur;
+	private int hauteur;
 	
-	private final int PAUSE = 15;
+
 
 	// Constructeur
 	
 
 
 	public Alibi( String str) {
-		super(80,80);
-
+		this.largeur = 120;
+		this.hauteur = 200;
 		
-		this.icoAlibi = new ImageIcon(getClass().getResource(str));
+		this.str = str;
+		this.icoAlibi = new ImageIcon(getClass().getResource(this.str));
 		this.imgAlibi = this.icoAlibi.getImage();
 
 
@@ -37,22 +42,23 @@ public class Alibi extends Objet {
 	}
 	
 	
+	//Setters
 	
+
+	public String getStr() {
+		return str;
+	}
 	
 	
 	// Methodes
 	
 
-	public Image alibi(String nom) {
 
-		String str;
-		ImageIcon ico;
-		Image img;
-
-		str = "/images/" + nom + "-alibi.png";
-		ico = new ImageIcon(getClass().getResource(str));
-		img = ico.getImage();
-		return img;
+	public static Alibi [] shuffleAlibi( Alibi InspLestrade, Alibi JeremyBert, Alibi JohnPizer ,Alibi JohnSmith, Alibi JosephLane, Alibi Madame, Alibi MissStealthy, Alibi SgtGoodley,Alibi WilliamGull) {
+		Alibi[] tabShuffleAlibi = { InspLestrade,JeremyBert,JohnPizer ,JohnSmith,JosephLane, Madame, MissStealthy, SgtGoodley, WilliamGull};
+		List<Alibi> listAlibi = Arrays.asList(tabShuffleAlibi);
+		Collections.shuffle(listAlibi);
+		return tabShuffleAlibi;
 	}
 
 

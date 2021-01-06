@@ -14,7 +14,7 @@ import fr.il1102.objet.Alibi;
 @SuppressWarnings("serial")
 public class Scene extends JPanel {
 
-	private ImageIcon icoFond; //ecran noir en fond
+	private ImageIcon icoFond; // ecran noir en fond
 	private Image imgFond;
 
 	private ImageIcon icoT1;
@@ -52,10 +52,10 @@ public class Scene extends JPanel {
 
 	private ImageIcon icoSherlock;
 	private Image imgSherlock;
-	
+
 	private ImageIcon icoJT1;
 	private Image imgJT1;
-	
+
 	private ImageIcon icoJT2;
 	private Image imgJT2;
 
@@ -76,7 +76,7 @@ public class Scene extends JPanel {
 
 	private ImageIcon icoJT8;
 	private Image imgJT8;
-	
+
 	public Alibi InspLestrade;
 	public Alibi JeremyBert;
 	public Alibi JohnPizer;
@@ -86,13 +86,12 @@ public class Scene extends JPanel {
 	public Alibi MissStealthy;
 	public Alibi SgtGoodley;
 	public Alibi WilliamGull;
-	
+	public Alibi[] tabShuffleAlibi;
 
-	public Alibi[] tabAlibi = {InspLestrade,JeremyBert,JohnPizer ,JohnSmith,JosephLane, Madame, MissStealthy, SgtGoodley, WilliamGull};
+	public Alibi[] tabAlibi = { InspLestrade, JeremyBert, JohnPizer, JohnSmith, JosephLane, Madame, MissStealthy,
+			SgtGoodley, WilliamGull };
 
-
-	
-
+	public boolean ecranAlibi;
 
 	// Constructeurs
 	public Scene() {
@@ -144,84 +143,89 @@ public class Scene extends JPanel {
 		this.imgJT7 = this.icoJT7.getImage();
 		icoJT8 = new ImageIcon(getClass().getResource("/images/Jeton_Temps8_face_Tour_de_jeu.png"));
 		this.imgJT8 = this.icoJT8.getImage();
-		
+
 		this.InspLestrade = new Alibi("/images/InspLestrade-alibi.png");
-		this.JeremyBert= new Alibi("/images/JeremyBert-alibi.png");
-		this.JohnPizer= new Alibi("/images/JohnPizer-alibi.png");
-		this.JohnSmith= new Alibi("/images/JohnSmith-alibi.png");
-		this.JosephLane= new Alibi("/images/JosephLane-alibi.png");
-		this.Madame= new Alibi("/images/Madame-alibi.png");
-		this.MissStealthy= new Alibi("/images/MissStealthy-alibi.png");
-		this.SgtGoodley= new Alibi("/images/SgtGoodley-alibi.png");
-		this.WilliamGull= new Alibi("/images/WilliamGull-alibi.png");
-		
-	
+		this.JeremyBert = new Alibi("/images/JeremyBert-alibi.png");
+		this.JohnPizer = new Alibi("/images/JohnPizer-alibi.png");
+		this.JohnSmith = new Alibi("/images/JohnSmith-alibi.png");
+		this.JosephLane = new Alibi("/images/JosephLane-alibi.png");
+		this.Madame = new Alibi("/images/Madame-alibi.png");
+		this.MissStealthy = new Alibi("/images/MissStealthy-alibi.png");
+		this.SgtGoodley = new Alibi("/images/SgtGoodley-alibi.png");
+		this.WilliamGull = new Alibi("/images/WilliamGull-alibi.png");
+
+		this.tabShuffleAlibi = Alibi.shuffleAlibi(InspLestrade, JeremyBert, JohnPizer, JohnSmith, JosephLane, Madame,
+				MissStealthy, SgtGoodley, WilliamGull);
+
+		this.setFocusable(true);
+		this.requestFocusInWindow();
+		this.addKeyListener(new Clavier());
+
+		this.ecranAlibi = true;
+	}
+
+	// Getters
+
+	public Alibi[] getTabAlibi() {
+		return tabAlibi;
 	}
 	
+	public boolean isEcranAlibi() {
+		return ecranAlibi;
+	}
+	//Setters
+	
+
+
+	public void setEcranAlibi(boolean ecranAlibi) {
+		this.ecranAlibi = ecranAlibi;
+	}
+
 	// Methodes
-	
-
-
-	public int alibiJack() {
-		Random random = new Random();
-		int number;
-
-
-		number = random.nextInt(9);
-		return number;
-
-		}
-	
-	public Image alibi(String nom) {
-		
-		String str;
-		ImageIcon ico;
-		Image img;
-		
-		str="/images/" + nom + "_alibi.png";
-		ico = new ImageIcon(getClass().getResource(str));
-		img = ico.getImage();
-		return img;
-	}
 
 	public void paintComponent(Graphics g) {
 
 		super.paintComponent(g);
 		Graphics g2 = (Graphics2D) g; // Ameliore les graphismes en 2D
 
-		g2.drawImage(this.imgFond, 0, 0, null);
-		
-		g2.drawImage(this.imgT1, 300, 300, null);
-		g2.drawImage(this.imgT2, 490, 300, null);
-		g2.drawImage(this.imgT3, 680, 300, null);
-		g2.drawImage(this.imgT4, 300, 490, null);
-		g2.drawImage(this.imgT5, 490, 490, null);
-		g2.drawImage(this.imgT6, 680, 490, null);
-		g2.drawImage(this.imgT7, 300, 680, null);
-		g2.drawImage(this.imgT8, 490, 680, null);
-		g2.drawImage(this.imgT9, 680, 680, null);
+		if (ecranAlibi == true) {
+			g2.drawImage(tabShuffleAlibi[0].getImgAlibi(), 0, 0, null);
+		}
+		else if (ecranAlibi == false) {
+			g2.drawImage(this.imgFond, 0, 0, null);
 
-		g2.drawImage(this.imgSherlock, 220, 355, null);
-		g2.drawImage(this.imgTobi, 545, 870, null);
-		g2.drawImage(this.imgWatson, 870, 355, null);
-		
-		//Jeton temps
-		
-		g2.drawImage(this.imgJT1, 100, 300, null);
-		g2.drawImage(this.imgJT2, 100, 360, null);
-		g2.drawImage(this.imgJT3, 100, 420, null);
-		g2.drawImage(this.imgJT4, 100, 480, null);
-		g2.drawImage(this.imgJT5, 100, 540, null);
-		g2.drawImage(this.imgJT6, 100, 600, null);
-		g2.drawImage(this.imgJT7, 100, 660, null);
-		g2.drawImage(this.imgJT8, 100, 720, null);
-		
-		
-		//Alibi
-		
-		g2.drawImage(this.tabAlibi[3].imgAlibi, 0, 0, null);
-		
-		//g2.drawImage(this.imgSherlock, 0, 0, null);
+			g2.drawImage(this.imgT1, 300, 300, null);
+			g2.drawImage(this.imgT2, 490, 300, null);
+			g2.drawImage(this.imgT3, 680, 300, null);
+			g2.drawImage(this.imgT4, 300, 490, null);
+			g2.drawImage(this.imgT5, 490, 490, null);
+			g2.drawImage(this.imgT6, 680, 490, null);
+			g2.drawImage(this.imgT7, 300, 680, null);
+			g2.drawImage(this.imgT8, 490, 680, null);
+			g2.drawImage(this.imgT9, 680, 680, null);
 
+			g2.drawImage(this.imgSherlock, 220, 355, null);
+			g2.drawImage(this.imgTobi, 545, 870, null);
+			g2.drawImage(this.imgWatson, 870, 355, null);
+
+			// Jeton temps
+
+			g2.drawImage(this.imgJT1, 100, 300, null);
+			g2.drawImage(this.imgJT2, 100, 360, null);
+			g2.drawImage(this.imgJT3, 100, 420, null);
+			g2.drawImage(this.imgJT4, 100, 480, null);
+			g2.drawImage(this.imgJT5, 100, 540, null);
+			g2.drawImage(this.imgJT6, 100, 600, null);
+			g2.drawImage(this.imgJT7, 100, 660, null);
+			g2.drawImage(this.imgJT8, 100, 720, null);
+
+			// Alibi
+
+			g2.drawImage(tabShuffleAlibi[0].getImgAlibi(), 0, 0, null);
+
+			// g2.drawImage(this.imgSherlock, 0, 0, null);
+		}
 	}
+
+
 }
