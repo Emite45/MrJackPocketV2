@@ -17,7 +17,13 @@ public class Clavier implements KeyListener{
 			Main.scene.setEcranAlibi(false);
 			Main.scene.repaint();
 		}
-		
+		else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+			Main.scene.nAlibi ++;
+			Main.scene.nAlibiFC --;
+			Main.scene.repaint();
+			
+
+		}
 	}
 
 	@Override
