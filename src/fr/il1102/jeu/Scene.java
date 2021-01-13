@@ -274,16 +274,6 @@ public class Scene extends JPanel {
 			g2.drawImage(tabShuffleTuile[7][0].getImgTuile(), 490, 680, null);
 			g2.drawImage(tabShuffleTuile[8][0].getImgTuile(), 680, 680, null);
 
-//			g2.drawImage(this.imgT1, 300, 300, null);
-//			g2.drawImage(this.imgT2, 490, 300, null);
-//			g2.drawImage(this.imgT3, 680, 300, null);
-//			g2.drawImage(this.imgT4, 300, 490, null);
-//			g2.drawImage(this.imgT5, 490, 490, null);
-//			g2.drawImage(this.imgT6, 680, 490, null);
-//			g2.drawImage(this.imgT7, 300, 680, null);
-//			g2.drawImage(this.imgT8, 490, 680, null);
-//			g2.drawImage(this.imgT9, 680, 680, null);
-
 			g2.drawImage(this.imgSherlock, 220, 355, null);
 			g2.drawImage(this.imgTobi, 545, 870, null);
 			g2.drawImage(this.imgWatson, 870, 355, null);
