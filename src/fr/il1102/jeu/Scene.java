@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import fr.il1102.objet.Alibi;
 import fr.il1102.objet.Tuile;
 
+//bonjour ceci est un test
+
 @SuppressWarnings("serial")
 public class Scene extends JPanel {
 
