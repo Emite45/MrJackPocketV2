@@ -250,7 +250,7 @@ public class Scene extends JPanel {
 		super.paintComponent(g);
 		Graphics g2 = (Graphics2D) g; // Ameliore les graphismes en 2D
 
-		if (ecranAlibi == true) {
+		if (ecranAlibi == true) {  //Ecran du Menu pour Mr Jack
 
 			g2.drawImage(this.imgFond, 0, 0, null);
 
@@ -260,18 +260,20 @@ public class Scene extends JPanel {
 			g2.drawString("(Appuyez sur espace pour commencer à jouer)", 300, 700);
 
 			g2.drawImage(tabShuffleAlibi[0].getImgAlibi(), 550, 300, null); // ID de Mr Jack
-		} else if (ecranAlibi == false) {
-			g2.drawImage(this.imgFond, 0, 0, null);
+			
+		} else if (ecranAlibi == false) { //ecran du plateau de jeu
+			
+			g2.drawImage(this.imgFond, 0, 0, null); // Affichage du fond noir
 
-			g2.drawImage(tabShuffleTuile[0][0].getImgTuile(), 300, 300, null);
-			g2.drawImage(tabShuffleTuile[1][0].getImgTuile(), 490, 300, null);
-			g2.drawImage(tabShuffleTuile[2][0].getImgTuile(), 680, 300, null);
-			g2.drawImage(tabShuffleTuile[3][0].getImgTuile(), 300, 490, null);
-			g2.drawImage(tabShuffleTuile[4][0].getImgTuile(), 490, 490, null);
-			g2.drawImage(tabShuffleTuile[5][0].getImgTuile(), 680, 490, null);
-			g2.drawImage(tabShuffleTuile[6][0].getImgTuile(), 300, 680, null);
-			g2.drawImage(tabShuffleTuile[7][0].getImgTuile(), 490, 680, null);
-			g2.drawImage(tabShuffleTuile[8][0].getImgTuile(), 680, 680, null);
+			g2.drawImage(tabShuffleTuile[0][0].getImgTuile(), 300, 300, null); // Affcichage de la tuile en Position 7
+			g2.drawImage(tabShuffleTuile[1][0].getImgTuile(), 490, 300, null); // Affcichage de la tuile en Position 8
+			g2.drawImage(tabShuffleTuile[2][0].getImgTuile(), 680, 300, null); // Affcichage de la tuile en Position 9
+			g2.drawImage(tabShuffleTuile[3][0].getImgTuile(), 300, 490, null); // Affcichage de la tuile en Position 4
+			g2.drawImage(tabShuffleTuile[4][0].getImgTuile(), 490, 490, null); // Affcichage de la tuile en Position 5
+			g2.drawImage(tabShuffleTuile[5][0].getImgTuile(), 680, 490, null); // Affcichage de la tuile en Position 6
+			g2.drawImage(tabShuffleTuile[6][0].getImgTuile(), 300, 680, null); // Affcichage de la tuile en Position 1
+			g2.drawImage(tabShuffleTuile[7][0].getImgTuile(), 490, 680, null); // Affcichage de la tuile en Position 2
+			g2.drawImage(tabShuffleTuile[8][0].getImgTuile(), 680, 680, null); // Affcichage de la tuile en Position 3
 
 			g2.drawImage(this.imgSherlock, 220, 355, null);
 			g2.drawImage(this.imgTobi, 545, 870, null);
