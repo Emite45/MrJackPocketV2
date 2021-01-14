@@ -15,6 +15,8 @@ import fr.il1102.objet.Tuile;
 @SuppressWarnings("serial")
 public class Scene extends JPanel {
 
+	// Variables 
+	
 	private ImageIcon icoFond; // ecran noir en fond
 	private Image imgFond;
 
@@ -67,6 +69,7 @@ public class Scene extends JPanel {
 			{ T3, T3_90, T3_180, T3_r90 }, { T4, T4_90, T4_180, T4_r90 }, { T5, T5_90, T5_180, T5_r90 },
 			{ T6, T6_90, T6_180, T6_r90 }, { T7, T7_90, T7_180, T7_r90 }, { T8, T8_90, T8_180, T8_r90 },
 			{ T9, T9_90, T9_180, T9_r90 } };
+	
 	public Tuile[][] tabShuffleTuile;
 
 	private ImageIcon icoWatson;
@@ -123,6 +126,7 @@ public class Scene extends JPanel {
 	public int nAlibiFC;
 
 	// Constructeurs
+	
 	public Scene() {
 
 		super();
@@ -218,7 +222,8 @@ public class Scene extends JPanel {
 				T3_r90, T4, T4_90, T4_180, T4_r90, T5, T5_90, T5_180, T5_r90, T6, T6_90, T6_180, T6_r90, T7, T7_90,
 				T7_180, T7_r90, T8, T8_90, T8_180, T8_r90, T9, T9_90, T9_180, T9_r90);
 
-		this.setFocusable(true);
+		
+		this.setFocusable(true);  // Permet d'utiliser la classe clavier
 		this.requestFocusInWindow();
 		this.addKeyListener(new Clavier());
 
@@ -237,7 +242,9 @@ public class Scene extends JPanel {
 	public boolean isEcranAlibi() {
 		return ecranAlibi;
 	}
+
 	// Setters
+
 
 	public void setEcranAlibi(boolean ecranAlibi) {
 		this.ecranAlibi = ecranAlibi;
@@ -254,8 +261,8 @@ public class Scene extends JPanel {
 
 			g2.drawImage(this.imgFond, 0, 0, null);
 
-			Font policeFin = new Font("Simsun", Font.BOLD, 50);
-			g2.setFont(policeFin);
+			Font police = new Font("Simsun", Font.BOLD, 50);
+			g2.setFont(police);
 			g2.drawString("Voici l'identité de Mr Jack : ", 300, 250);
 			g2.drawString("(Appuyez sur espace pour commencer à jouer)", 300, 700);
 
@@ -265,19 +272,19 @@ public class Scene extends JPanel {
 			
 			g2.drawImage(this.imgFond, 0, 0, null); // Affichage du fond noir
 
-			g2.drawImage(tabShuffleTuile[0][0].getImgTuile(), 300, 300, null); // Affcichage de la tuile en Position 7
-			g2.drawImage(tabShuffleTuile[1][0].getImgTuile(), 490, 300, null); // Affcichage de la tuile en Position 8
-			g2.drawImage(tabShuffleTuile[2][0].getImgTuile(), 680, 300, null); // Affcichage de la tuile en Position 9
-			g2.drawImage(tabShuffleTuile[3][0].getImgTuile(), 300, 490, null); // Affcichage de la tuile en Position 4
-			g2.drawImage(tabShuffleTuile[4][0].getImgTuile(), 490, 490, null); // Affcichage de la tuile en Position 5
-			g2.drawImage(tabShuffleTuile[5][0].getImgTuile(), 680, 490, null); // Affcichage de la tuile en Position 6
-			g2.drawImage(tabShuffleTuile[6][0].getImgTuile(), 300, 680, null); // Affcichage de la tuile en Position 1
-			g2.drawImage(tabShuffleTuile[7][0].getImgTuile(), 490, 680, null); // Affcichage de la tuile en Position 2
-			g2.drawImage(tabShuffleTuile[8][0].getImgTuile(), 680, 680, null); // Affcichage de la tuile en Position 3
+			g2.drawImage(tabShuffleTuile[0][0].getImgTuile(), 300, 100, null); // Affichage de la tuile en Position 7
+			g2.drawImage(tabShuffleTuile[1][0].getImgTuile(), 490, 100, null); // Affichage de la tuile en Position 8
+			g2.drawImage(tabShuffleTuile[2][0].getImgTuile(), 680, 100, null); // Affichage de la tuile en Position 9
+			g2.drawImage(tabShuffleTuile[3][0].getImgTuile(), 300, 290, null); // Affichage de la tuile en Position 4
+			g2.drawImage(tabShuffleTuile[4][0].getImgTuile(), 490, 290, null); // Affichage de la tuile en Position 5
+			g2.drawImage(tabShuffleTuile[5][0].getImgTuile(), 680, 290, null); // Affichage de la tuile en Position 6
+			g2.drawImage(tabShuffleTuile[6][0].getImgTuile(), 300, 480, null); // Affichage de la tuile en Position 1
+			g2.drawImage(tabShuffleTuile[7][0].getImgTuile(), 490, 480, null); // Affichage de la tuile en Position 2
+			g2.drawImage(tabShuffleTuile[8][0].getImgTuile(), 680, 480, null); // Affichage de la tuile en Position 3
 
-			g2.drawImage(this.imgSherlock, 220, 355, null);
-			g2.drawImage(this.imgTobi, 545, 870, null);
-			g2.drawImage(this.imgWatson, 870, 355, null);
+			g2.drawImage(this.imgSherlock, 220, 155, null);
+			g2.drawImage(this.imgTobi, 545, 670, null);
+			g2.drawImage(this.imgWatson, 870, 155, null);
 
 			// Jeton temps
 
@@ -290,9 +297,9 @@ public class Scene extends JPanel {
 			g2.drawImage(this.imgJT7, 100, 660, null);
 			g2.drawImage(this.imgJT8, 100, 720, null);
 
-			//Comment 
 			
 			// Alibi
+			
 			for (int i = 0; i < nAlibiFC; i++) {
 				g2.drawImage(this.alibiCarte.getImgAlibi(), 1000 + 20 * i, 20 * i, null);
 				if (nAlibiFC < 8) {
@@ -300,7 +307,6 @@ public class Scene extends JPanel {
 				}
 			}
 
-			// g2.drawImage(this.imgSherlock, 0, 0, null);
 		}
 	}
 

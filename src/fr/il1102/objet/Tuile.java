@@ -47,6 +47,7 @@ public class Tuile {
 			Tuile[][] tabTuile = {{T1, T1_90, T1_180,T1_r90},{T2, T2_90, T2_180,T2_r90},{T3, T3_90, T3_180,T3_r90},{T4, T4_90, T4_180,T4_r90},{T5, T5_90, T5_180,T5_r90},{T6, T6_90, T6_180,T6_r90},{T7, T7_90, T7_180,T7_r90},{T8, T8_90, T8_180,T8_r90},{T9, T9_90, T9_180,T9_r90}} ; //Tableau qui comprend toute nos tuiles
 			List<Tuile []> listTuile = Arrays.asList(tabTuile); // transforme le tableau en arrayList
 			Collections.shuffle(listTuile); // melange les grandes cases de la liste
+			
 			Tuile[][] tabShuffleTuile = new Tuile[9][4]; // creation d'un nouveau tableau
 			
 			for(int i = 0; i<9; i++) { //Il faut mélanger à l'intérieur de chaque sous liste

@@ -14,7 +14,7 @@ public class Main {
 		JFrame fenetre = new JFrame("Mr Jack Pocket");
 		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		fenetre.setSize(1920, 1080);
-		fenetre.setLocationRelativeTo(null);
+		fenetre.setLocationRelativeTo(null); // Mettre la fenetre au milieu de l'ecran
 		fenetre.setResizable(false);
 		fenetre.setAlwaysOnTop(true);
 		

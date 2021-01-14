@@ -14,7 +14,9 @@ public class Alibi {
 	public ImageIcon icoAlibi;
 	public Image imgAlibi;
 	private String str;
+	@SuppressWarnings("unused")
 	private int largeur;
+	@SuppressWarnings("unused")
 	private int hauteur;
 	
 
@@ -22,12 +24,12 @@ public class Alibi {
 	// Constructeur
 	
 
-
 	public Alibi( String str) {
 		this.largeur = 120;
 		this.hauteur = 200;
 		
 		this.str = str;
+		
 		this.icoAlibi = new ImageIcon(getClass().getResource(this.str));
 		this.imgAlibi = this.icoAlibi.getImage();
 
