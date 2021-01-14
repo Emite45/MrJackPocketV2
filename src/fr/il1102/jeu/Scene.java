@@ -290,6 +290,8 @@ public class Scene extends JPanel {
 			g2.drawImage(this.imgJT7, 100, 660, null);
 			g2.drawImage(this.imgJT8, 100, 720, null);
 
+			//Comment 
+			
 			// Alibi
 			for (int i = 0; i < nAlibiFC; i++) {
 				g2.drawImage(this.alibiCarte.getImgAlibi(), 1000 + 20 * i, 20 * i, null);
