@@ -21,8 +21,18 @@ public class Clavier implements KeyListener{
 			Main.scene.nAlibi ++;
 			Main.scene.nAlibiFC --;
 			Main.scene.repaint();
-			
-
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_S) { 
+			Main.scene.posSherlock();
+			Main.scene.repaint();
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_W) { 
+			Main.scene.posWatson();
+			Main.scene.repaint();
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_T) { 
+			Main.scene.posTobi();
+			Main.scene.repaint();
 		}
 	}
 
