@@ -1,5 +1,6 @@
 package fr.il1102.jeu;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -262,6 +263,7 @@ public class Scene extends JPanel {
 			g2.drawImage(this.imgFond, 0, 0, null);
 
 			Font police = new Font("Simsun", Font.BOLD, 50);
+			g2.setColor(Color.white);
 			g2.setFont(police);
 			g2.drawString("Voici l'identité de Mr Jack : ", 300, 250);
 			g2.drawString("(Appuyez sur espace pour commencer à jouer)", 300, 700);
