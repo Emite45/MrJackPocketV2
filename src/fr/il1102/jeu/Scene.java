@@ -265,8 +265,8 @@ public class Scene extends JPanel {
 			Font police = new Font("Simsun", Font.BOLD, 50);
 			g2.setColor(Color.white);
 			g2.setFont(police);
-			g2.drawString("Voici l'identité de Mr Jack : ", 300, 250);
-			g2.drawString("(Appuyez sur espace pour commencer à jouer)", 300, 700);
+			g2.drawString("Voici l'identitÃ© de Mr Jack : ", 300, 250);
+			g2.drawString("(Appuyez sur espace pour commencer Ã  jouer)", 300, 700);
 
 			g2.drawImage(tabShuffleAlibi[0].getImgAlibi(), 550, 300, null); // ID de Mr Jack
 			
