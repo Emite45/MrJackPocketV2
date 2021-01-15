@@ -13,6 +13,12 @@ public class Clavier implements KeyListener{
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		
+		if(e.getKeyCode() == KeyEvent.VK_ENTER && Main.scene.isEcranAccueil() == true && Main.scene.isEcranAlibi() == false) { //Permet de passer l'écran d'accueil
+			Main.scene.setEcranAccueil(false);
+			Main.scene.setEcranAlibi(true);
+			Main.scene.repaint();
+		}
 		if(e.getKeyCode() == KeyEvent.VK_SPACE) { //Permet de changer d'ecran en modifiant la variable ecranAlibi
 			Main.scene.setEcranAlibi(false);
 			Main.scene.repaint();

@@ -4,12 +4,12 @@ import fr.il1102.jeu.Scene;
 
 public class Main {
 	
-	public static Scene scene;  //permet d'acceder � cette classe de partout 
+	public static Scene scene;  //permet d'acceder à cette classe de partout 
 	
 	public static void main(String[] args) {
 		
 		
-	// Cr�ation de la fenetre de l'app
+	// Création de la fenetre de l'app
 		
 		JFrame fenetre = new JFrame("Mr Jack Pocket");
 		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

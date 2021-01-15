@@ -23,6 +23,9 @@ public class Scene extends JPanel {
 
 	// Variables 
 	
+    private ImageIcon icoFondLondres; // ecran d'accueil
+	private Image imgFondLondres;
+
 	private ImageIcon icoFond; // ecran noir en fond
 	private Image imgFond;
 
@@ -148,6 +151,8 @@ public class Scene extends JPanel {
 			SgtGoodley, WilliamGull };
 
 	public boolean ecranAlibi;  // deuxième écran de découverte de l'alibi de Jack
+	
+	public boolean ecranAccueil;
 
 	public int nAlibi; // Compteur de carte Alibi en enlevant la carte de Jack
 	public int nAlibiFC; // Compteur de carte Alibi face caché
@@ -160,6 +165,9 @@ public class Scene extends JPanel {
 
 		icoFond = new ImageIcon(getClass().getResource("/images/background.png"));
 		this.imgFond = this.icoFond.getImage();
+		
+		icoFondLondres = new ImageIcon(getClass().getResource("/images/Fond_londres.png"));
+		this.imgFondLondres = this.icoFond.getImage();
 
 		icoJT1 = new ImageIcon(getClass().getResource("/images/Jeton_Temps1_face_Tour_de_jeu.png"));
 		this.imgJT1 = this.icoJT1.getImage();
@@ -281,8 +289,9 @@ public class Scene extends JPanel {
 		this.setFocusable(true);  // Permet d'utiliser la classe clavier
 		this.requestFocusInWindow();
 		this.addKeyListener(new Clavier());
-
-		this.ecranAlibi = true;
+		
+		this.ecranAccueil = true ;
+		this.ecranAlibi = false ;
 
 		this.nAlibi = 1;
 		this.nAlibiFC = 9;
@@ -294,6 +303,11 @@ public class Scene extends JPanel {
 		return tabAlibi;
 	}
 
+
+	public boolean isEcranAccueil() {
+		return ecranAccueil;
+	}
+	
 	public boolean isEcranAlibi() {
 		return ecranAlibi;
 	}
@@ -322,10 +336,13 @@ public class Scene extends JPanel {
 	public void settChange2(int tChange2) {
 		this.tChange2 = tChange2;
 	}
-
+	public void setEcranAccueil(boolean ecranAccueil) {
+		this.ecranAccueil = ecranAccueil;
+	}
 	public void setEcranAlibi(boolean ecranAlibi) {
 		this.ecranAlibi = ecranAlibi;
 	}
+
 
 	// Methodes
 	
@@ -412,8 +429,21 @@ public class Scene extends JPanel {
 
 		super.paintComponent(g);
 		Graphics g2 = (Graphics2D) g; // Ameliore les graphismes en 2D
+		
+		
+		if (ecranAccueil == true && ecranAlibi == false) { //Ecran d'accueil 
+			
+			g2.drawImage( this.imgFondLondres, 0, 0, null);
 
-		if (ecranAlibi == true) {  //Ecran du Menu pour Mr Jack
+			Font police = new Font("Simsun", Font.BOLD, 40);
+			g2.setColor(Color.white);
+			g2.setFont(police);
+			g2.drawString("Bienvenue sur le Jeu Mr Jack Pocket : ", 100, 250);
+			g2.drawString("Pour commencer la partie, Mr Jack appuyez sur entrée pour", 100, 450);	
+			g2.drawString("découvrir votre identité à l'abris du regard de votre adversaire", 100, 550);
+			g2.drawString("Elias Dève    Aymeric Lafebvre    Léonie Petit", 100, 750);
+			
+		} else if (ecranAlibi == true && ecranAccueil == false ){  //Ecran du Menu pour Mr Jack
 
 			g2.drawImage(this.imgFond, 0, 0, null);
 
@@ -425,7 +455,7 @@ public class Scene extends JPanel {
 
 			g2.drawImage(tabShuffleAlibi[0].getImgAlibi(), 550, 300, null); // ID de Mr Jack
 			
-		} else if (ecranAlibi == false) { //ecran du plateau de jeu
+		} else if (ecranAlibi == false && ecranAccueil == false ) { //ecran du plateau de jeu
 			
 			g2.drawImage(this.imgFond, 0, 0, null); // Affichage du fond noir
 
@@ -466,4 +496,5 @@ public class Scene extends JPanel {
 
 		}
 	}
+
 }
