@@ -26,6 +26,10 @@ public class Main {
 		fenetre.setVisible(true);
 		
 
+		while(Main.scene.tChange == 0) {
+			System.out.println(Main.scene.tChange);
+			}
+		System.out.println(Main.scene.tChange);
 
 	}
 }
