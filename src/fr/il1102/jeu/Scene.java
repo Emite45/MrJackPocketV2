@@ -419,9 +419,6 @@ public class Scene extends JPanel {
 		List<Tuile []> listTuile = Arrays.asList(tabShuffleTuile);
 		Collections.swap(listTuile, tChange1, tChange2);
 		
-
-		
-		
 	}
 	
 
