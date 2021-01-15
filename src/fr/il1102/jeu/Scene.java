@@ -5,6 +5,10 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -72,6 +76,11 @@ public class Scene extends JPanel {
 			{ T3, T3_90, T3_180, T3_r90 }, { T4, T4_90, T4_180, T4_r90 }, { T5, T5_90, T5_180, T5_r90 },
 			{ T6, T6_90, T6_180, T6_r90 }, { T7, T7_90, T7_180, T7_r90 }, { T8, T8_90, T8_180, T8_r90 },
 			{ T9, T9_90, T9_180, T9_r90 } };
+	
+	public int tChange1;
+	public int tChange2;
+	public int tChange;
+	public boolean select;
 	
 	public Tuile[][] tabShuffleTuile;
 	
@@ -220,6 +229,10 @@ public class Scene extends JPanel {
 				T3_r90, T4, T4_90, T4_180, T4_r90, T5, T5_90, T5_180, T5_r90, T6, T6_90, T6_180, T6_r90, T7, T7_90,
 				T7_180, T7_r90, T8, T8_90, T8_180, T8_r90, T9, T9_90, T9_180, T9_r90);
 		
+		this.tChange = 0;
+		this.tChange1 = 0;
+		this.tChange2 = 0;
+		this.select = false;
 
 		// On instancie tout nos Alibis
 		this.InspLestrade = new Alibi("/images/InspLestrade-alibi.png");
@@ -285,8 +298,30 @@ public class Scene extends JPanel {
 		return ecranAlibi;
 	}
 
+	public boolean isSelect() {
+		return select;
+	}
+	
 	// Setters
 
+
+
+
+	public void setSelect(boolean selec) {
+		this.select = selec;
+	}
+
+	public void settChange1(int tChange1) {
+		this.tChange1 = tChange1;
+	}
+
+	public void settChange(int tChange) {
+		this.tChange = tChange;
+	}
+
+	public void settChange2(int tChange2) {
+		this.tChange2 = tChange2;
+	}
 
 	public void setEcranAlibi(boolean ecranAlibi) {
 		this.ecranAlibi = ecranAlibi;
@@ -295,8 +330,8 @@ public class Scene extends JPanel {
 	// Methodes
 	
 	public void posSherlock() { //Gère le deplacement de Sherlock
-		if(xSherlock == xDetec1) {
-			if (ySherlock == yDetec2) {xSherlock =xDetec2; ySherlock =yDetec1;}
+	if(xSherlock == xDetec1) {														//Analyse la position des détectives
+			if (ySherlock == yDetec2) {xSherlock =xDetec2; ySherlock =yDetec1;}		//Modifie la position du detective à la position suivante
 			else if (ySherlock == yDetec3) { ySherlock =yDetec2;}
 			else { ySherlock= yDetec3;}
 		}
@@ -362,6 +397,16 @@ public class Scene extends JPanel {
 			else { xTobi= xDetec1; yTobi= yDetec4;}
 		}
 	}
+	
+	public void echangerTuile(int tChange1, int tChange2) {
+		List<Tuile []> listTuile = Arrays.asList(tabShuffleTuile);
+		Collections.swap(listTuile, tChange1, tChange2);
+		
+
+		
+		
+	}
+	
 
 	public void paintComponent(Graphics g) {
 
@@ -421,5 +466,4 @@ public class Scene extends JPanel {
 
 		}
 	}
-
 }

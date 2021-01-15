@@ -34,7 +34,19 @@ public class Clavier implements KeyListener{
 			Main.scene.posTobi();
 			Main.scene.repaint();
 		}
-	}
+		else if( Main.scene.isSelect() == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5 || e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_9)) { 
+			Main.scene.settChange1(e.getKeyCode() - 48); //car c'est le numéro ascii
+			Main.scene.settChange( Main.scene.tChange1);
+			Main.scene.setSelect(true);
+		}
+		else if ( Main.scene.isSelect() == true && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5 || e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_9)) {
+				Main.scene.settChange2(e.getKeyCode() - 48);
+				Main.scene.echangerTuile(Main.scene.tChange1, Main.scene.tChange2);
+				Main.scene.repaint();
+				Main.scene.setSelect(false);
+			}
+		}
+	
 
 	@Override
 	public void keyReleased(KeyEvent e) {
