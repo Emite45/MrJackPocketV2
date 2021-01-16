@@ -1,6 +1,6 @@
 package fr.il1102.jeu;
 import javax.swing.JFrame;
-import fr.il1102.jeu.Scene;
+
 
 public class Main {
 	
@@ -26,10 +26,6 @@ public class Main {
 		fenetre.setVisible(true);
 		
 
-		while(Main.scene.tChange == 0) {
-			System.out.println(Main.scene.tChange);
-			}
-		System.out.println(Main.scene.tChange);
 
 	}
 }
