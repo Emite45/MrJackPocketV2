@@ -81,16 +81,16 @@ public class Scene extends JPanel {
 			{ T6, T6_90, T6_180, T6_r90 }, { T7, T7_90, T7_180, T7_r90 }, { T8, T8_90, T8_180, T8_r90 },
 			{ T9, T9_90, T9_180, T9_r90 } };
 	
-	public Tuile[][] tabTuile1 = { { T1, T1_90, T1_180, T1_r90 }, { T2, T2_90, T2_180, T2_r90 },
-			{ T3, T3_90, T3_180, T3_r90 }, { T4, T4_90, T4_180, T4_r90 }, { T5, T5_90, T5_180, T5_r90 },
-			{ T6, T6_90, T6_180, T6_r90 }, { T7, T7_90, T7_180, T7_r90 }, { T8, T8_90, T8_180, T8_r90 },
-			{ T9, T9_90, T9_180, T9_r90 } };
+
 	
 	public int tChange1; //Indice de la première tuile que l'on veut changer
 	public int tChange2;
 	public int tChange;
+	public boolean JTchange; //Temporaire
 	public boolean changeSelect;
 	public int tRotat;
+	public boolean JTrot;
+	
 	
 	public Tuile[][] tabShuffleTuile;
 	
@@ -241,6 +241,8 @@ public class Scene extends JPanel {
 		this.T9_180 = new Tuile("/images/tuile_de_rue_face_suspect9_180.png");
 		this.T9_r90 = new Tuile("/images/tuile_de_rue_face_suspect9_m90.png");
 		
+
+		
 		// Tableau de tuile que l'on mélange
 		this.tabShuffleTuile = Tuile.tuileMelange(T1, T1_90, T1_180, T1_r90, T2, T2_90, T2_180, T2_r90, T3, T3_90, T3_180,
 				T3_r90, T4, T4_90, T4_180, T4_r90, T5, T5_90, T5_180, T5_r90, T6, T6_90, T6_180, T6_r90, T7, T7_90,
@@ -250,6 +252,10 @@ public class Scene extends JPanel {
 		this.tChange1 = 0;
 		this.tChange2 = 0;
 		this.changeSelect = false;
+		this.JTchange = false;
+		
+		this.tRotat = 0;
+		this.JTrot = false;
 
 
 		// On instancie tout nos Alibis
@@ -317,6 +323,11 @@ public class Scene extends JPanel {
 		return tabShuffleAlibi;
 	}
 
+	public int gettRotat() {
+		return tRotat;
+	}
+
+
 	public boolean isEcranAccueil() {
 		return ecranAccueil;
 	}
@@ -331,24 +342,18 @@ public class Scene extends JPanel {
 	
 	// Setters
 
-
-
-
+	public void settRotat(int tRotat) {
+		this.tRotat = tRotat;
+	}
 	public void setSelect(boolean selec) {
 		this.changeSelect = selec;
 	}
-
 	public void settChange1(int tChange1) {
 		this.tChange1 = tChange1;
-	}
-
-	public void setTRotat(int tRotat) {
-		this.tRotat = tRotat;
 	}
 	public void settChange(int tChange) {
 		this.tChange = tChange;
 	}
-
 	public void settChange2(int tChange2) {
 		this.tChange2 = tChange2;
 	}
@@ -431,67 +436,68 @@ public class Scene extends JPanel {
 		}
 	}
 	
-	public void echangerTuile(int tChange1, int tChange2) {
+	public void echangerTuile(int tChange1, int tChange2) {  // Echange deux grandes listes du tableaux
 		List<Tuile []> listTuile = Arrays.asList(tabShuffleTuile);
 		Collections.swap(listTuile, tChange1, tChange2);
 	}
 	
-	public void rotateTuile(int tRotat) {
+	public void rotateTuile(int tRotat) {					// Change l'ordre des petites cases dans le bon sens pour une rotation à 90°
 		List<Tuile> listTuile = Arrays.asList(tabShuffleTuile[tRotat]);
-		if (listTuile.toString().contains("T1")) {
-			if (tabShuffleTuile[tRotat][0] == tabTuile1[0][0]) {tabShuffleTuile[tRotat][0] = tabTuile1[0][1]; tabShuffleTuile[tRotat][1] = tabTuile1[0][2]; tabShuffleTuile[tRotat][2] = tabTuile1[0][3]; tabShuffleTuile[tRotat][3] = tabTuile1[0][0];} 
-			else if (tabShuffleTuile[tRotat][0] == tabTuile1[0][1]) {tabShuffleTuile[tRotat][0] = tabTuile1[0][2]; tabShuffleTuile[tRotat][1] = tabTuile1[0][3]; tabShuffleTuile[tRotat][2] = tabTuile1[0][0]; tabShuffleTuile[tRotat][3] = tabTuile1[0][1];} 
-			else if (tabShuffleTuile[tRotat][0] == tabTuile1[0][2]) {tabShuffleTuile[tRotat][0] = tabTuile1[0][3]; tabShuffleTuile[tRotat][1] = tabTuile1[0][0]; tabShuffleTuile[tRotat][2] = tabTuile1[0][1]; tabShuffleTuile[tRotat][3] = tabTuile1[0][2];} 
-			else if (tabShuffleTuile[tRotat][0] == tabTuile1[0][3]) {tabShuffleTuile[tRotat][0] = tabTuile1[0][0]; tabShuffleTuile[tRotat][1] = tabTuile1[0][1]; tabShuffleTuile[tRotat][2] = tabTuile1[0][2]; tabShuffleTuile[tRotat][3] = tabTuile1[0][3];} 
+		if (listTuile.contains(T1) ==true) {
+			if (tabShuffleTuile[tRotat][0] == T1) {tabShuffleTuile[tRotat][0] = T1_r90; tabShuffleTuile[tRotat][1] = T1_180; tabShuffleTuile[tRotat][2] = T1_r90; tabShuffleTuile[tRotat][3] = T1;} 
+			else if (tabShuffleTuile[tRotat][0] == T1_90) {tabShuffleTuile[tRotat][0] = T1; tabShuffleTuile[tRotat][1] = T1_r90; tabShuffleTuile[tRotat][2] = T1_180; tabShuffleTuile[tRotat][3] = T1_90;} 
+			else if (tabShuffleTuile[tRotat][0] == T1_180) {tabShuffleTuile[tRotat][0] = T1_90; tabShuffleTuile[tRotat][1] = T1; tabShuffleTuile[tRotat][2] = T1_r90; tabShuffleTuile[tRotat][3] = T1_180;} 
+			else if (tabShuffleTuile[tRotat][0] == T1_r90) {tabShuffleTuile[tRotat][0] = T1_180; tabShuffleTuile[tRotat][1] = T1_90; tabShuffleTuile[tRotat][2] = T1; tabShuffleTuile[tRotat][3] = T1_r90;} 
 		}
-		else if (listTuile.toString().contains("T2")) {
-			if (tabShuffleTuile[tRotat][0] == T2) {tabShuffleTuile[tRotat][0] = T2_90; tabShuffleTuile[tRotat][1] = T2_180; tabShuffleTuile[tRotat][2] = T2_r90; tabShuffleTuile[tRotat][3] = T2;} 
-			else if (tabShuffleTuile[tRotat][0] == T2_90) {tabShuffleTuile[tRotat][0] = T2_180; tabShuffleTuile[tRotat][1] = T2_r90; tabShuffleTuile[tRotat][2] = T2; tabShuffleTuile[tRotat][3] = T2_90;} 
-			else if (tabShuffleTuile[tRotat][0] == T2_180) {tabShuffleTuile[tRotat][0] = T2_r90; tabShuffleTuile[tRotat][1] = T2; tabShuffleTuile[tRotat][2] = T2_90; tabShuffleTuile[tRotat][3] = T2_180;} 
-			else if (tabShuffleTuile[tRotat][0] == T2_r90) {tabShuffleTuile[tRotat][0] = T2; tabShuffleTuile[tRotat][1] = T2_90; tabShuffleTuile[tRotat][2] = T2_180; tabShuffleTuile[tRotat][3] = T2_r90;} 
+		else if (listTuile.contains(T2) ==true) {
+			if (tabShuffleTuile[tRotat][0] == T2) {tabShuffleTuile[tRotat][0] = T2_r90; tabShuffleTuile[tRotat][1] = T2_180; tabShuffleTuile[tRotat][2] = T2_r90; tabShuffleTuile[tRotat][3] = T2;} 
+			else if (tabShuffleTuile[tRotat][0] == T2_90) {tabShuffleTuile[tRotat][0] = T2; tabShuffleTuile[tRotat][1] = T2_r90; tabShuffleTuile[tRotat][2] = T2_180; tabShuffleTuile[tRotat][3] = T2_90;} 
+			else if (tabShuffleTuile[tRotat][0] == T2_180) {tabShuffleTuile[tRotat][0] = T2_90; tabShuffleTuile[tRotat][1] = T2; tabShuffleTuile[tRotat][2] = T2_r90; tabShuffleTuile[tRotat][3] = T2_180;} 
+			else if (tabShuffleTuile[tRotat][0] == T2_r90) {tabShuffleTuile[tRotat][0] = T2_180; tabShuffleTuile[tRotat][1] = T2_90; tabShuffleTuile[tRotat][2] = T2; tabShuffleTuile[tRotat][3] = T2_r90;} 
 		}
-		else if (listTuile.toString().contains("T3")) {
-			if (tabShuffleTuile[tRotat][0] == T3) {tabShuffleTuile[tRotat][0] = T3_90; tabShuffleTuile[tRotat][1] = T3_180; tabShuffleTuile[tRotat][2] = T3_r90; tabShuffleTuile[tRotat][3] = T3;} 
-			else if (tabShuffleTuile[tRotat][0] == T3_90) {tabShuffleTuile[tRotat][0] = T3_180; tabShuffleTuile[tRotat][1] = T3_r90; tabShuffleTuile[tRotat][2] = T3; tabShuffleTuile[tRotat][3] = T3_90;} 
-			else if (tabShuffleTuile[tRotat][0] == T3_180) {tabShuffleTuile[tRotat][0] = T3_r90; tabShuffleTuile[tRotat][1] = T3; tabShuffleTuile[tRotat][2] = T3_90; tabShuffleTuile[tRotat][3] = T3_180;} 
-			else if (tabShuffleTuile[tRotat][0] == T3_r90) {tabShuffleTuile[tRotat][0] = T3; tabShuffleTuile[tRotat][1] = T3_90; tabShuffleTuile[tRotat][2] = T3_180; tabShuffleTuile[tRotat][3] = T3_r90;} 
+		else if (listTuile.contains(T3) ==true) {
+			if (tabShuffleTuile[tRotat][0] == T3) {tabShuffleTuile[tRotat][0] = T3_r90; tabShuffleTuile[tRotat][1] = T3_180; tabShuffleTuile[tRotat][2] = T3_r90; tabShuffleTuile[tRotat][3] = T3;} 
+			else if (tabShuffleTuile[tRotat][0] == T3_90) {tabShuffleTuile[tRotat][0] = T3; tabShuffleTuile[tRotat][1] = T3_r90; tabShuffleTuile[tRotat][2] = T3_180; tabShuffleTuile[tRotat][3] = T3_90;} 
+			else if (tabShuffleTuile[tRotat][0] == T3_180) {tabShuffleTuile[tRotat][0] = T3_90; tabShuffleTuile[tRotat][1] = T3; tabShuffleTuile[tRotat][2] = T3_r90; tabShuffleTuile[tRotat][3] = T3_180;} 
+			else if (tabShuffleTuile[tRotat][0] == T3_r90) {tabShuffleTuile[tRotat][0] = T3_180; tabShuffleTuile[tRotat][1] = T3_90; tabShuffleTuile[tRotat][2] = T3; tabShuffleTuile[tRotat][3] = T3_r90;} 
 		}
-		else if (listTuile.toString().contains("T4")) {
-			if (tabShuffleTuile[tRotat][0] == T4) {tabShuffleTuile[tRotat][0] = T4_90; tabShuffleTuile[tRotat][1] = T4_180; tabShuffleTuile[tRotat][2] = T4_r90; tabShuffleTuile[tRotat][3] = T4;} 
-			else if (tabShuffleTuile[tRotat][0] == T4_90) {tabShuffleTuile[tRotat][0] = T4_180; tabShuffleTuile[tRotat][1] = T4_r90; tabShuffleTuile[tRotat][2] = T4; tabShuffleTuile[tRotat][3] = T4_90;} 
-			else if (tabShuffleTuile[tRotat][0] == T4_180) {tabShuffleTuile[tRotat][0] = T4_r90; tabShuffleTuile[tRotat][1] = T4; tabShuffleTuile[tRotat][2] = T4_90; tabShuffleTuile[tRotat][3] = T4_180;} 
-			else if (tabShuffleTuile[tRotat][0] == T4_r90) {tabShuffleTuile[tRotat][0] = T4; tabShuffleTuile[tRotat][1] = T4_90; tabShuffleTuile[tRotat][2] = T4_180; tabShuffleTuile[tRotat][3] = T4_r90;} 
+		else if (listTuile.contains(T4) ==true) {
+			if (tabShuffleTuile[tRotat][0] == T4) {tabShuffleTuile[tRotat][0] = T4_r90; tabShuffleTuile[tRotat][1] = T4_180; tabShuffleTuile[tRotat][2] = T4_r90; tabShuffleTuile[tRotat][3] = T4;} 
+			else if (tabShuffleTuile[tRotat][0] == T4_90) {tabShuffleTuile[tRotat][0] = T4; tabShuffleTuile[tRotat][1] = T4_r90; tabShuffleTuile[tRotat][2] = T4_180; tabShuffleTuile[tRotat][3] = T4_90;} 
+			else if (tabShuffleTuile[tRotat][0] == T4_180) {tabShuffleTuile[tRotat][0] = T4_90; tabShuffleTuile[tRotat][1] = T4; tabShuffleTuile[tRotat][2] = T4_r90; tabShuffleTuile[tRotat][3] = T4_180;} 
+			else if (tabShuffleTuile[tRotat][0] == T4_r90) {tabShuffleTuile[tRotat][0] = T4_180; tabShuffleTuile[tRotat][1] = T4_90; tabShuffleTuile[tRotat][2] = T4; tabShuffleTuile[tRotat][3] = T4_r90;} 
 		}
-		else if (listTuile.toString().contains("T5")) {
-			if (tabShuffleTuile[tRotat][0] == T5) {tabShuffleTuile[tRotat][0] = T5_90; tabShuffleTuile[tRotat][1] = T5_180; tabShuffleTuile[tRotat][2] = T5_r90; tabShuffleTuile[tRotat][3] = T5;} 
-			else if (tabShuffleTuile[tRotat][0] == T5_90) {tabShuffleTuile[tRotat][0] = T5_180; tabShuffleTuile[tRotat][1] = T5_r90; tabShuffleTuile[tRotat][2] = T5; tabShuffleTuile[tRotat][3] = T5_90;} 
-			else if (tabShuffleTuile[tRotat][0] == T5_180) {tabShuffleTuile[tRotat][0] = T5_r90; tabShuffleTuile[tRotat][1] = T5; tabShuffleTuile[tRotat][2] = T5_90; tabShuffleTuile[tRotat][3] = T5_180;} 
-			else if (tabShuffleTuile[tRotat][0] == T5_r90) {tabShuffleTuile[tRotat][0] = T5; tabShuffleTuile[tRotat][1] = T5_90; tabShuffleTuile[tRotat][2] = T5_180; tabShuffleTuile[tRotat][3] = T5_r90;} 
+		else if (listTuile.contains(T5) ==true) {
+			if (tabShuffleTuile[tRotat][0] == T5) {tabShuffleTuile[tRotat][0] = T5_r90; tabShuffleTuile[tRotat][1] = T5_180; tabShuffleTuile[tRotat][2] = T5_r90; tabShuffleTuile[tRotat][3] = T5;} 
+			else if (tabShuffleTuile[tRotat][0] == T5_90) {tabShuffleTuile[tRotat][0] = T5; tabShuffleTuile[tRotat][1] = T5_r90; tabShuffleTuile[tRotat][2] = T5_180; tabShuffleTuile[tRotat][3] = T5_90;} 
+			else if (tabShuffleTuile[tRotat][0] == T5_180) {tabShuffleTuile[tRotat][0] = T5_90; tabShuffleTuile[tRotat][1] = T5; tabShuffleTuile[tRotat][2] = T5_r90; tabShuffleTuile[tRotat][3] = T5_180;} 
+			else if (tabShuffleTuile[tRotat][0] == T5_r90) {tabShuffleTuile[tRotat][0] = T5_180; tabShuffleTuile[tRotat][1] = T5_90; tabShuffleTuile[tRotat][2] = T5; tabShuffleTuile[tRotat][3] = T5_r90;} 
 		}
-		else if (listTuile.toString().contains("T6")) {
-			if (tabShuffleTuile[tRotat][0] == T6) {tabShuffleTuile[tRotat][0] = T6_90; tabShuffleTuile[tRotat][1] = T6_180; tabShuffleTuile[tRotat][2] = T6_r90; tabShuffleTuile[tRotat][3] = T6;} 
-			else if (tabShuffleTuile[tRotat][0] == T6_90) {tabShuffleTuile[tRotat][0] = T6_180; tabShuffleTuile[tRotat][1] = T6_r90; tabShuffleTuile[tRotat][2] = T6; tabShuffleTuile[tRotat][3] = T6_90;} 
-			else if (tabShuffleTuile[tRotat][0] == T6_180) {tabShuffleTuile[tRotat][0] = T6_r90; tabShuffleTuile[tRotat][1] = T6; tabShuffleTuile[tRotat][2] = T6_90; tabShuffleTuile[tRotat][3] = T6_180;} 
-			else if (tabShuffleTuile[tRotat][0] == T6_r90) {tabShuffleTuile[tRotat][0] = T6; tabShuffleTuile[tRotat][1] = T6_90; tabShuffleTuile[tRotat][2] = T6_180; tabShuffleTuile[tRotat][3] = T6_r90;} 
+		else if (listTuile.contains(T6) ==true) {
+			if (tabShuffleTuile[tRotat][0] == T6) {tabShuffleTuile[tRotat][0] = T6_r90; tabShuffleTuile[tRotat][1] = T6_180; tabShuffleTuile[tRotat][2] = T6_r90; tabShuffleTuile[tRotat][3] = T6;} 
+			else if (tabShuffleTuile[tRotat][0] == T6_90) {tabShuffleTuile[tRotat][0] = T6; tabShuffleTuile[tRotat][1] = T6_r90; tabShuffleTuile[tRotat][2] = T6_180; tabShuffleTuile[tRotat][3] = T6_90;} 
+			else if (tabShuffleTuile[tRotat][0] == T6_180) {tabShuffleTuile[tRotat][0] = T6_90; tabShuffleTuile[tRotat][1] = T6; tabShuffleTuile[tRotat][2] = T6_r90; tabShuffleTuile[tRotat][3] = T6_180;} 
+			else if (tabShuffleTuile[tRotat][0] == T6_r90) {tabShuffleTuile[tRotat][0] = T6_180; tabShuffleTuile[tRotat][1] = T6_90; tabShuffleTuile[tRotat][2] = T6; tabShuffleTuile[tRotat][3] = T6_r90;} 
 		}
-		else if (listTuile.toString().contains("T7")) {
-			if (tabShuffleTuile[tRotat][0] == T7) {tabShuffleTuile[tRotat][0] = T7_90; tabShuffleTuile[tRotat][1] = T7_180; tabShuffleTuile[tRotat][2] = T7_r90; tabShuffleTuile[tRotat][3] = T7;} 
-			else if (tabShuffleTuile[tRotat][0] == T7_90) {tabShuffleTuile[tRotat][0] = T7_180; tabShuffleTuile[tRotat][1] = T7_r90; tabShuffleTuile[tRotat][2] = T7; tabShuffleTuile[tRotat][3] = T7_90;} 
-			else if (tabShuffleTuile[tRotat][0] == T7_180) {tabShuffleTuile[tRotat][0] = T7_r90; tabShuffleTuile[tRotat][1] = T7; tabShuffleTuile[tRotat][2] = T7_90; tabShuffleTuile[tRotat][3] = T7_180;} 
-			else if (tabShuffleTuile[tRotat][0] == T7_r90) {tabShuffleTuile[tRotat][0] = T7; tabShuffleTuile[tRotat][1] = T7_90; tabShuffleTuile[tRotat][2] = T7_180; tabShuffleTuile[tRotat][3] = T7_r90;} 
+		else if (listTuile.contains(T7) ==true) {
+			if (tabShuffleTuile[tRotat][0] == T7) {tabShuffleTuile[tRotat][0] = T7_r90; tabShuffleTuile[tRotat][1] = T7_180; tabShuffleTuile[tRotat][2] = T7_r90; tabShuffleTuile[tRotat][3] = T7;} 
+			else if (tabShuffleTuile[tRotat][0] == T7_90) {tabShuffleTuile[tRotat][0] = T7; tabShuffleTuile[tRotat][1] = T7_r90; tabShuffleTuile[tRotat][2] = T7_180; tabShuffleTuile[tRotat][3] = T7_90;} 
+			else if (tabShuffleTuile[tRotat][0] == T7_180) {tabShuffleTuile[tRotat][0] = T7_90; tabShuffleTuile[tRotat][1] = T7; tabShuffleTuile[tRotat][2] = T7_r90; tabShuffleTuile[tRotat][3] = T7_180;} 
+			else if (tabShuffleTuile[tRotat][0] == T7_r90) {tabShuffleTuile[tRotat][0] = T7_180; tabShuffleTuile[tRotat][1] = T7_90; tabShuffleTuile[tRotat][2] = T7; tabShuffleTuile[tRotat][3] = T7_r90;} 
 		}
-		else if (listTuile.toString().contains("T8")) {
-			if (tabShuffleTuile[tRotat][0] == T8) {tabShuffleTuile[tRotat][0] = T8_90; tabShuffleTuile[tRotat][1] = T8_180; tabShuffleTuile[tRotat][2] = T8_r90; tabShuffleTuile[tRotat][3] = T8;} 
-			else if (tabShuffleTuile[tRotat][0] == T8_90) {tabShuffleTuile[tRotat][0] = T8_180; tabShuffleTuile[tRotat][1] = T8_r90; tabShuffleTuile[tRotat][2] = T8; tabShuffleTuile[tRotat][3] = T8_90;} 
-			else if (tabShuffleTuile[tRotat][0] == T8_180) {tabShuffleTuile[tRotat][0] = T8_r90; tabShuffleTuile[tRotat][1] = T8; tabShuffleTuile[tRotat][2] = T8_90; tabShuffleTuile[tRotat][3] = T8_180;} 
-			else if (tabShuffleTuile[tRotat][0] == T8_r90) {tabShuffleTuile[tRotat][0] = T8; tabShuffleTuile[tRotat][1] = T8_90; tabShuffleTuile[tRotat][2] = T1_180; tabShuffleTuile[tRotat][3] = T8_r90;} 
+		else if (listTuile.contains(T8) ==true) {
+			if (tabShuffleTuile[tRotat][0] == T8) {tabShuffleTuile[tRotat][0] = T8_r90; tabShuffleTuile[tRotat][1] = T8_180; tabShuffleTuile[tRotat][2] = T8_r90; tabShuffleTuile[tRotat][3] = T8;} 
+			else if (tabShuffleTuile[tRotat][0] == T8_90) {tabShuffleTuile[tRotat][0] = T8; tabShuffleTuile[tRotat][1] = T8_r90; tabShuffleTuile[tRotat][2] = T8_180; tabShuffleTuile[tRotat][3] = T8_90;} 
+			else if (tabShuffleTuile[tRotat][0] == T8_180) {tabShuffleTuile[tRotat][0] = T8_90; tabShuffleTuile[tRotat][1] = T8; tabShuffleTuile[tRotat][2] = T8_r90; tabShuffleTuile[tRotat][3] = T8_180;} 
+			else if (tabShuffleTuile[tRotat][0] == T8_r90) {tabShuffleTuile[tRotat][0] = T8_180; tabShuffleTuile[tRotat][1] = T8_90; tabShuffleTuile[tRotat][2] = T8; tabShuffleTuile[tRotat][3] = T8_r90;} 
+		}	
+		else if (listTuile.contains(T9) ==true) {
+			if (tabShuffleTuile[tRotat][0] == T9) {tabShuffleTuile[tRotat][0] = T9_r90; tabShuffleTuile[tRotat][1] = T9_180; tabShuffleTuile[tRotat][2] = T9_r90; tabShuffleTuile[tRotat][3] = T9;} 
+			else if (tabShuffleTuile[tRotat][0] == T9_90) {tabShuffleTuile[tRotat][0] = T9; tabShuffleTuile[tRotat][1] = T9_r90; tabShuffleTuile[tRotat][2] = T9_180; tabShuffleTuile[tRotat][3] = T9_90;} 
+			else if (tabShuffleTuile[tRotat][0] == T9_180) {tabShuffleTuile[tRotat][0] = T9_90; tabShuffleTuile[tRotat][1] = T9; tabShuffleTuile[tRotat][2] = T9_r90; tabShuffleTuile[tRotat][3] = T9_180;} 
+			else if (tabShuffleTuile[tRotat][0] == T9_r90) {tabShuffleTuile[tRotat][0] = T9_180; tabShuffleTuile[tRotat][1] = T9_90; tabShuffleTuile[tRotat][2] = T9; tabShuffleTuile[tRotat][3] = T9_r90;} 
 		}
-		else if (listTuile.toString().contains("T9")) {
-			if (tabShuffleTuile[tRotat][0] == T9) {tabShuffleTuile[tRotat][0] = T9_90; tabShuffleTuile[tRotat][1] = T9_180; tabShuffleTuile[tRotat][2] = T9_r90; tabShuffleTuile[tRotat][3] = T9;} 
-			else if (tabShuffleTuile[tRotat][0] == T9_90) {tabShuffleTuile[tRotat][0] = T9_180; tabShuffleTuile[tRotat][1] = T9_r90; tabShuffleTuile[tRotat][2] = T9; tabShuffleTuile[tRotat][3] = T9_90;} 
-			else if (tabShuffleTuile[tRotat][0] == T9_180) {tabShuffleTuile[tRotat][0] = T9_r90; tabShuffleTuile[tRotat][1] = T9; tabShuffleTuile[tRotat][2] = T9_90; tabShuffleTuile[tRotat][3] = T9_180;} 
-			else if (tabShuffleTuile[tRotat][0] == T9_r90) {tabShuffleTuile[tRotat][0] = T9; tabShuffleTuile[tRotat][1] = T9_90; tabShuffleTuile[tRotat][2] = T9_180; tabShuffleTuile[tRotat][3] = T9_r90;} 
-		}
+
 	}
 	
 
@@ -545,6 +551,7 @@ public class Scene extends JPanel {
 			//g2.drawImage(this.imgFond, 0, 0, null); // Affichage du fond noir
 			g2.drawImage( this.imgFondLondres, 0, 0, null); // Affichage du fond
 
+
 			g2.drawImage(tabShuffleTuile[0][0].getImgTuile(), 300, 100, null); // Affichage de la tuile en Position 7
 			g2.drawImage(tabShuffleTuile[1][0].getImgTuile(), 490, 100, null); // Affichage de la tuile en Position 8
 			g2.drawImage(tabShuffleTuile[2][0].getImgTuile(), 680, 100, null); // Affichage de la tuile en Position 9
@@ -570,7 +577,7 @@ public class Scene extends JPanel {
 			g2.drawImage(this.imgJT7, 100, 660, null);
 			g2.drawImage(this.imgJT8, 100, 720, null);
 
-			
+		
 			// Alibi
 			
 			for (int i = 0; i < nAlibiFC; i++) {

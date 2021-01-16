@@ -1,5 +1,9 @@
 package fr.il1102.jeu;
+
+
 import javax.swing.JFrame;
+
+
 
 
 public class Main {
@@ -25,7 +29,11 @@ public class Main {
 		fenetre.setContentPane(scene); // On associe la scene � la fenetre de l'application
 		fenetre.setVisible(true);
 		
-
-
+//		while(Main.scene.tRotat == 0) {
+//			System.out.println(Main.scene.tRotat);
+//		}
+//		System.out.println(Main.scene.tRotat);
+		
+		
 	}
 }
