@@ -48,37 +48,124 @@ public class Clavier implements KeyListener{
 			Main.scene.repaint();
 		}
 		
+
+
 		
 		//Echanger
 		
-		else if(e.getKeyCode() == KeyEvent.VK_E) { //temporaire
-			Main.scene.JTchange = true;
-		}
-		else if(e.getKeyCode() == KeyEvent.VK_R) { //temporaire
-			Main.scene.JTrot = true;
+
+//			//Selection 1
+//		else if(Main.scene.JTchange == true && Main.scene.isChangeSelect() == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5|| e.getKeyCode() == KeyEvent.VK_6  || e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_9)) { 
+//			Main.scene.settChange1(e.getKeyCode() - 49); //car c'est le numéro ascii
+//			Main.scene.settChange( Main.scene.tChange1);
+//			Main.scene.setSelect(true);
+//		}
+//			//Selection2
+//		else if ( Main.scene.isChangeSelect() == true && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5 || e.getKeyCode() == KeyEvent.VK_6 || e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_9)) {
+//				Main.scene.settChange2(e.getKeyCode() - 49);
+//				Main.scene.echangerTuile(Main.scene.tChange1, Main.scene.tChange2);
+//				Main.scene.repaint();
+//				Main.scene.setSelect(false);
+//				Main.scene.JTchange = false;
+//			}
+//		
+		//JETON 1
+		if ( Main.scene.JA1 == false && Main.scene.nJA1 == true && e.getKeyCode()== KeyEvent.VK_A) {
+			Main.scene.JA1 = true;
+
 		}
 		
-			//Selection 1
-		else if(Main.scene.JTchange == true && Main.scene.isChangeSelect() == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5|| e.getKeyCode() == KeyEvent.VK_6  || e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_9)) { 
-			Main.scene.settChange1(e.getKeyCode() - 49); //car c'est le numéro ascii
-			Main.scene.settChange( Main.scene.tChange1);
-			Main.scene.setSelect(true);
-		}
-			//Selection2
-		else if ( Main.scene.isChangeSelect() == true && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5 || e.getKeyCode() == KeyEvent.VK_6 || e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_9)) {
-				Main.scene.settChange2(e.getKeyCode() - 49);
-				Main.scene.echangerTuile(Main.scene.tChange1, Main.scene.tChange2);
-				Main.scene.repaint();
-				Main.scene.setSelect(false);
-				Main.scene.JTchange = false;
+			// JETON 1_1
+		
+					//Selec 1
+				else if( Main.scene.JA1 == true && Main.scene.nJA1 == true  && Main.scene.nJA1 == true && Main.scene.tabShuffleJA[0][0] == Main.scene.jA1_1  && Main.scene.isChangeSelect() == false &&  Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5|| e.getKeyCode() == KeyEvent.VK_6  || e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_9)){
+					Main.scene.settChange1(e.getKeyCode() - 49); //car c'est le numéro ascii
+					Main.scene.settChange( Main.scene.tChange1);
+					Main.scene.setSelect(true);
+				}
+					//Selec 2
+				else if(Main.scene.JA1 == true && Main.scene.nJA1 == true && Main.scene.isChangeSelect() == true && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5|| e.getKeyCode() == KeyEvent.VK_6  || e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_9)){
+					Main.scene.settChange2(e.getKeyCode() - 49);
+					Main.scene.echangerTuile(Main.scene.tChange1, Main.scene.tChange2);
+					Main.scene.repaint();
+					Main.scene.setSelect(false);
+					Main.scene.JA1 = false;
+					Main.scene.nJA1 = false;
+				}
+		
+		
+		
+			//JETON 1_2
+				else if( Main.scene.tabShuffleJA[0][0] == Main.scene.jA1_2 && Main.scene.JA1 == true && Main.scene.nJA1 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5|| e.getKeyCode() == KeyEvent.VK_6  || e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_9)){
+					Main.scene.settRotat(e.getKeyCode() - 49);
+					Main.scene.rotateTuile(Main.scene.gettRotat());
+					Main.scene.repaint();
+					Main.scene.JA1 = true;
+					Main.scene.nJA1 = false;
 			}
 		
-		else if(Main.scene.JTrot == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5|| e.getKeyCode() == KeyEvent.VK_6  || e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_9)){
-				Main.scene.settRotat(e.getKeyCode() - 49);
-				Main.scene.rotateTuile(Main.scene.gettRotat());
-				Main.scene.repaint();
-				Main.scene.JTrot = false;
+		//JETON 2
+		if (Main.scene.nJA2 == true && e.getKeyCode()== KeyEvent.VK_Z) {
+			Main.scene.JA2 = true;
 		}
+			
+			//JETON 2_1
+		
+				else if( Main.scene.tabShuffleJA[1][0] == Main.scene.jA2_1 && Main.scene.JA2 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2)) {
+					Main.scene.nbr_depla = (e.getKeyCode() - 48);
+					if (Main.scene.nbr_depla == 1) {
+						Main.scene.posTobi();
+						Main.scene.repaint();
+					}
+					if (Main.scene.nbr_depla == 2) {
+						Main.scene.posTobi();
+						Main.scene.posTobi();
+						Main.scene.repaint();
+					}
+					Main.scene.JA2 = false;
+					Main.scene.nJA2 = false;
+				}
+			//JETON 2_2
+				else if( Main.scene.tabShuffleJA[1][0] == Main.scene.jA2_2 && Main.scene.JA2 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false) {
+					Main.scene.nbr_depla = (e.getKeyCode() - 48);
+					if (Main.scene.nbr_depla == 1) {
+						Main.scene.posWatson();
+						Main.scene.repaint();
+					}
+					if (Main.scene.nbr_depla == 2) {
+						Main.scene.posWatson();
+						Main.scene.posWatson();
+						Main.scene.repaint();
+					}
+					Main.scene.JA2 = false;
+					Main.scene.nJA2 = false;
+				}
+		
+		//JETON 3
+		if ( Main.scene.JA3 == false && Main.scene.nJA3 == true && e.getKeyCode()== KeyEvent.VK_E) {
+			Main.scene.JA3 = true;
+
+		}
+		
+			// JETON 3_1
+		
+			else if( Main.scene.tabShuffleJA[2][0] == Main.scene.jA3_1 && Main.scene.JA3 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2)) {
+				Main.scene.nbr_depla = (e.getKeyCode() - 48);
+				if (Main.scene.nbr_depla == 1) {
+					Main.scene.posSherlock();
+					Main.scene.repaint();
+				}
+				if (Main.scene.nbr_depla == 2) {
+					Main.scene.posSherlock();
+					Main.scene.posSherlock();
+					Main.scene.repaint();
+				}
+				Main.scene.JA3 = false;
+				Main.scene.nJA3 = false;
+				}
+			
+			// JETON 3_2
+		
 		
 		}
 	

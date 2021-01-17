@@ -50,7 +50,7 @@ public class Tuile {
 			
 			Tuile[][] tabShuffleTuile = new Tuile[9][4]; // creation d'un nouveau tableau
 			
-			for(int i = 0; i<9; i++) { //Il faut m�langer � l'int�rieur de chaque sous liste
+			for(int i = 0; i<9; i++) { //Il faut mélanger à l'intérieur de chaque sous liste
 
 				if(i == 1 || i == 3 || i == 4 || i == 5 || i == 6 || i == 8) { //Toute les listes qui ne necessitent pas de tuiles sp�ciales au demarrage
 					Collections.shuffle(Arrays.asList(tabTuile[i]));

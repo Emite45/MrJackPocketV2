@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 
 import fr.il1102.objet.Alibi;
 import fr.il1102.objet.Detective;
+import fr.il1102.objet.JetonAction;
 import fr.il1102.objet.Tuile;
 
 
@@ -30,6 +31,7 @@ public class Scene extends JPanel {
 	@SuppressWarnings("unused")
 	private Image imgFond;
 
+															// Tuile \\ 
 	// On déclare toute nos positions de tuiles
 	public Tuile T1;
 	public Tuile T1_90;
@@ -76,11 +78,7 @@ public class Scene extends JPanel {
 	public Tuile T9_180;
 	public Tuile T9_r90;
 
-	public Tuile[][] tabTuile = { { T1, T1_90, T1_180, T1_r90 }, { T2, T2_90, T2_180, T2_r90 },
-			{ T3, T3_90, T3_180, T3_r90 }, { T4, T4_90, T4_180, T4_r90 }, { T5, T5_90, T5_180, T5_r90 },
-			{ T6, T6_90, T6_180, T6_r90 }, { T7, T7_90, T7_180, T7_r90 }, { T8, T8_90, T8_180, T8_r90 },
-			{ T9, T9_90, T9_180, T9_r90 } };
-	
+
 
 	
 	public int tChange1; //Indice de la première tuile que l'on veut changer
@@ -94,6 +92,7 @@ public class Scene extends JPanel {
 	
 	public Tuile[][] tabShuffleTuile;
 	
+														// Detective \\
 	//Il existe en 12 positions possible pour les détectives ce qui fait 12 combinaisons en tout avec 5 différentes en x et 5 en y
 	private int xDetec1;
 	private int xDetec2;
@@ -114,30 +113,34 @@ public class Scene extends JPanel {
 	public Detective Tobi;
 	private int xTobi, yTobi;			//Position de Tobi sur la table de jeu
 
-	private ImageIcon icoJT1;
-	private Image imgJT1;
+	
+													// Jeton Actions \\
+	
+	
+	public JetonAction jA1_1;
+	public JetonAction jA1_2;
+	public JetonAction jA2_1;
+	public JetonAction jA2_2;
+	public JetonAction jA3_1;
+	public JetonAction jA3_2;
+	public JetonAction jA4_1;
+	public JetonAction jA4_2;
+	
+	public JetonAction[][] tabShuffleJA ;
+	
+	public boolean JA1;
+	public boolean JA2;
+	public boolean JA3;
+	public boolean JA4;
+	public boolean nJA1;
+	public boolean nJA2;
+	public boolean nJA3;
+	public boolean nJA4;
+	
+	public int nbr_depla;
 
-	private ImageIcon icoJT2;
-	private Image imgJT2;
-
-	private ImageIcon icoJT3;
-	private Image imgJT3;
-
-	private ImageIcon icoJT4;
-	private Image imgJT4;
-
-	private ImageIcon icoJT5;
-	private Image imgJT5;
-
-	private ImageIcon icoJT6;
-	private Image imgJT6;
-
-	private ImageIcon icoJT7;
-	private Image imgJT7;
-
-	private ImageIcon icoJT8;
-	private Image imgJT8;
-
+															// Alibi \\
+	
 	// on declare nos différents Alibis
 	public Alibi InspLestrade;
 	public Alibi JeremyBert;
@@ -178,23 +181,9 @@ public class Scene extends JPanel {
 		icoFondLondres = new ImageIcon(getClass().getResource("/images/fondJackWelcome.png"));
 		this.imgFondLondres = this.icoFondLondres.getImage();
 
-		icoJT1 = new ImageIcon(getClass().getResource("/images/Jeton_Temps1_face_Tour_de_jeu.png"));
-		this.imgJT1 = this.icoJT1.getImage();
-		icoJT2 = new ImageIcon(getClass().getResource("/images/Jeton_Temps2_face_Tour_de_jeu.png"));
-		this.imgJT2 = this.icoJT2.getImage();
-		icoJT3 = new ImageIcon(getClass().getResource("/images/Jeton_Temps3_face_Tour_de_jeu.png"));
-		this.imgJT3 = this.icoJT3.getImage();
-		icoJT4 = new ImageIcon(getClass().getResource("/images/Jeton_Temps4_face_Tour_de_jeu.png"));
-		this.imgJT4 = this.icoJT4.getImage();
-		icoJT5 = new ImageIcon(getClass().getResource("/images/Jeton_Temps5_face_Tour_de_jeu.png"));
-		this.imgJT5 = this.icoJT5.getImage();
-		icoJT6 = new ImageIcon(getClass().getResource("/images/Jeton_Temps6_face_Tour_de_jeu.png"));
-		this.imgJT6 = this.icoJT6.getImage();
-		icoJT7 = new ImageIcon(getClass().getResource("/images/Jeton_Temps7_face_Tour_de_jeu.png"));
-		this.imgJT7 = this.icoJT7.getImage();
-		icoJT8 = new ImageIcon(getClass().getResource("/images/Jeton_Temps8_face_Tour_de_jeu.png"));
-		this.imgJT8 = this.icoJT8.getImage();
 
+		
+														//TUILE\\
 		// On instancie toute nos tuiles
 		this.T1 = new Tuile("/images/tuile_de_rue_face_suspect1.png");
 		this.T1_90 = new Tuile("/images/tuile_de_rue_face_suspect1_90.png");
@@ -257,7 +246,7 @@ public class Scene extends JPanel {
 		this.tRotat = 0;
 		this.JTrot = false;
 
-
+															// Alibi \\
 		// On instancie tout nos Alibis
 		this.InspLestrade = new Alibi("/images/InspLestrade-alibi.png");
 		this.JeremyBert = new Alibi("/images/JeremyBert-alibi.png");
@@ -277,6 +266,7 @@ public class Scene extends JPanel {
 		this.tabShuffleAlibi = Alibi.shuffleAlibi(InspLestrade, JeremyBert, JohnPizer, JohnSmith, JosephLane, Madame,
 				MissStealthy, SgtGoodley, WilliamGull);
 
+														// Detective \\
 		//On instancie nos 3 detectives
 		this.Sherlock = new Detective("/images/Sherlock.png");
 		this.Watson = new Detective ("/images/Watson.png");
@@ -302,7 +292,54 @@ public class Scene extends JPanel {
 		yWatson = yDetec2;
 		xTobi = xDetec3;
 		yTobi = yDetec5;
+												//Jeton Action \\
 		
+		
+		this.jA1_1 = new JetonAction ("/images/Jeton1-Face1.png");
+		this.jA1_2 = new JetonAction ("/images/Jeton1-Face2.png");
+		this.jA2_1 = new JetonAction ("/images/Jeton2-Face1.png");
+		this.jA2_2 = new JetonAction ("/images/Jeton2-Face2.png");
+		this.jA3_1 = new JetonAction ("/images/Jeton3-Face1.png");
+		this.jA3_2 = new JetonAction ("/images/Jeton3-Face2.png");
+		this.jA4_1 = new JetonAction ("/images/Jeton4-Face1.png");
+		this.jA4_2 = new JetonAction ("/images/Jeton4-Face2.png");
+		
+		this.tabShuffleJA = JetonAction.jetonShuffle(jA1_1, jA1_2,jA2_1, jA2_2, jA3_1, jA3_2, jA4_1, jA4_2 );
+		
+		this.JA1 = false;
+		this.JA2 = false;
+		this.JA3 = false;
+		this.JA4 = false;
+		this.nJA1 = true;
+		this.nJA2 = true;
+		this.nJA3 = true;
+		this.nJA4 = true;
+		
+		this.nbr_depla = 0;
+		
+		
+		
+		
+		
+		
+												// Jeton Temps \\
+		
+		
+//		icoJT1 = new ImageIcon(getClass().getResource("/images/Jeton_Temps1_face_Tour_de_jeu.png"));
+//		this.imgJT1 = this.icoJT1.getImage();
+//		icoJT2 = new ImageIcon(getClass().getResource("/images/Jeton_Temps2_face_Tour_de_jeu.png"));
+//		this.imgJT2 = this.icoJT2.getImage();
+//		icoJT3 = new ImageIcon(getClass().getResource("/images/Jeton_Temps3_face_Tour_de_jeu.png"));
+//		this.imgJT3 = this.icoJT3.getImage();
+//		icoJT4 = new ImageIcon(getClass().getResource("/images/Jeton_Temps4_face_Tour_de_jeu.png"));
+//		this.imgJT4 = this.icoJT4.getImage();
+//		icoJT5 = new ImageIcon(getClass().getResource("/images/Jeton_Temps5_face_Tour_de_jeu.png"));
+//		this.imgJT5 = this.icoJT5.getImage();
+//		icoJT6 = new ImageIcon(getClass().getResource("/images/Jeton_Temps6_face_Tour_de_jeu.png"));
+//		this.imgJT6 = this.icoJT6.getImage();
+//		icoJT7 = new ImageIcon(getClass().getResource("/images/Jeton_Temps7_face_Tour_de_jeu.png"));
+//		this.imgJT7 = this.icoJT7.getImage();
+//		icoJT8 = new ImageIcon(getClass().getResource("/images/Jeton_Temps8_face_Tour_de_jeu.png"));
 
 		this.setFocusable(true);  // Permet d'utiliser la classe clavier
 		this.requestFocusInWindow();
@@ -566,16 +603,35 @@ public class Scene extends JPanel {
 			g2.drawImage(this.Tobi.getImgDetec(), this.xTobi, this.yTobi, null);
 			g2.drawImage(this.Watson.getImgDetec(), this.xWatson , this.yWatson, null);
 
+			
+			// Jeton Action 
+			
+			if (nJA1 == true || nJA2 == true || nJA3 == true || nJA4 == true) {
+				g2.drawImage(tabShuffleJA[0][0].getImgJA(), 1100, 450, null); // Affichage du Jeton 1
+				g2.drawImage(tabShuffleJA[1][0].getImgJA(), 1100, 520, null); // Affichage du Jeton 2
+				g2.drawImage(tabShuffleJA[2][0].getImgJA(), 1100, 590, null); // Affichage du Jeton 3
+				g2.drawImage(tabShuffleJA[3][0].getImgJA(), 1100, 660, null); // Affichage du Jeton 4
+			}
+			else if (nJA1 == false & nJA2 == false && nJA3 == false && nJA4 == false) {
+				g2.drawImage(tabShuffleJA[0][1].getImgJA(), 1100, 450, null); // Affichage du Jeton 1
+				g2.drawImage(tabShuffleJA[1][1].getImgJA(), 1100, 520, null); // Affichage du Jeton 2
+				g2.drawImage(tabShuffleJA[2][1].getImgJA(), 1100, 590, null); // Affichage du Jeton 3
+				g2.drawImage(tabShuffleJA[3][1].getImgJA(), 1100, 660, null); // Affichage du Jeton 4
+			}
+			
+			
+			
 			// Jeton temps
 
-			g2.drawImage(this.imgJT1, 100, 300, null);
-			g2.drawImage(this.imgJT2, 100, 360, null);
-			g2.drawImage(this.imgJT3, 100, 420, null);
-			g2.drawImage(this.imgJT4, 100, 480, null);
-			g2.drawImage(this.imgJT5, 100, 540, null);
-			g2.drawImage(this.imgJT6, 100, 600, null);
-			g2.drawImage(this.imgJT7, 100, 660, null);
-			g2.drawImage(this.imgJT8, 100, 720, null);
+
+//			g2.drawImage(this.imgJT1, 100, 300, null);
+//			g2.drawImage(this.imgJT2, 100, 360, null);
+//			g2.drawImage(this.imgJT3, 100, 420, null);
+//			g2.drawImage(this.imgJT4, 100, 480, null);
+//			g2.drawImage(this.imgJT5, 100, 540, null);
+//			g2.drawImage(this.imgJT6, 100, 600, null);
+//			g2.drawImage(this.imgJT7, 100, 660, null);
+//			g2.drawImage(this.imgJT8, 100, 720, null);
 
 		
 			// Alibi
