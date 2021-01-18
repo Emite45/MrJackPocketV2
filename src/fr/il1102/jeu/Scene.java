@@ -628,6 +628,47 @@ public class Scene extends JPanel {
 		else if (tabShuffleAlibi[nAlibi] == SgtGoodley) {}
 		else if (tabShuffleAlibi[nAlibi] == WilliamGull) {sablierJack++;}
 	}
+	
+	public void alibiInspecteur() {
+
+		if (tabShuffleAlibi[nAlibi] == Madame) {
+			for(int i= 0; i<9; i++) {
+				if(tabShuffleTuile[i][0] == T1 || tabShuffleTuile[i][0] == T1_90 || tabShuffleTuile[i][0] == T1_180 || tabShuffleTuile[i][0] == T1_r90) {this.retournerTuile(i);}}
+			}
+		else if (tabShuffleAlibi[nAlibi] == SgtGoodley) {
+			for(int i= 0; i<9; i++) {
+				if(tabShuffleTuile[i][0] == T2 || tabShuffleTuile[i][0] == T2_90 || tabShuffleTuile[i][0] == T2_180 || tabShuffleTuile[i][0] == T2_r90) {this.retournerTuile(i);}}
+			}
+		else if (tabShuffleAlibi[nAlibi] == JeremyBert) {
+			for(int i= 0; i<9; i++) {
+				if(tabShuffleTuile[i][0] == T3 || tabShuffleTuile[i][0] == T3_90 || tabShuffleTuile[i][0] == T3_180 || tabShuffleTuile[i][0] == T3_r90) {this.retournerTuile(i);}}
+			}
+		else if (tabShuffleAlibi[nAlibi] == WilliamGull) {
+			for(int i= 0; i<9; i++) {
+				if(tabShuffleTuile[i][0] == T4 || tabShuffleTuile[i][0] == T4_90 || tabShuffleTuile[i][0] == T4_180 || tabShuffleTuile[i][0] == T4_r90) {this.retournerTuile(i);}}
+			}
+		else if (tabShuffleAlibi[nAlibi] == MissStealthy) {
+			for(int i= 0; i<9; i++) {
+				if(tabShuffleTuile[i][0] == T5 || tabShuffleTuile[i][0] == T5_90 || tabShuffleTuile[i][0] == T5_180 || tabShuffleTuile[i][0] == T5_r90) {this.retournerTuile(i);}}
+			}
+		else if (tabShuffleAlibi[nAlibi] == JohnSmith) {
+			for(int i= 0; i<9; i++) {
+				if(tabShuffleTuile[i][0] == T6 || tabShuffleTuile[i][0] == T6_90 || tabShuffleTuile[i][0] == T6_180 || tabShuffleTuile[i][0] == T6_r90) {this.retournerTuile(i);}}
+			}
+		else if (tabShuffleAlibi[nAlibi] == InspLestrade) {
+			for(int i= 0; i<9; i++) {
+				if(tabShuffleTuile[i][0] == T7 || tabShuffleTuile[i][0] == T7_90 || tabShuffleTuile[i][0] == T7_180 || tabShuffleTuile[i][0] == T7_r90) {this.retournerTuile(i);}}
+			}
+		else if (tabShuffleAlibi[nAlibi] == JohnPizer) {
+			for(int i= 0; i<9; i++) {
+				if(tabShuffleTuile[i][0] == T8 || tabShuffleTuile[i][0] == T8_90 || tabShuffleTuile[i][0] == T8_180 || tabShuffleTuile[i][0] == T8_r90) {this.retournerTuile(i);}}
+			}
+		else if (tabShuffleAlibi[nAlibi] == JosephLane) {
+			for(int i= 0; i<9; i++) {
+				if(tabShuffleTuile[i][0] == T9 || tabShuffleTuile[i][0] == T9_90 || tabShuffleTuile[i][0] == T9_180 || tabShuffleTuile[i][0] == T9_r90) {this.retournerTuile(i);}}
+			}
+		
+	}
 
 	public void paintComponent(Graphics g) {
 
@@ -685,7 +726,7 @@ public class Scene extends JPanel {
 			Font police = new Font("Simsun", Font.BOLD, 20);
 			g2.setColor(Color.white);
 			g2.setFont(police); 
-			g2.drawString("le nombre de sablier de Jack est " + this.nAlibi, 0, 100);
+			g2.drawString("le nombre de sablier de Jack est " + this.sablierJack , 0, 100);
 
 			g2.drawImage(tabShuffleTuile[0][0].getImgTuile(), 300, 100, null); // Affichage de la tuile en Position 7
 			g2.drawImage(tabShuffleTuile[1][0].getImgTuile(), 490, 100, null); // Affichage de la tuile en Position 8

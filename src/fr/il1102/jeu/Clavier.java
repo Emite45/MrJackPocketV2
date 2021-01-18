@@ -59,7 +59,7 @@ public class Clavier implements KeyListener{
 		}
 
 		
-/*		
+
 		//JETON 1
 		if ( Main.scene.JA1 == false && Main.scene.nJA1 == true && e.getKeyCode()== KeyEvent.VK_A) {
 			Main.scene.JA1 = true;
@@ -156,7 +156,7 @@ public class Clavier implements KeyListener{
 				}
 			
 			// JETON 3_2
-		*/
+		
 		
 		}
 	
