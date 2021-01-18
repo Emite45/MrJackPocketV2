@@ -99,17 +99,18 @@ public class Scene extends JPanel {
 	public Tuile[][] tabShuffleTuile;
 	
 														// Detective \\
+	//initialisation positions possibles detectives
 	//Il existe en 12 positions possible pour les détectives ce qui fait 12 combinaisons en tout avec 5 différentes en x et 5 en y
-	private int xDetec1;
-	private int xDetec2;
-	private int xDetec3;
-	private int xDetec4;
-	private int xDetec5;
-	private int yDetec1;
-	private int yDetec2;
-	private int yDetec3;
-	private int yDetec4;
-	private int yDetec5;
+	private int xDetec1 = 300 - 80 - 10; 	// position [1,y]
+	private int xDetec2= 300 + 55;			// position [2,y]
+	private int xDetec3 = 300 + 190 + 55;	// position [3,y]
+	private int xDetec4 = 300 + 2* 190 + 55;// position [4,y]
+	private int xDetec5 = 300 + 3* 190 + 10;// position [5,y]
+	private int yDetec1 = 100 - 80 - 10;	// position [x,1]
+	private int yDetec2 = 100 + 55;			// position [x,2]
+	private int yDetec3 = 100 + 190 + 55;	// position [x,3]
+	private int yDetec4 = 100 + 2* 190 + 55;// position [x,4]
+	private int yDetec5 = 100 + 3* 190 + 10;// position [x,5]
 	
 	// On declare nos détectives
 	public Detective Sherlock;
@@ -236,19 +237,6 @@ public class Scene extends JPanel {
 		this.Sherlock = new Detective("/images/Sherlock.png");
 		this.Watson = new Detective ("/images/Watson.png");
 		this.Tobi = new Detective ("/images/Tobi.png");
-
-		//On instancie nos positions possibles pour les détectives
-		// Il faut imaginer en tableau en 5x5 avec seulement les positions des bords du tableaux comme position possibles
-		xDetec1 = 300 - 80 - 10; 	// position [1,y]
-		xDetec2 = 300 + 55;			// position [2,y]
-		xDetec3 = 300 + 190 + 55;	// position [3,y]
-		xDetec4 = 300 + 2* 190 + 55;// position [4,y]
-		xDetec5 = 300 + 3* 190 + 10;// position [5,y]
-		yDetec1 = 100 - 80 - 10;	// position [x,1]
-		yDetec2 = 100 + 55;			// position [x,2]
-		yDetec3 = 100 + 190 + 55;	// position [x,3]
-		yDetec4 = 100 + 2* 190 + 55;// position [x,4]
-		yDetec5 = 100 + 3* 190 + 10;// position [x,5]
 		
 		// On affecte des positions de bases à nos detectives
 		xSherlock = xDetec1;
