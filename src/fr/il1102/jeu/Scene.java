@@ -22,7 +22,6 @@ import fr.il1102.objet.Tuile;
 @SuppressWarnings("serial")
 public class Scene extends JPanel {
 
-	// Test Poo
 	// Variables 
 	
     private ImageIcon icoFondLondres; // ecran d'accueil
@@ -33,59 +32,57 @@ public class Scene extends JPanel {
 	private Image imgFond;
 
 															// Tuile \\ 
-	// On déclare toute nos positions de tuiles
-	public Tuile T1;
-	public Tuile T1_90;
-	public Tuile T1_180;
-	public Tuile T1_r90;
+	// Initialisation des tuiles
+	public Tuile T1 = new Tuile("/images/tuile_de_rue_face_suspect1.png");
+	public Tuile T1_90 = new Tuile("/images/tuile_de_rue_face_suspect1_90.png");
+	public Tuile T1_180 = new Tuile("/images/tuile_de_rue_face_suspect1_180.png");
+	public Tuile T1_r90 = new Tuile("/images/tuile_de_rue_face_suspect1_-90.png");
 
-	public Tuile T2;
-	public Tuile T2_90;
-	public Tuile T2_180;
-	public Tuile T2_r90;
-
-	public Tuile T3;
-	public Tuile T3_90;
-	public Tuile T3_180;
-	public Tuile T3_r90;
-
-	public Tuile T4;
-	public Tuile T4_90;
-	public Tuile T4_180;
-	public Tuile T4_r90;
-
-	public Tuile T5;
-	public Tuile T5_90;
-	public Tuile T5_180;
-	public Tuile T5_r90;
-
-	public Tuile T6;
-	public Tuile T6_90;
-	public Tuile T6_180;
-	public Tuile T6_r90;
-
-	public Tuile T7;
-	public Tuile T7_90;
-	public Tuile T7_180;
-	public Tuile T7_r90;
-
-	public Tuile T8;
-	public Tuile T8_90;
-	public Tuile T8_180;
-	public Tuile T8_r90;
-
-	public Tuile T9;
-	public Tuile T9_90;
-	public Tuile T9_180;
-	public Tuile T9_r90;
+	public Tuile T2 = new Tuile("/images/tuile_de_rue_face_suspect2.png");
+	public Tuile T2_90 = new Tuile("/images/tuile_de_rue_face_suspect2_90.png");
+	public Tuile T2_180 = new Tuile("/images/tuile_de_rue_face_suspect2_180.png");
+	public Tuile T2_r90 = new Tuile("/images/tuile_de_rue_face_suspect2_-90.png");
 	
-	public Tuile Td;
-	public Tuile Td_90;
-	public Tuile Td_180;
-	public Tuile Td_r90;
-	public Tuile Td_x;
+	public Tuile T3 = new Tuile("/images/tuile_de_rue_face_suspect3.png");
+	public Tuile T3_90  = new Tuile("/images/tuile_de_rue_face_suspect3_90.png");
+	public Tuile T3_180 = new Tuile("/images/tuile_de_rue_face_suspect3_180.png");
+	public Tuile T3_r90 = new Tuile("/images/tuile_de_rue_face_suspect3_-90.png");
+	
+	public Tuile T4 = new Tuile("/images/tuile_de_rue_face_suspect4.png");
+	public Tuile T4_90 = new Tuile("/images/tuile_de_rue_face_suspect4_90.png");
+	public Tuile T4_180 = new Tuile("/images/tuile_de_rue_face_suspect4_180.png");
+	public Tuile T4_r90 = new Tuile("/images/tuile_de_rue_face_suspect4_-90.png");
+	
+	public Tuile T5 = new Tuile("/images/tuile_de_rue_face_suspect5.png");
+	public Tuile T5_90 = new Tuile("/images/tuile_de_rue_face_suspect5_90.png");
+	public Tuile T5_180 = new Tuile("/images/tuile_de_rue_face_suspect5_180.png");
+	public Tuile T5_r90 = new Tuile("/images/tuile_de_rue_face_suspect5_-90.png");
 
+	public Tuile T6 = new Tuile("/images/tuile_de_rue_face_suspect6.png");
+	public Tuile T6_90  = new Tuile("/images/tuile_de_rue_face_suspect6_90.png");
+	public Tuile T6_180  = new Tuile("/images/tuile_de_rue_face_suspect6_180.png");
+	public Tuile T6_r90  = new Tuile("/images/tuile_de_rue_face_suspect6_m90.png");
 
+	public Tuile T7  = new Tuile("/images/tuile_de_rue_face_suspect7.png");
+	public Tuile T7_90 = new Tuile("/images/tuile_de_rue_face_suspect7_90.png");
+	public Tuile T7_180 = new Tuile("/images/tuile_de_rue_face_suspect7_180.png");
+	public Tuile T7_r90 = new Tuile("/images/tuile_de_rue_face_suspect7_-90.png");
+
+	public Tuile T8 = new Tuile("/images/tuile_de_rue_face_suspect8.png");
+	public Tuile T8_90 = new Tuile("/images/tuile_de_rue_face_suspect8_90.png");
+	public Tuile T8_180 = new Tuile("/images/tuile_de_rue_face_suspect8_180.png");
+	public Tuile T8_r90 = new Tuile("/images/tuile_de_rue_face_suspect8_-90.png");
+
+	public Tuile T9 = new Tuile("/images/tuile_de_rue_face_suspect9.png");
+	public Tuile T9_90 = new Tuile("/images/tuile_de_rue_face_suspect9_90.png");
+	public Tuile T9_180 = new Tuile("/images/tuile_de_rue_face_suspect9_180.png");
+	public Tuile T9_r90 = new Tuile("/images/tuile_de_rue_face_suspect9_m90.png");
+	
+	public Tuile Td = new Tuile("/images/common-verso.png");
+	public Tuile Td_90  = new Tuile("/images/common-verso_90.png");
+	public Tuile Td_180 = new Tuile("/images/common-verso_180.png");
+	public Tuile Td_r90 = new Tuile("/images/common-verso_-90.png");
+	public Tuile Td_x = new Tuile("/images/JosephLane-verso.png");
 
 	
 	public int tChange1; //Indice de la première tuile que l'on veut changer
@@ -193,63 +190,6 @@ public class Scene extends JPanel {
 		
 		icoFondLondres = new ImageIcon(getClass().getResource("/images/fondJackWelcome.png"));
 		this.imgFondLondres = this.icoFondLondres.getImage();
-
-
-		
-														//TUILE\\
-		// On instancie toute nos tuiles
-		this.T1 = new Tuile("/images/tuile_de_rue_face_suspect1.png");
-		this.T1_90 = new Tuile("/images/tuile_de_rue_face_suspect1_90.png");
-		this.T1_180 = new Tuile("/images/tuile_de_rue_face_suspect1_180.png");
-		this.T1_r90 = new Tuile("/images/tuile_de_rue_face_suspect1_-90.png");
-
-		this.T2 = new Tuile("/images/tuile_de_rue_face_suspect2.png");
-		this.T2_90 = new Tuile("/images/tuile_de_rue_face_suspect2_90.png");
-		this.T2_180 = new Tuile("/images/tuile_de_rue_face_suspect2_180.png");
-		this.T2_r90 = new Tuile("/images/tuile_de_rue_face_suspect2_-90.png");
-
-		this.T3 = new Tuile("/images/tuile_de_rue_face_suspect3.png");
-		this.T3_90 = new Tuile("/images/tuile_de_rue_face_suspect3_90.png");
-		this.T3_180 = new Tuile("/images/tuile_de_rue_face_suspect3_180.png");
-		this.T3_r90 = new Tuile("/images/tuile_de_rue_face_suspect3_-90.png");
-
-		this.T4 = new Tuile("/images/tuile_de_rue_face_suspect4.png");
-		this.T4_90 = new Tuile("/images/tuile_de_rue_face_suspect4_90.png");
-		this.T4_180 = new Tuile("/images/tuile_de_rue_face_suspect4_180.png");
-		this.T4_r90 = new Tuile("/images/tuile_de_rue_face_suspect4_-90.png");
-
-		this.T5 = new Tuile("/images/tuile_de_rue_face_suspect5.png");
-		this.T5_90 = new Tuile("/images/tuile_de_rue_face_suspect5_90.png");
-		this.T5_180 = new Tuile("/images/tuile_de_rue_face_suspect5_180.png");
-		this.T5_r90 = new Tuile("/images/tuile_de_rue_face_suspect5_-90.png");
-
-		this.T6 = new Tuile("/images/tuile_de_rue_face_suspect6.png");
-		this.T6_90 = new Tuile("/images/tuile_de_rue_face_suspect6_90.png");
-		this.T6_180 = new Tuile("/images/tuile_de_rue_face_suspect6_180.png");
-		this.T6_r90 = new Tuile("/images/tuile_de_rue_face_suspect6_m90.png");
-
-		this.T7 = new Tuile("/images/tuile_de_rue_face_suspect7.png");
-		this.T7_90 = new Tuile("/images/tuile_de_rue_face_suspect7_90.png");
-		this.T7_180 = new Tuile("/images/tuile_de_rue_face_suspect7_180.png");
-		this.T7_r90 = new Tuile("/images/tuile_de_rue_face_suspect7_-90.png");
-
-		this.T8 = new Tuile("/images/tuile_de_rue_face_suspect8.png");
-		this.T8_90 = new Tuile("/images/tuile_de_rue_face_suspect8_90.png");
-		this.T8_180 = new Tuile("/images/tuile_de_rue_face_suspect8_180.png");
-		this.T8_r90 = new Tuile("/images/tuile_de_rue_face_suspect8_-90.png");
-
-		this.T9 = new Tuile("/images/tuile_de_rue_face_suspect9.png");
-		this.T9_90 = new Tuile("/images/tuile_de_rue_face_suspect9_90.png");
-		this.T9_180 = new Tuile("/images/tuile_de_rue_face_suspect9_180.png");
-		this.T9_r90 = new Tuile("/images/tuile_de_rue_face_suspect9_m90.png");
-		
-		this.Td = new Tuile("/images/common-verso.png");
-		this.Td_90 = new Tuile("/images/common-verso_90.png");
-		this.Td_180 = new Tuile("/images/common-verso_180.png");
-		this.Td_r90 = new Tuile("/images/common-verso_-90.png");
-		
-		this.Td_x = new Tuile("/images/JosephLane-verso.png");
-
 		
 		// Tableau de tuile que l'on mélange
 		this.tabShuffleTuile = Tuile.tuileMelange(T1, T1_90, T1_180, T1_r90, T2, T2_90, T2_180, T2_r90, T3, T3_90, T3_180,
