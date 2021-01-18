@@ -37,15 +37,15 @@ public class Clavier implements KeyListener{
 		//Deplacement des detectives
 
 		else if(e.getKeyCode() == KeyEvent.VK_S) { 		//Sherlock
-			Main.scene.posSherlock();
+			Main.scene.Sherlock.Mouvement(Main.scene.getxDetec1(), Main.scene.getyDetec1(), Main.scene.getxDetec2(), Main.scene.getyDetec2(), Main.scene.getxDetec3(), Main.scene.getyDetec3(), Main.scene.getxDetec4(), Main.scene.getyDetec4(), Main.scene.getxDetec5(), Main.scene.getyDetec5());;
 			Main.scene.repaint();
 		}
 		else if(e.getKeyCode() == KeyEvent.VK_W) { 		//Watson
-			Main.scene.posWatson();
+			Main.scene.Watson.Mouvement(Main.scene.getxDetec1(), Main.scene.getyDetec1(), Main.scene.getxDetec2(), Main.scene.getyDetec2(), Main.scene.getxDetec3(), Main.scene.getyDetec3(), Main.scene.getxDetec4(), Main.scene.getyDetec4(), Main.scene.getxDetec5(), Main.scene.getyDetec5());
 			Main.scene.repaint();
 		}
 		else if(e.getKeyCode() == KeyEvent.VK_T) { 		//Tobi
-			Main.scene.posTobi();
+			Main.scene.Tobi.Mouvement(Main.scene.getxDetec1(), Main.scene.getyDetec1(), Main.scene.getxDetec2(), Main.scene.getyDetec2(), Main.scene.getxDetec3(), Main.scene.getyDetec3(), Main.scene.getxDetec4(), Main.scene.getyDetec4(), Main.scene.getxDetec5(), Main.scene.getyDetec5());
 			Main.scene.repaint();
 		}
 		

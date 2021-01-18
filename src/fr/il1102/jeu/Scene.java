@@ -114,13 +114,9 @@ public class Scene extends JPanel {
 	
 	// On declare nos détectives
 	public Detective Sherlock;
-	private int xSherlock, ySherlock; 	//Position de Sherlock sur la table de jeu
 	public Detective Watson;
-	private int xWatson, yWatson;		//Position de Watson sur la table de jeu
 	public Detective Tobi;
-	private int xTobi, yTobi;			//Position de Tobi sur la table de jeu
 
-	
 													// Jeton Actions \\
 	
 	
@@ -239,12 +235,13 @@ public class Scene extends JPanel {
 		this.Tobi = new Detective ("/images/Tobi.png");
 		
 		// On affecte des positions de bases à nos detectives
-		xSherlock = xDetec1;
-		ySherlock = yDetec2;
-		xWatson = xDetec5;
-		yWatson = yDetec2;
-		xTobi = xDetec3;
-		yTobi = yDetec5;
+	
+		Sherlock.xPosition = xDetec1;
+		Sherlock.yPosition = yDetec2; 
+		Watson.xPosition = xDetec5;
+		Watson.yPosition = yDetec2; 
+		Tobi.xPosition = xDetec3;
+		Tobi.yPosition = yDetec5; 
 												//Jeton Action \\
 		
 		
@@ -308,26 +305,35 @@ public class Scene extends JPanel {
 
 	
 
-	public Alibi[] getTabShuffleAlibi() {
-		return tabShuffleAlibi;
-	}
+	public Alibi[] getTabShuffleAlibi() { return tabShuffleAlibi;	}
 
-	public int gettRotat() {
-		return tRotat;
-	}
+	public int gettRotat() { return tRotat;	}
 
-
-	public boolean isEcranAccueil() {
-		return ecranAccueil;
-	}
+	public boolean isEcranAccueil() { return ecranAccueil;	}
 	
-	public boolean isEcranAlibi() {
-		return ecranAlibi;
-	}
+	public boolean isEcranAlibi() { return ecranAlibi;	}
 
-	public boolean isChangeSelect() {
-		return changeSelect;
-	}
+	public boolean isChangeSelect() { return changeSelect;	}
+	
+	public int getxDetec1() { return xDetec1;	}
+
+	public int getxDetec2() { return xDetec2;	}
+
+	public int getxDetec3() { return xDetec3;	}
+
+	public int getxDetec4() { return xDetec4;	}
+
+	public int getxDetec5() { return xDetec5;	}
+
+	public int getyDetec1() { return yDetec1;	}
+
+	public int getyDetec2() { return yDetec2;	}
+
+	public int getyDetec3() { return yDetec3;	}
+
+	public int getyDetec4() { return yDetec4;	}
+
+	public int getyDetec5() { return yDetec5;	}
 	
 	// Setters
 
@@ -355,76 +361,6 @@ public class Scene extends JPanel {
 
 
 	// Methodes
-	
-	public void posSherlock() { //Gère le deplacement de Sherlock
-	if(xSherlock == xDetec1) {														//Analyse la position des détectives
-			if (ySherlock == yDetec2) {xSherlock =xDetec2; ySherlock =yDetec1;}		//Modifie la position du detective à la position suivante
-			else if (ySherlock == yDetec3) { ySherlock =yDetec2;}
-			else { ySherlock= yDetec3;}
-		}
-		else if(ySherlock == yDetec1) {
-			if (xSherlock == xDetec2) {xSherlock =xDetec3;}
-			else if (xSherlock == xDetec3) { xSherlock =xDetec4;}
-			else { xSherlock= xDetec5; ySherlock= yDetec2;}
-		}
-		else if(xSherlock == xDetec5) {
-			if (ySherlock == yDetec2) {ySherlock= yDetec3;}
-			else if (ySherlock == yDetec3) { ySherlock =yDetec4;}
-			else { xSherlock =xDetec4; ySherlock =yDetec5;}
-		}
-		else if(ySherlock == yDetec5) {
-			if (xSherlock == xDetec4) {xSherlock =xDetec3;}
-			else if (xSherlock == xDetec3) { xSherlock =xDetec2;}
-			else { xSherlock= xDetec1; ySherlock= yDetec4;}
-		}
-	}
-	
-	public void posWatson() { //Gère le deplacement de Watson
-		if(xWatson == xDetec1) {
-			if (yWatson == yDetec2) {xWatson =xDetec2; yWatson =yDetec1;}
-			else if (yWatson == yDetec3) { yWatson =yDetec2;}
-			else { yWatson= yDetec3;}
-		}
-		else if(yWatson == yDetec1) {
-			if (xWatson == xDetec2) {xWatson =xDetec3;}
-			else if (xWatson == xDetec3) { xWatson =xDetec4;}
-			else { xWatson= xDetec5; yWatson= yDetec2;}
-		}
-		else if(xWatson == xDetec5) {
-			if (yWatson == yDetec2) {yWatson= yDetec3;}
-			else if (yWatson == yDetec3) { yWatson =yDetec4;}
-			else { xWatson =xDetec4; yWatson =yDetec5;}
-		}
-		else if(yWatson == yDetec5) {
-			if (xWatson == xDetec4) {xWatson =xDetec3;}
-			else if (xWatson == xDetec3) { xWatson =xDetec2;}
-			else { xWatson= xDetec1; yWatson= yDetec4;}
-		}
-	}
-	
-	public void posTobi() { //Gère le deplacement de Tobi
-
-		if(xTobi == xDetec1) {
-			if (yTobi == yDetec2) {xTobi =xDetec2; yTobi =yDetec1;}
-			else if (yTobi == yDetec3) { yTobi =yDetec2;}
-			else { yTobi= yDetec3;}
-		}
-		else if(yTobi == yDetec1) {
-			if (xTobi == xDetec2) {xTobi =xDetec3;}
-			else if (xTobi == xDetec3) { xTobi =xDetec4;}
-			else { xTobi= xDetec5; yTobi= yDetec2;}
-		}
-		else if(xTobi == xDetec5) {
-			if (yTobi == yDetec2) {yTobi= yDetec3;}
-			else if (yTobi == yDetec3) { yTobi =yDetec4;}
-			else { xTobi =xDetec4; yTobi =yDetec5;}
-		}
-		else if(yTobi == yDetec5) {
-			if (xTobi == xDetec4) {xTobi =xDetec3;}
-			else if (xTobi == xDetec3) { xTobi =xDetec2;}
-			else { xTobi= xDetec1; yTobi= yDetec4;}
-		}
-	}
 	
 	public void retournerTuile(int tTurn) {								//Retourne la tuile en fonction de son orientation
 		List<Tuile> listTuile = Arrays.asList(tabShuffleTuile[tTurn]);
@@ -626,9 +562,9 @@ public class Scene extends JPanel {
 			g2.drawImage(tabShuffleTuile[7][0].getImgTuile(), 490, 480, null); // Affichage de la tuile en Position 2
 			g2.drawImage(tabShuffleTuile[8][0].getImgTuile(), 680, 480, null); // Affichage de la tuile en Position 3
 
-			g2.drawImage(this.Sherlock.getImgDetec(), this.xSherlock, this.ySherlock, null);
-			g2.drawImage(this.Tobi.getImgDetec(), this.xTobi, this.yTobi, null);
-			g2.drawImage(this.Watson.getImgDetec(), this.xWatson , this.yWatson, null);
+			g2.drawImage(this.Sherlock.getImgDetec(), this.Sherlock.getxPosition(), this.Sherlock.getyPosition(), null);
+			g2.drawImage(this.Tobi.getImgDetec(), this.Tobi.getxPosition(), this.Tobi.getyPosition(), null);
+			g2.drawImage(this.Watson.getImgDetec(), this.Watson.getxPosition() , this.Watson.getyPosition(), null);
 
 			
 			// Jeton Action 
@@ -676,4 +612,4 @@ public class Scene extends JPanel {
 		}
 	}
 
-}
+	}
