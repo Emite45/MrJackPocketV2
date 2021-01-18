@@ -99,19 +99,7 @@ public class Scene extends JPanel {
 	public Tuile[][] tabShuffleTuile;
 	
 														// Detective \\
-	//initialisation positions possibles detectives
-	//Il existe en 12 positions possible pour les détectives ce qui fait 12 combinaisons en tout avec 5 différentes en x et 5 en y
-	private int xDetec1 = 300 - 80 - 10; 	// position [1,y]
-	private int xDetec2= 300 + 55;			// position [2,y]
-	private int xDetec3 = 300 + 190 + 55;	// position [3,y]
-	private int xDetec4 = 300 + 2* 190 + 55;// position [4,y]
-	private int xDetec5 = 300 + 3* 190 + 10;// position [5,y]
-	private int yDetec1 = 100 - 80 - 10;	// position [x,1]
-	private int yDetec2 = 100 + 55;			// position [x,2]
-	private int yDetec3 = 100 + 190 + 55;	// position [x,3]
-	private int yDetec4 = 100 + 2* 190 + 55;// position [x,4]
-	private int yDetec5 = 100 + 3* 190 + 10;// position [x,5]
-	
+
 	// On declare nos détectives
 	public Detective Sherlock;
 	public Detective Watson;
@@ -230,21 +218,13 @@ public class Scene extends JPanel {
 
 														// Detective \\
 		//On instancie nos 3 detectives
-		this.Sherlock = new Detective("/images/Sherlock.png");
-		this.Watson = new Detective ("/images/Watson.png");
-		this.Tobi = new Detective ("/images/Tobi.png");
+		this.Sherlock = new Detective("/images/Sherlock.png", 210, 155);
+		this.Watson = new Detective ("/images/Watson.png", 880, 155);
+		this.Tobi = new Detective ("/images/Tobi.png", 545, 680);
 		
-		// On affecte des positions de bases à nos detectives
-	
-		Sherlock.xPosition = xDetec1;
-		Sherlock.yPosition = yDetec2; 
-		Watson.xPosition = xDetec5;
-		Watson.yPosition = yDetec2; 
-		Tobi.xPosition = xDetec3;
-		Tobi.yPosition = yDetec5; 
+
 												//Jeton Action \\
-		
-		
+
 		this.jA1_1 = new JetonAction ("/images/Jeton1-Face1.png");
 		this.jA1_2 = new JetonAction ("/images/Jeton1-Face2.png");
 		this.jA2_1 = new JetonAction ("/images/Jeton2-Face1.png");
@@ -266,11 +246,6 @@ public class Scene extends JPanel {
 		this.nJA4 = true;
 		
 		this.nbr_depla = 0;
-		
-		
-		
-		
-		
 		
 												// Jeton Temps \\
 		
@@ -303,8 +278,6 @@ public class Scene extends JPanel {
 
 	// Getters
 
-	
-
 	public Alibi[] getTabShuffleAlibi() { return tabShuffleAlibi;	}
 
 	public int gettRotat() { return tRotat;	}
@@ -314,26 +287,6 @@ public class Scene extends JPanel {
 	public boolean isEcranAlibi() { return ecranAlibi;	}
 
 	public boolean isChangeSelect() { return changeSelect;	}
-	
-	public int getxDetec1() { return xDetec1;	}
-
-	public int getxDetec2() { return xDetec2;	}
-
-	public int getxDetec3() { return xDetec3;	}
-
-	public int getxDetec4() { return xDetec4;	}
-
-	public int getxDetec5() { return xDetec5;	}
-
-	public int getyDetec1() { return yDetec1;	}
-
-	public int getyDetec2() { return yDetec2;	}
-
-	public int getyDetec3() { return yDetec3;	}
-
-	public int getyDetec4() { return yDetec4;	}
-
-	public int getyDetec5() { return yDetec5;	}
 	
 	// Setters
 
@@ -541,9 +494,7 @@ public class Scene extends JPanel {
 			
 		} else if (ecranAlibi == false && ecranAccueil == false ) { //ecran du plateau de jeu
 			
-			
-			
-			
+
 			//g2.drawImage(this.imgFond, 0, 0, null); // Affichage du fond noir
 			g2.drawImage( this.imgFondLondres, 0, 0, null); // Affichage du fond
 
@@ -582,8 +533,7 @@ public class Scene extends JPanel {
 				g2.drawImage(tabShuffleJA[3][1].getImgJA(), 1100, 660, null); // Affichage du Jeton 4
 			}
 			
-			
-			
+	
 			// Jeton temps
 
 
@@ -600,7 +550,6 @@ public class Scene extends JPanel {
 			// Alibi
 			
 
-			
 			
 			for (int i = 1; i <= nAlibiFC ; i++) {
 				if(nAlibiFC != 0) {g2.drawImage(this.alibiCarte.getImgAlibi(), 1000 + 20 * i, 20 * i, null);}}
