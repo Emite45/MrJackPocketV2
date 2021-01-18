@@ -168,14 +168,18 @@ public class Scene extends JPanel {
 	public Alibi[] tabAlibi = { InspLestrade, JeremyBert, JohnPizer, JohnSmith, JosephLane, Madame, MissStealthy,
 			SgtGoodley, WilliamGull };
 	
+	public int nAlibi; // Compteur de carte Alibi en enlevant la carte de Jack
+	public int nAlibiFC; // Compteur de carte Alibi face caché
+	
+	public int sablierJack;
+	
 	public boolean idJack; //Indique si Jack est prêt à découvrir son alibi
 
 	public boolean ecranAlibi;  // deuxième écran de découverte de l'alibi de Jack
 	
 	public boolean ecranAccueil;
 
-	public int nAlibi; // Compteur de carte Alibi en enlevant la carte de Jack
-	public int nAlibiFC; // Compteur de carte Alibi face caché
+	
 
 	// Constructeurs
 	
@@ -276,6 +280,11 @@ public class Scene extends JPanel {
 		this.alibiCarte = new Alibi("/images/alibi-card.png"); //Carte Alibi Face caché
 		
 		this.idJack = false;
+		
+		this.nAlibi = 0;
+		this.nAlibiFC = 8;
+		
+		this.sablierJack = 0;
 
 		//tableau des cartes Alibis que l'on mélange
 		this.tabShuffleAlibi = Alibi.shuffleAlibi(InspLestrade, JeremyBert, JohnPizer, JohnSmith, JosephLane, Madame,
@@ -363,8 +372,7 @@ public class Scene extends JPanel {
 		this.ecranAccueil = true ;
 		this.ecranAlibi = false ;
 
-		this.nAlibi = 1;
-		this.nAlibiFC = 9;
+		
 	}
 
 	// Getters
@@ -466,6 +474,7 @@ public class Scene extends JPanel {
 	}
 	
 	public void posTobi() { //Gère le deplacement de Tobi
+
 		if(xTobi == xDetec1) {
 			if (yTobi == yDetec2) {xTobi =xDetec2; yTobi =yDetec1;}
 			else if (yTobi == yDetec3) { yTobi =yDetec2;}
@@ -487,7 +496,8 @@ public class Scene extends JPanel {
 			else { xTobi= xDetec1; yTobi= yDetec4;}
 		}
 	}
-	public void retournerTuile(int tTurn) {
+	
+	public void retournerTuile(int tTurn) {								//Retourne la tuile en fonction de son orientation
 		List<Tuile> listTuile = Arrays.asList(tabShuffleTuile[tTurn]);
 		if(listTuile.contains(T1) == true) {
 			if (tabShuffleTuile[tTurn][0] == T1) {tabShuffleTuile[tTurn][0]= Td;}
@@ -604,9 +614,20 @@ public class Scene extends JPanel {
 			else if (tabShuffleTuile[tRotat][0] == T9_180) {tabShuffleTuile[tRotat][0] = T9_90; tabShuffleTuile[tRotat][1] = T9; tabShuffleTuile[tRotat][2] = T9_r90; tabShuffleTuile[tRotat][3] = T9_180;} 
 			else if (tabShuffleTuile[tRotat][0] == T9_r90) {tabShuffleTuile[tRotat][0] = T9_180; tabShuffleTuile[tRotat][1] = T9_90; tabShuffleTuile[tRotat][2] = T9; tabShuffleTuile[tRotat][3] = T9_r90;} 
 		}
-
 	}
 	
+	public void alibiJack(int nAlibi) {				// Quand jack choisi le jeton Alibi
+
+		if (tabShuffleAlibi[nAlibi] == InspLestrade) {}
+		else if (tabShuffleAlibi[nAlibi] == JeremyBert) {sablierJack++;}
+		else if (tabShuffleAlibi[nAlibi] == JohnPizer) {sablierJack++;}
+		else if (tabShuffleAlibi[nAlibi] == JohnSmith) {sablierJack++;}
+		else if (tabShuffleAlibi[nAlibi] == JosephLane) {sablierJack++;}
+		else if (tabShuffleAlibi[nAlibi] == Madame) {sablierJack = sablierJack +2;}
+		else if (tabShuffleAlibi[nAlibi] == MissStealthy) {sablierJack++;}
+		else if (tabShuffleAlibi[nAlibi] == SgtGoodley) {}
+		else if (tabShuffleAlibi[nAlibi] == WilliamGull) {sablierJack++;}
+	}
 
 	public void paintComponent(Graphics g) {
 
@@ -655,9 +676,16 @@ public class Scene extends JPanel {
 			
 		} else if (ecranAlibi == false && ecranAccueil == false ) { //ecran du plateau de jeu
 			
+			
+			
+			
 			//g2.drawImage(this.imgFond, 0, 0, null); // Affichage du fond noir
 			g2.drawImage( this.imgFondLondres, 0, 0, null); // Affichage du fond
 
+			Font police = new Font("Simsun", Font.BOLD, 20);
+			g2.setColor(Color.white);
+			g2.setFont(police); 
+			g2.drawString("le nombre de sablier de Jack est " + this.nAlibi, 0, 100);
 
 			g2.drawImage(tabShuffleTuile[0][0].getImgTuile(), 300, 100, null); // Affichage de la tuile en Position 7
 			g2.drawImage(tabShuffleTuile[1][0].getImgTuile(), 490, 100, null); // Affichage de la tuile en Position 8
@@ -706,11 +734,14 @@ public class Scene extends JPanel {
 		
 			// Alibi
 			
-			for (int i = 0; i < nAlibiFC; i++) {
-				g2.drawImage(this.alibiCarte.getImgAlibi(), 1000 + 20 * i, 20 * i, null);
-				if (nAlibiFC < 8) {
-					g2.drawImage(tabShuffleAlibi[nAlibi].getImgAlibi(), 1140, 200, null);
-				}
+
+			
+			
+			for (int i = 1; i <= nAlibiFC ; i++) {
+				if(nAlibiFC != 0) {g2.drawImage(this.alibiCarte.getImgAlibi(), 1000 + 20 * i, 20 * i, null);}}
+			if (nAlibiFC < 8) {
+				g2.drawImage(tabShuffleAlibi[nAlibi].getImgAlibi(), 1140, 200, null);
+				
 			}
 
 		}

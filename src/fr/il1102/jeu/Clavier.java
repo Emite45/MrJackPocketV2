@@ -30,6 +30,7 @@ public class Clavier implements KeyListener{
 		else if(e.getKeyCode() == KeyEvent.VK_LEFT) { //Permet d'afficher mon deck de  carte alibi
 			Main.scene.nAlibi ++;
 			Main.scene.nAlibiFC --;
+			Main.scene.alibiJack(Main.scene.nAlibi);
 			Main.scene.repaint();
 		}
 		
