@@ -22,6 +22,7 @@ import fr.il1102.objet.Tuile;
 @SuppressWarnings("serial")
 public class Scene extends JPanel {
 
+	// Test Poo
 	// Variables 
 	
     private ImageIcon icoFondLondres; // ecran d'accueil
