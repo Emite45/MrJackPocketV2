@@ -77,6 +77,12 @@ public class Scene extends JPanel {
 	public Tuile T9_90;
 	public Tuile T9_180;
 	public Tuile T9_r90;
+	
+	public Tuile Td;
+	public Tuile Td_90;
+	public Tuile Td_180;
+	public Tuile Td_r90;
+	public Tuile Td_x;
 
 
 
@@ -88,6 +94,8 @@ public class Scene extends JPanel {
 	public boolean changeSelect;
 	public int tRotat;
 	public boolean JTrot;
+	
+	public int tTurn;
 	
 	
 	public Tuile[][] tabShuffleTuile;
@@ -230,6 +238,12 @@ public class Scene extends JPanel {
 		this.T9_180 = new Tuile("/images/tuile_de_rue_face_suspect9_180.png");
 		this.T9_r90 = new Tuile("/images/tuile_de_rue_face_suspect9_m90.png");
 		
+		this.Td = new Tuile("/images/common-verso.png");
+		this.Td_90 = new Tuile("/images/common-verso_90.png");
+		this.Td_180 = new Tuile("/images/common-verso_180.png");
+		this.Td_r90 = new Tuile("/images/common-verso_-90.png");
+		
+		this.Td_x = new Tuile("/images/JosephLane-verso.png");
 
 		
 		// Tableau de tuile que l'on mélange
@@ -245,6 +259,7 @@ public class Scene extends JPanel {
 		
 		this.tRotat = 0;
 		this.JTrot = false;
+		this.tTurn= 0;
 
 															// Alibi \\
 		// On instancie tout nos Alibis
@@ -472,6 +487,61 @@ public class Scene extends JPanel {
 			else { xTobi= xDetec1; yTobi= yDetec4;}
 		}
 	}
+	public void retournerTuile(int tTurn) {
+		List<Tuile> listTuile = Arrays.asList(tabShuffleTuile[tTurn]);
+		if(listTuile.contains(T1) == true) {
+			if (tabShuffleTuile[tTurn][0] == T1) {tabShuffleTuile[tTurn][0]= Td;}
+			else if (tabShuffleTuile[tTurn][0] == T1_90) {tabShuffleTuile[tTurn][0]= Td_90;}
+			else if (tabShuffleTuile[tTurn][0] == T1_180) {tabShuffleTuile[tTurn][0]= Td_180;}
+			else if (tabShuffleTuile[tTurn][0] == T1_r90) {tabShuffleTuile[tTurn][0]= Td_r90;}
+		}
+		else if(listTuile.contains(T2) == true) {
+			if (tabShuffleTuile[tTurn][0] == T2) {tabShuffleTuile[tTurn][0]= Td;}
+			else if (tabShuffleTuile[tTurn][0] == T2_90) {tabShuffleTuile[tTurn][0]= Td_90;}
+			else if (tabShuffleTuile[tTurn][0] == T2_180) {tabShuffleTuile[tTurn][0]= Td_180;}
+			else if (tabShuffleTuile[tTurn][0] == T2_r90) {tabShuffleTuile[tTurn][0]= Td_r90;}
+		}
+		else if(listTuile.contains(T3) == true) {
+			if (tabShuffleTuile[tTurn][0] == T3) {tabShuffleTuile[tTurn][0]= Td;}
+			else if (tabShuffleTuile[tTurn][0] == T3_90) {tabShuffleTuile[tTurn][0]= Td_90;}
+			else if (tabShuffleTuile[tTurn][0] == T3_180) {tabShuffleTuile[tTurn][0]= Td_180;}
+			else if (tabShuffleTuile[tTurn][0] == T3_r90) {tabShuffleTuile[tTurn][0]= Td_r90;}
+		}
+		else if(listTuile.contains(T4) == true) {
+			if (tabShuffleTuile[tTurn][0] == T4) {tabShuffleTuile[tTurn][0]= Td;}
+			else if (tabShuffleTuile[tTurn][0] == T4_90) {tabShuffleTuile[tTurn][0]= Td_90;}
+			else if (tabShuffleTuile[tTurn][0] == T4_180) {tabShuffleTuile[tTurn][0]= Td_180;}
+			else if (tabShuffleTuile[tTurn][0] == T4_r90) {tabShuffleTuile[tTurn][0]= Td_r90;}
+		}
+		else if(listTuile.contains(T5) == true) {
+			if (tabShuffleTuile[tTurn][0] == T5) {tabShuffleTuile[tTurn][0]= Td;}
+			else if (tabShuffleTuile[tTurn][0] == T5_90) {tabShuffleTuile[tTurn][0]= Td_90;}
+			else if (tabShuffleTuile[tTurn][0] == T5_180) {tabShuffleTuile[tTurn][0]= Td_180;}
+			else if (tabShuffleTuile[tTurn][0] == T5_r90) {tabShuffleTuile[tTurn][0]= Td_r90;}
+		}
+		else if(listTuile.contains(T6) == true) {
+			if (tabShuffleTuile[tTurn][0] == T6) {tabShuffleTuile[tTurn][0]= Td;}
+			else if (tabShuffleTuile[tTurn][0] == T6_90) {tabShuffleTuile[tTurn][0]= Td_90;}
+			else if (tabShuffleTuile[tTurn][0] == T6_180) {tabShuffleTuile[tTurn][0]= Td_180;}
+			else if (tabShuffleTuile[tTurn][0] == T6_r90) {tabShuffleTuile[tTurn][0]= Td_r90;}
+		}
+		else if(listTuile.contains(T7) == true) {
+			if (tabShuffleTuile[tTurn][0] == T7) {tabShuffleTuile[tTurn][0]= Td;}
+			else if (tabShuffleTuile[tTurn][0] == T7_90) {tabShuffleTuile[tTurn][0]= Td_90;}
+			else if (tabShuffleTuile[tTurn][0] == T7_180) {tabShuffleTuile[tTurn][0]= Td_180;}
+			else if (tabShuffleTuile[tTurn][0] == T7_r90) {tabShuffleTuile[tTurn][0]= Td_r90;}
+		}
+		else if(listTuile.contains(T8) == true) {
+			if (tabShuffleTuile[tTurn][0] == T8) {tabShuffleTuile[tTurn][0]= Td;}
+			else if (tabShuffleTuile[tTurn][0] == T8_90) {tabShuffleTuile[tTurn][0]= Td_90;}
+			else if (tabShuffleTuile[tTurn][0] == T8_180) {tabShuffleTuile[tTurn][0]= Td_180;}
+			else if (tabShuffleTuile[tTurn][0] == T8_r90) {tabShuffleTuile[tTurn][0]= Td_r90;}
+		}
+		else if(listTuile.contains(T9) == true) {
+			tabShuffleTuile[tTurn][0]= Td_x;
+		}
+		
+	}
 	
 	public void echangerTuile(int tChange1, int tChange2) {  // Echange deux grandes listes du tableaux
 		List<Tuile []> listTuile = Arrays.asList(tabShuffleTuile);
@@ -607,10 +677,10 @@ public class Scene extends JPanel {
 			// Jeton Action 
 			
 			if (nJA1 == true || nJA2 == true || nJA3 == true || nJA4 == true) {
-				g2.drawImage(tabShuffleJA[0][0].getImgJA(), 1100, 450, null); // Affichage du Jeton 1
-				g2.drawImage(tabShuffleJA[1][0].getImgJA(), 1100, 520, null); // Affichage du Jeton 2
-				g2.drawImage(tabShuffleJA[2][0].getImgJA(), 1100, 590, null); // Affichage du Jeton 3
-				g2.drawImage(tabShuffleJA[3][0].getImgJA(), 1100, 660, null); // Affichage du Jeton 4
+				if(nJA1 == true) {g2.drawImage(tabShuffleJA[0][0].getImgJA(), 1100, 450, null); }// Affichage du Jeton 1
+				else if(nJA2 == true) {g2.drawImage(tabShuffleJA[1][0].getImgJA(), 1100, 520, null);} // Affichage du Jeton 2
+				else if(nJA3 == true) {g2.drawImage(tabShuffleJA[2][0].getImgJA(), 1100, 590, null);} // Affichage du Jeton 3
+				else if(nJA4 == true) {g2.drawImage(tabShuffleJA[3][0].getImgJA(), 1100, 660, null);} // Affichage du Jeton 4
 			}
 			else if (nJA1 == false & nJA2 == false && nJA3 == false && nJA4 == false) {
 				g2.drawImage(tabShuffleJA[0][1].getImgJA(), 1100, 450, null); // Affichage du Jeton 1

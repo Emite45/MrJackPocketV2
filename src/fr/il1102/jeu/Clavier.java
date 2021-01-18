@@ -49,26 +49,16 @@ public class Clavier implements KeyListener{
 		}
 		
 
+		//retourner
+		
+		else if((e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5|| e.getKeyCode() == KeyEvent.VK_6  || e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_9)) {
+			Main.scene.tTurn = e.getKeyCode() - 49;
+			Main.scene.retournerTuile(Main.scene.tTurn);
+			Main.scene.repaint();
+		}
 
 		
-		//Echanger
-		
-
-//			//Selection 1
-//		else if(Main.scene.JTchange == true && Main.scene.isChangeSelect() == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5|| e.getKeyCode() == KeyEvent.VK_6  || e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_9)) { 
-//			Main.scene.settChange1(e.getKeyCode() - 49); //car c'est le numéro ascii
-//			Main.scene.settChange( Main.scene.tChange1);
-//			Main.scene.setSelect(true);
-//		}
-//			//Selection2
-//		else if ( Main.scene.isChangeSelect() == true && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5 || e.getKeyCode() == KeyEvent.VK_6 || e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_9)) {
-//				Main.scene.settChange2(e.getKeyCode() - 49);
-//				Main.scene.echangerTuile(Main.scene.tChange1, Main.scene.tChange2);
-//				Main.scene.repaint();
-//				Main.scene.setSelect(false);
-//				Main.scene.JTchange = false;
-//			}
-//		
+/*		
 		//JETON 1
 		if ( Main.scene.JA1 == false && Main.scene.nJA1 == true && e.getKeyCode()== KeyEvent.VK_A) {
 			Main.scene.JA1 = true;
@@ -165,7 +155,7 @@ public class Clavier implements KeyListener{
 				}
 			
 			// JETON 3_2
-		
+		*/
 		
 		}
 	
