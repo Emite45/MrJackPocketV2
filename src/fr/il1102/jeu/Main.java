@@ -29,11 +29,12 @@ public class Main {
 		fenetre.setContentPane(scene); // On associe la scene � la fenetre de l'application
 		fenetre.setVisible(true);
 		
-//		while(Main.scene.tTurn == 0) {
-//			System.out.println(Main.scene.tTurn);
-//		}
-//		System.out.println(Main.scene.tTurn);
-//		
+
+		
+
+		
+		 
+		
 		
 	}
 }

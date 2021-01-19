@@ -178,6 +178,16 @@ public class Scene extends JPanel {
 	public boolean ecranAlibi;  // deuxième écran de découverte de l'alibi de Jack
 	
 	public boolean ecranAccueil;
+	
+	
+	
+	
+	
+	
+	
+	
+	public Tuile [] TuileJack = new Tuile[4];
+	boolean visible = false;
 
 	
 
@@ -265,6 +275,7 @@ public class Scene extends JPanel {
 		this.JTrot = false;
 		this.tTurn= 0;
 
+		
 															// Alibi \\
 		// On instancie tout nos Alibis
 		this.InspLestrade = new Alibi("/images/InspLestrade-alibi.png");
@@ -346,6 +357,8 @@ public class Scene extends JPanel {
 		
 		
 		
+		
+		
 												// Jeton Temps \\
 		
 		
@@ -371,6 +384,8 @@ public class Scene extends JPanel {
 		
 		this.ecranAccueil = true ;
 		this.ecranAlibi = false ;
+
+		
 
 		
 	}
@@ -631,6 +646,7 @@ public class Scene extends JPanel {
 	
 	public void alibiInspecteur() {
 
+
 		if (tabShuffleAlibi[nAlibi] == Madame) {
 			for(int i= 0; i<9; i++) {
 				if(tabShuffleTuile[i][0] == T1 || tabShuffleTuile[i][0] == T1_90 || tabShuffleTuile[i][0] == T1_180 || tabShuffleTuile[i][0] == T1_r90) {this.retournerTuile(i);}}
@@ -667,7 +683,75 @@ public class Scene extends JPanel {
 			for(int i= 0; i<9; i++) {
 				if(tabShuffleTuile[i][0] == T9 || tabShuffleTuile[i][0] == T9_90 || tabShuffleTuile[i][0] == T9_180 || tabShuffleTuile[i][0] == T9_r90) {this.retournerTuile(i);}}
 			}
-		
+	}
+	
+	public void appel() {
+		if ((xSherlock == xDetec1 && ySherlock == yDetec2)  ) {
+			
+		}
+	}
+	
+	public void positionJack() {
+
+		if (tabShuffleAlibi[nAlibi] == Madame) {
+			for(int i= 0; i<9; i++) {
+				if(tabShuffleTuile[i][0] == T1 || tabShuffleTuile[i][0] == T1_90 || tabShuffleTuile[i][0] == T1_180 || tabShuffleTuile[i][0] == T1_r90) {TuileJack= tabShuffleTuile[i];}}
+			}
+		else if (tabShuffleAlibi[nAlibi] == SgtGoodley) {
+			for(int i= 0; i<9; i++) {
+				if(tabShuffleTuile[i][0] == T2 || tabShuffleTuile[i][0] == T2_90 || tabShuffleTuile[i][0] == T2_180 || tabShuffleTuile[i][0] == T2_r90) {TuileJack= tabShuffleTuile[i];}}
+			}
+		else if (tabShuffleAlibi[nAlibi] == JeremyBert) {
+			for(int i= 0; i<9; i++) {
+				if(tabShuffleTuile[i][0] == T3 || tabShuffleTuile[i][0] == T3_90 || tabShuffleTuile[i][0] == T3_180 || tabShuffleTuile[i][0] == T3_r90) {TuileJack= tabShuffleTuile[i];}}
+			}
+		else if (tabShuffleAlibi[nAlibi] == WilliamGull) {
+			for(int i= 0; i<9; i++) {
+				if(tabShuffleTuile[i][0] == T4 || tabShuffleTuile[i][0] == T4_90 || tabShuffleTuile[i][0] == T4_180 || tabShuffleTuile[i][0] == T4_r90) {TuileJack= tabShuffleTuile[i];}}
+			}
+		else if (tabShuffleAlibi[nAlibi] == MissStealthy) {
+			for(int i= 0; i<9; i++) {
+				if(tabShuffleTuile[i][0] == T5 || tabShuffleTuile[i][0] == T5_90 || tabShuffleTuile[i][0] == T5_180 || tabShuffleTuile[i][0] == T5_r90) {TuileJack= tabShuffleTuile[i];}}
+			}
+		else if (tabShuffleAlibi[nAlibi] == JohnSmith) {
+			for(int i= 0; i<9; i++) {
+				if(tabShuffleTuile[i][0] == T6 || tabShuffleTuile[i][0] == T6_90 || tabShuffleTuile[i][0] == T6_180 || tabShuffleTuile[i][0] == T6_r90) {TuileJack= tabShuffleTuile[i];}}
+			}
+		else if (tabShuffleAlibi[nAlibi] == InspLestrade) {
+			for(int i= 0; i<9; i++) {
+				if(tabShuffleTuile[i][0] == T7 || tabShuffleTuile[i][0] == T7_90 || tabShuffleTuile[i][0] == T7_180 || tabShuffleTuile[i][0] == T7_r90) {TuileJack= tabShuffleTuile[i];}}
+			}
+		else if (tabShuffleAlibi[nAlibi] == JohnPizer) {
+			for(int i= 0; i<9; i++) {
+				if(tabShuffleTuile[i][0] == T8 || tabShuffleTuile[i][0] == T8_90 || tabShuffleTuile[i][0] == T8_180 || tabShuffleTuile[i][0] == T8_r90) {TuileJack= tabShuffleTuile[i];}}
+			}
+		else if (tabShuffleAlibi[nAlibi] == JosephLane) {
+			for(int i= 0; i<9; i++) {
+				if(tabShuffleTuile[i][0] == T9 || tabShuffleTuile[i][0] == T9_90 || tabShuffleTuile[i][0] == T9_180 || tabShuffleTuile[i][0] == T9_r90) {TuileJack= tabShuffleTuile[i];}}
+			}
+	}
+	
+	public void visible() {
+		List<Tuile> listTuile3 = Arrays.asList(tabShuffleTuile[3][0]);
+		List<Tuile> listTuile6 = Arrays.asList(tabShuffleTuile[6][0]);
+		List<Tuile> listTuile7 = Arrays.asList(tabShuffleTuile[7][0]);
+		if(TuileJack == tabShuffleTuile[0]) {
+			if((xSherlock == xDetec1 && ySherlock == yDetec2) || (xWatson == xDetec1 && yWatson == yDetec2) || (xTobi == xDetec1 && yTobi == yDetec2)) { //1,2
+				if(TuileJack[0] != T1_r90 && TuileJack[0] != T2_r90 && TuileJack[0] != T3_r90 && TuileJack[0] != T4_r90 && TuileJack[0] != T5_r90 && TuileJack[0] != T6_r90 && TuileJack[0] != T7_r90 && TuileJack[0] != T8_r90 && TuileJack[0] != T9_r90 ) {visible= true;}
+		}
+			else if((xSherlock == xDetec2 && ySherlock == yDetec1) || (xWatson == xDetec2 && yWatson == yDetec1) || (xTobi == xDetec2 && yTobi == yDetec1)) { //2,1
+				if(TuileJack[0] != T1_180 && TuileJack[0] != T2_180 && TuileJack[0] != T3_180 && TuileJack[0] != T4_180 && TuileJack[0] != T5_180 && TuileJack[0] != T6_180 && TuileJack[0] != T7_180 && TuileJack[0] != T8_180 && TuileJack[0] != T9_180 ) {visible= true;}
+			}
+			else if((xSherlock == xDetec2 && ySherlock == yDetec5) || (xWatson == xDetec2 && yWatson == yDetec5) || (xTobi == xDetec2 && yTobi == yDetec5)) { //2,5
+				
+				if( listTuile6.contains(T1_90) || listTuile6.contains(T2_90) || listTuile6.contains(T3_90) || listTuile6.contains(T4_90) || listTuile6.contains(T5_90) || listTuile6.contains(T6_90) || listTuile6.contains(T7_90) || listTuile6.contains(T8_90) || listTuile6.contains(T9_90) || listTuile6.contains(T1_r90) || listTuile6.contains(T2_r90) || listTuile6.contains(T3_r90) || listTuile6.contains(T4_r90) || listTuile6.contains(T5_r90) || listTuile6.contains(T6_r90) || listTuile6.contains(T7_r90) || listTuile6.contains(T8_r90) || listTuile6.contains(T9_r90)) {
+					if( listTuile3.contains(T1_90) || listTuile3.contains(T2_90) || listTuile3.contains(T3_90) || listTuile3.contains(T4_90) || listTuile3.contains(T5_90) || listTuile3.contains(T6_90) || listTuile3.contains(T7_90) || listTuile3.contains(T8_90) || listTuile3.contains(T9_90) || listTuile3.contains(T1_r90) || listTuile3.contains(T2_r90) || listTuile3.contains(T3_r90) || listTuile3.contains(T4_r90) || listTuile3.contains(T5_r90) || listTuile3.contains(T6_r90) || listTuile3.contains(T7_r90) || listTuile3.contains(T8_r90) || listTuile3.contains(T9_r90)) {visible= true;}
+				}
+			}
+			else if((xSherlock == xDetec5 && ySherlock == yDetec2) || (xWatson == xDetec5 && yWatson == yDetec2) || (xTobi == xDetec5 && yTobi == yDetec2)) { //5,2
+				
+			}
+		}
 	}
 
 	public void paintComponent(Graphics g) {
@@ -728,15 +812,15 @@ public class Scene extends JPanel {
 			g2.setFont(police); 
 			g2.drawString("le nombre de sablier de Jack est " + this.sablierJack , 0, 100);
 
-			g2.drawImage(tabShuffleTuile[0][0].getImgTuile(), 300, 100, null); // Affichage de la tuile en Position 7
-			g2.drawImage(tabShuffleTuile[1][0].getImgTuile(), 490, 100, null); // Affichage de la tuile en Position 8
-			g2.drawImage(tabShuffleTuile[2][0].getImgTuile(), 680, 100, null); // Affichage de la tuile en Position 9
+			g2.drawImage(tabShuffleTuile[0][0].getImgTuile(), 300, 100, null); // Affichage de la tuile en Position 1
+			g2.drawImage(tabShuffleTuile[1][0].getImgTuile(), 490, 100, null); // Affichage de la tuile en Position 2
+			g2.drawImage(tabShuffleTuile[2][0].getImgTuile(), 680, 100, null); // Affichage de la tuile en Position 3
 			g2.drawImage(tabShuffleTuile[3][0].getImgTuile(), 300, 290, null); // Affichage de la tuile en Position 4
 			g2.drawImage(tabShuffleTuile[4][0].getImgTuile(), 490, 290, null); // Affichage de la tuile en Position 5
 			g2.drawImage(tabShuffleTuile[5][0].getImgTuile(), 680, 290, null); // Affichage de la tuile en Position 6
-			g2.drawImage(tabShuffleTuile[6][0].getImgTuile(), 300, 480, null); // Affichage de la tuile en Position 1
-			g2.drawImage(tabShuffleTuile[7][0].getImgTuile(), 490, 480, null); // Affichage de la tuile en Position 2
-			g2.drawImage(tabShuffleTuile[8][0].getImgTuile(), 680, 480, null); // Affichage de la tuile en Position 3
+			g2.drawImage(tabShuffleTuile[6][0].getImgTuile(), 300, 480, null); // Affichage de la tuile en Position 7
+			g2.drawImage(tabShuffleTuile[7][0].getImgTuile(), 490, 480, null); // Affichage de la tuile en Position 8
+			g2.drawImage(tabShuffleTuile[8][0].getImgTuile(), 680, 480, null); // Affichage de la tuile en Position 9
 
 			g2.drawImage(this.Sherlock.getImgDetec(), this.xSherlock, this.ySherlock, null);
 			g2.drawImage(this.Tobi.getImgDetec(), this.xTobi, this.yTobi, null);
@@ -745,7 +829,7 @@ public class Scene extends JPanel {
 			
 			// Jeton Action 
 			
-			if (nJA1 == true || nJA2 == true || nJA3 == true || nJA4 == true) {
+ 			if (nJA1 == true || nJA2 == true || nJA3 == true || nJA4 == true) {
 				if(nJA1 == true) {g2.drawImage(tabShuffleJA[0][0].getImgJA(), 1100, 450, null); }// Affichage du Jeton 1
 				else if(nJA2 == true) {g2.drawImage(tabShuffleJA[1][0].getImgJA(), 1100, 520, null);} // Affichage du Jeton 2
 				else if(nJA3 == true) {g2.drawImage(tabShuffleJA[2][0].getImgJA(), 1100, 590, null);} // Affichage du Jeton 3
