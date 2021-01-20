@@ -105,12 +105,12 @@ public class Clavier implements KeyListener{
 				else if( Main.scene.tabShuffleJA[1][0] == Main.scene.jA2_1 && Main.scene.JA2 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2)) {
 					Main.scene.nbr_depla = (e.getKeyCode() - 48);
 					if (Main.scene.nbr_depla == 1) {
-						Main.scene.posTobi();
+						Main.scene.Tobi.Mouvement();
 						Main.scene.repaint();
 					}
 					if (Main.scene.nbr_depla == 2) {
-						Main.scene.posTobi();
-						Main.scene.posTobi();
+						Main.scene.Tobi.Mouvement();
+						Main.scene.Tobi.Mouvement();
 						Main.scene.repaint();
 					}
 					Main.scene.JA2 = false;
@@ -120,12 +120,12 @@ public class Clavier implements KeyListener{
 				else if( Main.scene.tabShuffleJA[1][0] == Main.scene.jA2_2 && Main.scene.JA2 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false) {
 					Main.scene.nbr_depla = (e.getKeyCode() - 48);
 					if (Main.scene.nbr_depla == 1) {
-						Main.scene.posWatson();
+						Main.scene.Watson.Mouvement();
 						Main.scene.repaint();
 					}
 					if (Main.scene.nbr_depla == 2) {
-						Main.scene.posWatson();
-						Main.scene.posWatson();
+						Main.scene.Watson.Mouvement();
+						Main.scene.Watson.Mouvement();
 						Main.scene.repaint();
 					}
 					Main.scene.JA2 = false;
@@ -143,12 +143,12 @@ public class Clavier implements KeyListener{
 			else if( Main.scene.tabShuffleJA[2][0] == Main.scene.jA3_1 && Main.scene.JA3 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2)) {
 				Main.scene.nbr_depla = (e.getKeyCode() - 48);
 				if (Main.scene.nbr_depla == 1) {
-					Main.scene.posSherlock();
+					Main.scene.Sherlock.Mouvement();
 					Main.scene.repaint();
 				}
 				if (Main.scene.nbr_depla == 2) {
-					Main.scene.posSherlock();
-					Main.scene.posSherlock();
+					Main.scene.Sherlock.Mouvement();
+					Main.scene.Sherlock.Mouvement();
 					Main.scene.repaint();
 				}
 				Main.scene.JA3 = false;
