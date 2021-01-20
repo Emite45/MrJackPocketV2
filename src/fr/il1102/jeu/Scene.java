@@ -32,59 +32,57 @@ public class Scene extends JPanel {
 	private Image imgFond;
 
 															// Tuile \\ 
-	// On déclare toute nos positions de tuiles
-	public Tuile T1;
-	public Tuile T1_90;
-	public Tuile T1_180;
-	public Tuile T1_r90;
+	// Initialisation des tuiles
+	public Tuile T1 = new Tuile("/images/tuile_de_rue_face_suspect1.png");
+	public Tuile T1_90 = new Tuile("/images/tuile_de_rue_face_suspect1_90.png");
+	public Tuile T1_180 = new Tuile("/images/tuile_de_rue_face_suspect1_180.png");
+	public Tuile T1_r90 = new Tuile("/images/tuile_de_rue_face_suspect1_-90.png");
 
-	public Tuile T2;
-	public Tuile T2_90;
-	public Tuile T2_180;
-	public Tuile T2_r90;
-
-	public Tuile T3;
-	public Tuile T3_90;
-	public Tuile T3_180;
-	public Tuile T3_r90;
-
-	public Tuile T4;
-	public Tuile T4_90;
-	public Tuile T4_180;
-	public Tuile T4_r90;
-
-	public Tuile T5;
-	public Tuile T5_90;
-	public Tuile T5_180;
-	public Tuile T5_r90;
-
-	public Tuile T6;
-	public Tuile T6_90;
-	public Tuile T6_180;
-	public Tuile T6_r90;
-
-	public Tuile T7;
-	public Tuile T7_90;
-	public Tuile T7_180;
-	public Tuile T7_r90;
-
-	public Tuile T8;
-	public Tuile T8_90;
-	public Tuile T8_180;
-	public Tuile T8_r90;
-
-	public Tuile T9;
-	public Tuile T9_90;
-	public Tuile T9_180;
-	public Tuile T9_r90;
+	public Tuile T2 = new Tuile("/images/tuile_de_rue_face_suspect2.png");
+	public Tuile T2_90 = new Tuile("/images/tuile_de_rue_face_suspect2_90.png");
+	public Tuile T2_180 = new Tuile("/images/tuile_de_rue_face_suspect2_180.png");
+	public Tuile T2_r90 = new Tuile("/images/tuile_de_rue_face_suspect2_-90.png");
 	
-	public Tuile Td;
-	public Tuile Td_90;
-	public Tuile Td_180;
-	public Tuile Td_r90;
-	public Tuile Td_x;
+	public Tuile T3 = new Tuile("/images/tuile_de_rue_face_suspect3.png");
+	public Tuile T3_90  = new Tuile("/images/tuile_de_rue_face_suspect3_90.png");
+	public Tuile T3_180 = new Tuile("/images/tuile_de_rue_face_suspect3_180.png");
+	public Tuile T3_r90 = new Tuile("/images/tuile_de_rue_face_suspect3_-90.png");
+	
+	public Tuile T4 = new Tuile("/images/tuile_de_rue_face_suspect4.png");
+	public Tuile T4_90 = new Tuile("/images/tuile_de_rue_face_suspect4_90.png");
+	public Tuile T4_180 = new Tuile("/images/tuile_de_rue_face_suspect4_180.png");
+	public Tuile T4_r90 = new Tuile("/images/tuile_de_rue_face_suspect4_-90.png");
+	
+	public Tuile T5 = new Tuile("/images/tuile_de_rue_face_suspect5.png");
+	public Tuile T5_90 = new Tuile("/images/tuile_de_rue_face_suspect5_90.png");
+	public Tuile T5_180 = new Tuile("/images/tuile_de_rue_face_suspect5_180.png");
+	public Tuile T5_r90 = new Tuile("/images/tuile_de_rue_face_suspect5_-90.png");
 
+	public Tuile T6 = new Tuile("/images/tuile_de_rue_face_suspect6.png");
+	public Tuile T6_90  = new Tuile("/images/tuile_de_rue_face_suspect6_90.png");
+	public Tuile T6_180  = new Tuile("/images/tuile_de_rue_face_suspect6_180.png");
+	public Tuile T6_r90  = new Tuile("/images/tuile_de_rue_face_suspect6_m90.png");
 
+	public Tuile T7  = new Tuile("/images/tuile_de_rue_face_suspect7.png");
+	public Tuile T7_90 = new Tuile("/images/tuile_de_rue_face_suspect7_90.png");
+	public Tuile T7_180 = new Tuile("/images/tuile_de_rue_face_suspect7_180.png");
+	public Tuile T7_r90 = new Tuile("/images/tuile_de_rue_face_suspect7_-90.png");
+
+	public Tuile T8 = new Tuile("/images/tuile_de_rue_face_suspect8.png");
+	public Tuile T8_90 = new Tuile("/images/tuile_de_rue_face_suspect8_90.png");
+	public Tuile T8_180 = new Tuile("/images/tuile_de_rue_face_suspect8_180.png");
+	public Tuile T8_r90 = new Tuile("/images/tuile_de_rue_face_suspect8_-90.png");
+
+	public Tuile T9 = new Tuile("/images/tuile_de_rue_face_suspect9.png");
+	public Tuile T9_90 = new Tuile("/images/tuile_de_rue_face_suspect9_90.png");
+	public Tuile T9_180 = new Tuile("/images/tuile_de_rue_face_suspect9_180.png");
+	public Tuile T9_r90 = new Tuile("/images/tuile_de_rue_face_suspect9_m90.png");
+	
+	public Tuile Td = new Tuile("/images/common-verso.png");
+	public Tuile Td_90  = new Tuile("/images/common-verso_90.png");
+	public Tuile Td_180 = new Tuile("/images/common-verso_180.png");
+	public Tuile Td_r90 = new Tuile("/images/common-verso_-90.png");
+	public Tuile Td_x = new Tuile("/images/JosephLane-verso.png");
 
 	
 	public int tChange1; //Indice de la première tuile que l'on veut changer
@@ -101,27 +99,12 @@ public class Scene extends JPanel {
 	public Tuile[][] tabShuffleTuile;
 	
 														// Detective \\
-	//Il existe en 12 positions possible pour les détectives ce qui fait 12 combinaisons en tout avec 5 différentes en x et 5 en y
-	private int xDetec1;
-	private int xDetec2;
-	private int xDetec3;
-	private int xDetec4;
-	private int xDetec5;
-	private int yDetec1;
-	private int yDetec2;
-	private int yDetec3;
-	private int yDetec4;
-	private int yDetec5;
-	
+
 	// On declare nos détectives
 	public Detective Sherlock;
-	private int xSherlock, ySherlock; 	//Position de Sherlock sur la table de jeu
 	public Detective Watson;
-	private int xWatson, yWatson;		//Position de Watson sur la table de jeu
 	public Detective Tobi;
-	private int xTobi, yTobi;			//Position de Tobi sur la table de jeu
 
-	
 													// Jeton Actions \\
 	
 	
@@ -192,63 +175,6 @@ public class Scene extends JPanel {
 		
 		icoFondLondres = new ImageIcon(getClass().getResource("/images/fondJackWelcome.png"));
 		this.imgFondLondres = this.icoFondLondres.getImage();
-
-
-		
-														//TUILE\\
-		// On instancie toute nos tuiles
-		this.T1 = new Tuile("/images/tuile_de_rue_face_suspect1.png");
-		this.T1_90 = new Tuile("/images/tuile_de_rue_face_suspect1_90.png");
-		this.T1_180 = new Tuile("/images/tuile_de_rue_face_suspect1_180.png");
-		this.T1_r90 = new Tuile("/images/tuile_de_rue_face_suspect1_-90.png");
-
-		this.T2 = new Tuile("/images/tuile_de_rue_face_suspect2.png");
-		this.T2_90 = new Tuile("/images/tuile_de_rue_face_suspect2_90.png");
-		this.T2_180 = new Tuile("/images/tuile_de_rue_face_suspect2_180.png");
-		this.T2_r90 = new Tuile("/images/tuile_de_rue_face_suspect2_-90.png");
-
-		this.T3 = new Tuile("/images/tuile_de_rue_face_suspect3.png");
-		this.T3_90 = new Tuile("/images/tuile_de_rue_face_suspect3_90.png");
-		this.T3_180 = new Tuile("/images/tuile_de_rue_face_suspect3_180.png");
-		this.T3_r90 = new Tuile("/images/tuile_de_rue_face_suspect3_-90.png");
-
-		this.T4 = new Tuile("/images/tuile_de_rue_face_suspect4.png");
-		this.T4_90 = new Tuile("/images/tuile_de_rue_face_suspect4_90.png");
-		this.T4_180 = new Tuile("/images/tuile_de_rue_face_suspect4_180.png");
-		this.T4_r90 = new Tuile("/images/tuile_de_rue_face_suspect4_-90.png");
-
-		this.T5 = new Tuile("/images/tuile_de_rue_face_suspect5.png");
-		this.T5_90 = new Tuile("/images/tuile_de_rue_face_suspect5_90.png");
-		this.T5_180 = new Tuile("/images/tuile_de_rue_face_suspect5_180.png");
-		this.T5_r90 = new Tuile("/images/tuile_de_rue_face_suspect5_-90.png");
-
-		this.T6 = new Tuile("/images/tuile_de_rue_face_suspect6.png");
-		this.T6_90 = new Tuile("/images/tuile_de_rue_face_suspect6_90.png");
-		this.T6_180 = new Tuile("/images/tuile_de_rue_face_suspect6_180.png");
-		this.T6_r90 = new Tuile("/images/tuile_de_rue_face_suspect6_m90.png");
-
-		this.T7 = new Tuile("/images/tuile_de_rue_face_suspect7.png");
-		this.T7_90 = new Tuile("/images/tuile_de_rue_face_suspect7_90.png");
-		this.T7_180 = new Tuile("/images/tuile_de_rue_face_suspect7_180.png");
-		this.T7_r90 = new Tuile("/images/tuile_de_rue_face_suspect7_-90.png");
-
-		this.T8 = new Tuile("/images/tuile_de_rue_face_suspect8.png");
-		this.T8_90 = new Tuile("/images/tuile_de_rue_face_suspect8_90.png");
-		this.T8_180 = new Tuile("/images/tuile_de_rue_face_suspect8_180.png");
-		this.T8_r90 = new Tuile("/images/tuile_de_rue_face_suspect8_-90.png");
-
-		this.T9 = new Tuile("/images/tuile_de_rue_face_suspect9.png");
-		this.T9_90 = new Tuile("/images/tuile_de_rue_face_suspect9_90.png");
-		this.T9_180 = new Tuile("/images/tuile_de_rue_face_suspect9_180.png");
-		this.T9_r90 = new Tuile("/images/tuile_de_rue_face_suspect9_m90.png");
-		
-		this.Td = new Tuile("/images/common-verso.png");
-		this.Td_90 = new Tuile("/images/common-verso_90.png");
-		this.Td_180 = new Tuile("/images/common-verso_180.png");
-		this.Td_r90 = new Tuile("/images/common-verso_-90.png");
-		
-		this.Td_x = new Tuile("/images/JosephLane-verso.png");
-
 		
 		// Tableau de tuile que l'on mélange
 		this.tabShuffleTuile = Tuile.tuileMelange(T1, T1_90, T1_180, T1_r90, T2, T2_90, T2_180, T2_r90, T3, T3_90, T3_180,
@@ -292,33 +218,13 @@ public class Scene extends JPanel {
 
 														// Detective \\
 		//On instancie nos 3 detectives
-		this.Sherlock = new Detective("/images/Sherlock.png");
-		this.Watson = new Detective ("/images/Watson.png");
-		this.Tobi = new Detective ("/images/Tobi.png");
+		this.Sherlock = new Detective("/images/Sherlock.png", 210, 155);
+		this.Watson = new Detective ("/images/Watson.png", 880, 155);
+		this.Tobi = new Detective ("/images/Tobi.png", 545, 680);
+		
 
-		//On instancie nos positions possibles pour les détectives
-		// Il faut imaginer en tableau en 5x5 avec seulement les positions des bords du tableaux comme position possibles
-		xDetec1 = 300 - 80 - 10; 	// position [1,y]
-		xDetec2 = 300 + 55;			// position [2,y]
-		xDetec3 = 300 + 190 + 55;	// position [3,y]
-		xDetec4 = 300 + 2* 190 + 55;// position [4,y]
-		xDetec5 = 300 + 3* 190 + 10;// position [5,y]
-		yDetec1 = 100 - 80 - 10;	// position [x,1]
-		yDetec2 = 100 + 55;			// position [x,2]
-		yDetec3 = 100 + 190 + 55;	// position [x,3]
-		yDetec4 = 100 + 2* 190 + 55;// position [x,4]
-		yDetec5 = 100 + 3* 190 + 10;// position [x,5]
-		
-		// On affecte des positions de bases à nos detectives
-		xSherlock = xDetec1;
-		ySherlock = yDetec2;
-		xWatson = xDetec5;
-		yWatson = yDetec2;
-		xTobi = xDetec3;
-		yTobi = yDetec5;
 												//Jeton Action \\
-		
-		
+
 		this.jA1_1 = new JetonAction ("/images/Jeton1-Face1.png");
 		this.jA1_2 = new JetonAction ("/images/Jeton1-Face2.png");
 		this.jA2_1 = new JetonAction ("/images/Jeton2-Face1.png");
@@ -340,11 +246,6 @@ public class Scene extends JPanel {
 		this.nJA4 = true;
 		
 		this.nbr_depla = 0;
-		
-		
-		
-		
-		
 		
 												// Jeton Temps \\
 		
@@ -377,28 +278,15 @@ public class Scene extends JPanel {
 
 	// Getters
 
+	public Alibi[] getTabShuffleAlibi() { return tabShuffleAlibi;	}
+
+	public int gettRotat() { return tRotat;	}
+
+	public boolean isEcranAccueil() { return ecranAccueil;	}
 	
+	public boolean isEcranAlibi() { return ecranAlibi;	}
 
-	public Alibi[] getTabShuffleAlibi() {
-		return tabShuffleAlibi;
-	}
-
-	public int gettRotat() {
-		return tRotat;
-	}
-
-
-	public boolean isEcranAccueil() {
-		return ecranAccueil;
-	}
-	
-	public boolean isEcranAlibi() {
-		return ecranAlibi;
-	}
-
-	public boolean isChangeSelect() {
-		return changeSelect;
-	}
+	public boolean isChangeSelect() { return changeSelect;	}
 	
 	// Setters
 
@@ -426,76 +314,6 @@ public class Scene extends JPanel {
 
 
 	// Methodes
-	
-	public void posSherlock() { //Gère le deplacement de Sherlock
-	if(xSherlock == xDetec1) {														//Analyse la position des détectives
-			if (ySherlock == yDetec2) {xSherlock =xDetec2; ySherlock =yDetec1;}		//Modifie la position du detective à la position suivante
-			else if (ySherlock == yDetec3) { ySherlock =yDetec2;}
-			else { ySherlock= yDetec3;}
-		}
-		else if(ySherlock == yDetec1) {
-			if (xSherlock == xDetec2) {xSherlock =xDetec3;}
-			else if (xSherlock == xDetec3) { xSherlock =xDetec4;}
-			else { xSherlock= xDetec5; ySherlock= yDetec2;}
-		}
-		else if(xSherlock == xDetec5) {
-			if (ySherlock == yDetec2) {ySherlock= yDetec3;}
-			else if (ySherlock == yDetec3) { ySherlock =yDetec4;}
-			else { xSherlock =xDetec4; ySherlock =yDetec5;}
-		}
-		else if(ySherlock == yDetec5) {
-			if (xSherlock == xDetec4) {xSherlock =xDetec3;}
-			else if (xSherlock == xDetec3) { xSherlock =xDetec2;}
-			else { xSherlock= xDetec1; ySherlock= yDetec4;}
-		}
-	}
-	
-	public void posWatson() { //Gère le deplacement de Watson
-		if(xWatson == xDetec1) {
-			if (yWatson == yDetec2) {xWatson =xDetec2; yWatson =yDetec1;}
-			else if (yWatson == yDetec3) { yWatson =yDetec2;}
-			else { yWatson= yDetec3;}
-		}
-		else if(yWatson == yDetec1) {
-			if (xWatson == xDetec2) {xWatson =xDetec3;}
-			else if (xWatson == xDetec3) { xWatson =xDetec4;}
-			else { xWatson= xDetec5; yWatson= yDetec2;}
-		}
-		else if(xWatson == xDetec5) {
-			if (yWatson == yDetec2) {yWatson= yDetec3;}
-			else if (yWatson == yDetec3) { yWatson =yDetec4;}
-			else { xWatson =xDetec4; yWatson =yDetec5;}
-		}
-		else if(yWatson == yDetec5) {
-			if (xWatson == xDetec4) {xWatson =xDetec3;}
-			else if (xWatson == xDetec3) { xWatson =xDetec2;}
-			else { xWatson= xDetec1; yWatson= yDetec4;}
-		}
-	}
-	
-	public void posTobi() { //Gère le deplacement de Tobi
-
-		if(xTobi == xDetec1) {
-			if (yTobi == yDetec2) {xTobi =xDetec2; yTobi =yDetec1;}
-			else if (yTobi == yDetec3) { yTobi =yDetec2;}
-			else { yTobi= yDetec3;}
-		}
-		else if(yTobi == yDetec1) {
-			if (xTobi == xDetec2) {xTobi =xDetec3;}
-			else if (xTobi == xDetec3) { xTobi =xDetec4;}
-			else { xTobi= xDetec5; yTobi= yDetec2;}
-		}
-		else if(xTobi == xDetec5) {
-			if (yTobi == yDetec2) {yTobi= yDetec3;}
-			else if (yTobi == yDetec3) { yTobi =yDetec4;}
-			else { xTobi =xDetec4; yTobi =yDetec5;}
-		}
-		else if(yTobi == yDetec5) {
-			if (xTobi == xDetec4) {xTobi =xDetec3;}
-			else if (xTobi == xDetec3) { xTobi =xDetec2;}
-			else { xTobi= xDetec1; yTobi= yDetec4;}
-		}
-	}
 	
 	public void retournerTuile(int tTurn) {								//Retourne la tuile en fonction de son orientation
 		List<Tuile> listTuile = Arrays.asList(tabShuffleTuile[tTurn]);
@@ -717,9 +535,7 @@ public class Scene extends JPanel {
 			
 		} else if (ecranAlibi == false && ecranAccueil == false ) { //ecran du plateau de jeu
 			
-			
-			
-			
+
 			//g2.drawImage(this.imgFond, 0, 0, null); // Affichage du fond noir
 			g2.drawImage( this.imgFondLondres, 0, 0, null); // Affichage du fond
 
@@ -738,9 +554,9 @@ public class Scene extends JPanel {
 			g2.drawImage(tabShuffleTuile[7][0].getImgTuile(), 490, 480, null); // Affichage de la tuile en Position 2
 			g2.drawImage(tabShuffleTuile[8][0].getImgTuile(), 680, 480, null); // Affichage de la tuile en Position 3
 
-			g2.drawImage(this.Sherlock.getImgDetec(), this.xSherlock, this.ySherlock, null);
-			g2.drawImage(this.Tobi.getImgDetec(), this.xTobi, this.yTobi, null);
-			g2.drawImage(this.Watson.getImgDetec(), this.xWatson , this.yWatson, null);
+			g2.drawImage(this.Sherlock.getImgDetec(), this.Sherlock.getxPosition(), this.Sherlock.getyPosition(), null);
+			g2.drawImage(this.Tobi.getImgDetec(), this.Tobi.getxPosition(), this.Tobi.getyPosition(), null);
+			g2.drawImage(this.Watson.getImgDetec(), this.Watson.getxPosition() , this.Watson.getyPosition(), null);
 
 			
 			// Jeton Action 
@@ -758,8 +574,7 @@ public class Scene extends JPanel {
 				g2.drawImage(tabShuffleJA[3][1].getImgJA(), 1100, 660, null); // Affichage du Jeton 4
 			}
 			
-			
-			
+	
 			// Jeton temps
 
 
@@ -777,7 +592,6 @@ public class Scene extends JPanel {
 			
 
 			
-			
 			for (int i = 1; i <= nAlibiFC ; i++) {
 				if(nAlibiFC != 0) {g2.drawImage(this.alibiCarte.getImgAlibi(), 1000 + 20 * i, 20 * i, null);}}
 			if (nAlibiFC < 8) {
@@ -788,4 +602,4 @@ public class Scene extends JPanel {
 		}
 	}
 
-}
+	}

@@ -37,15 +37,15 @@ public class Clavier implements KeyListener{
 		//Deplacement des detectives
 
 		else if(e.getKeyCode() == KeyEvent.VK_S) { 		//Sherlock
-			Main.scene.posSherlock();
+			Main.scene.Sherlock.Mouvement();;
 			Main.scene.repaint();
 		}
 		else if(e.getKeyCode() == KeyEvent.VK_W) { 		//Watson
-			Main.scene.posWatson();
+			Main.scene.Watson.Mouvement();
 			Main.scene.repaint();
 		}
 		else if(e.getKeyCode() == KeyEvent.VK_T) { 		//Tobi
-			Main.scene.posTobi();
+			Main.scene.Tobi.Mouvement();
 			Main.scene.repaint();
 		}
 		
