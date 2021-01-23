@@ -19,7 +19,7 @@ public class Tuile {
 	private int largeur;
 	@SuppressWarnings("unused")
 	private int hauteur;
-
+	
 	
 	// Constructeurs
 
