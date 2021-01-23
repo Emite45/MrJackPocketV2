@@ -33,56 +33,56 @@ public class Scene extends JPanel {
 
 															// Tuile \\ 
 	// Initialisation des tuiles
-	public Tuile T1 = new Tuile("/images/tuile_de_rue_face_suspect1.png");
-	public Tuile T1_90 = new Tuile("/images/tuile_de_rue_face_suspect1_90.png");
-	public Tuile T1_180 = new Tuile("/images/tuile_de_rue_face_suspect1_180.png");
-	public Tuile T1_r90 = new Tuile("/images/tuile_de_rue_face_suspect1_-90.png");
+	public Tuile T1 = new Tuile("/images/tuile_de_rue_face_suspect1.png", "madame");
+	public Tuile T1_90 = new Tuile("/images/tuile_de_rue_face_suspect1_90.png", "madame");
+	public Tuile T1_180 = new Tuile("/images/tuile_de_rue_face_suspect1_180.png","madame");
+	public Tuile T1_r90 = new Tuile("/images/tuile_de_rue_face_suspect1_-90.png","madame");
 
-	public Tuile T2 = new Tuile("/images/tuile_de_rue_face_suspect2.png");
-	public Tuile T2_90 = new Tuile("/images/tuile_de_rue_face_suspect2_90.png");
-	public Tuile T2_180 = new Tuile("/images/tuile_de_rue_face_suspect2_180.png");
-	public Tuile T2_r90 = new Tuile("/images/tuile_de_rue_face_suspect2_-90.png");
+	public Tuile T2 = new Tuile("/images/tuile_de_rue_face_suspect2.png", "sgtgoodley");
+	public Tuile T2_90 = new Tuile("/images/tuile_de_rue_face_suspect2_90.png", "sgtgoodley");
+	public Tuile T2_180 = new Tuile("/images/tuile_de_rue_face_suspect2_180.png", "sgtgoodley");
+	public Tuile T2_r90 = new Tuile("/images/tuile_de_rue_face_suspect2_-90.png", "sgtgoodley");
 	
-	public Tuile T3 = new Tuile("/images/tuile_de_rue_face_suspect3.png");
-	public Tuile T3_90  = new Tuile("/images/tuile_de_rue_face_suspect3_90.png");
-	public Tuile T3_180 = new Tuile("/images/tuile_de_rue_face_suspect3_180.png");
-	public Tuile T3_r90 = new Tuile("/images/tuile_de_rue_face_suspect3_-90.png");
+	public Tuile T3 = new Tuile("/images/tuile_de_rue_face_suspect3.png", "jeremybert");
+	public Tuile T3_90  = new Tuile("/images/tuile_de_rue_face_suspect3_90.png", "jeremybert");
+	public Tuile T3_180 = new Tuile("/images/tuile_de_rue_face_suspect3_180.png", "jeremybert");
+	public Tuile T3_r90 = new Tuile("/images/tuile_de_rue_face_suspect3_-90.png", "jeremybert");
 	
-	public Tuile T4 = new Tuile("/images/tuile_de_rue_face_suspect4.png");
-	public Tuile T4_90 = new Tuile("/images/tuile_de_rue_face_suspect4_90.png");
-	public Tuile T4_180 = new Tuile("/images/tuile_de_rue_face_suspect4_180.png");
-	public Tuile T4_r90 = new Tuile("/images/tuile_de_rue_face_suspect4_-90.png");
+	public Tuile T4 = new Tuile("/images/tuile_de_rue_face_suspect4.png", "williamgull");
+	public Tuile T4_90 = new Tuile("/images/tuile_de_rue_face_suspect4_90.png", "williamgull");
+	public Tuile T4_180 = new Tuile("/images/tuile_de_rue_face_suspect4_180.png", "williamgull");
+	public Tuile T4_r90 = new Tuile("/images/tuile_de_rue_face_suspect4_-90.png", "williamgull");
 	
-	public Tuile T5 = new Tuile("/images/tuile_de_rue_face_suspect5.png");
-	public Tuile T5_90 = new Tuile("/images/tuile_de_rue_face_suspect5_90.png");
-	public Tuile T5_180 = new Tuile("/images/tuile_de_rue_face_suspect5_180.png");
-	public Tuile T5_r90 = new Tuile("/images/tuile_de_rue_face_suspect5_-90.png");
+	public Tuile T5 = new Tuile("/images/tuile_de_rue_face_suspect5.png", "missstealthy");
+	public Tuile T5_90 = new Tuile("/images/tuile_de_rue_face_suspect5_90.png", "missstealthy");
+	public Tuile T5_180 = new Tuile("/images/tuile_de_rue_face_suspect5_180.png", "missstealthy");
+	public Tuile T5_r90 = new Tuile("/images/tuile_de_rue_face_suspect5_-90.png", "missstealthy");
 
-	public Tuile T6 = new Tuile("/images/tuile_de_rue_face_suspect6.png");
-	public Tuile T6_90  = new Tuile("/images/tuile_de_rue_face_suspect6_90.png");
-	public Tuile T6_180  = new Tuile("/images/tuile_de_rue_face_suspect6_180.png");
-	public Tuile T6_r90  = new Tuile("/images/tuile_de_rue_face_suspect6_m90.png");
+	public Tuile T6 = new Tuile("/images/tuile_de_rue_face_suspect6.png", "johnsmith");
+	public Tuile T6_90  = new Tuile("/images/tuile_de_rue_face_suspect6_90.png", "johnsmith");
+	public Tuile T6_180  = new Tuile("/images/tuile_de_rue_face_suspect6_180.png", "johnsmith");
+	public Tuile T6_r90  = new Tuile("/images/tuile_de_rue_face_suspect6_m90.png", "johnsmith");
 
-	public Tuile T7  = new Tuile("/images/tuile_de_rue_face_suspect7.png");
-	public Tuile T7_90 = new Tuile("/images/tuile_de_rue_face_suspect7_90.png");
-	public Tuile T7_180 = new Tuile("/images/tuile_de_rue_face_suspect7_180.png");
-	public Tuile T7_r90 = new Tuile("/images/tuile_de_rue_face_suspect7_-90.png");
+	public Tuile T7  = new Tuile("/images/tuile_de_rue_face_suspect7.png", "lestrade");
+	public Tuile T7_90 = new Tuile("/images/tuile_de_rue_face_suspect7_90.png", "lestrade");
+	public Tuile T7_180 = new Tuile("/images/tuile_de_rue_face_suspect7_180.png", "lestrade");
+	public Tuile T7_r90 = new Tuile("/images/tuile_de_rue_face_suspect7_-90.png", "lestrade");
 
-	public Tuile T8 = new Tuile("/images/tuile_de_rue_face_suspect8.png");
-	public Tuile T8_90 = new Tuile("/images/tuile_de_rue_face_suspect8_90.png");
-	public Tuile T8_180 = new Tuile("/images/tuile_de_rue_face_suspect8_180.png");
-	public Tuile T8_r90 = new Tuile("/images/tuile_de_rue_face_suspect8_-90.png");
+	public Tuile T8 = new Tuile("/images/tuile_de_rue_face_suspect8.png", "johnpizer");
+	public Tuile T8_90 = new Tuile("/images/tuile_de_rue_face_suspect8_90.png","johnpizer");
+	public Tuile T8_180 = new Tuile("/images/tuile_de_rue_face_suspect8_180.png", "johnpizer");
+	public Tuile T8_r90 = new Tuile("/images/tuile_de_rue_face_suspect8_-90.png", "johnpizer");
 
-	public Tuile T9 = new Tuile("/images/tuile_de_rue_face_suspect9.png");
-	public Tuile T9_90 = new Tuile("/images/tuile_de_rue_face_suspect9_90.png");
-	public Tuile T9_180 = new Tuile("/images/tuile_de_rue_face_suspect9_180.png");
-	public Tuile T9_r90 = new Tuile("/images/tuile_de_rue_face_suspect9_m90.png");
+	public Tuile T9 = new Tuile("/images/tuile_de_rue_face_suspect9.png", "josephlane");
+	public Tuile T9_90 = new Tuile("/images/tuile_de_rue_face_suspect9_90.png", "josephlane");
+	public Tuile T9_180 = new Tuile("/images/tuile_de_rue_face_suspect9_180.png", "josephlane");
+	public Tuile T9_r90 = new Tuile("/images/tuile_de_rue_face_suspect9_m90.png", "josephlane");
 	
-	public Tuile Td = new Tuile("/images/common-verso.png");
-	public Tuile Td_90  = new Tuile("/images/common-verso_90.png");
-	public Tuile Td_180 = new Tuile("/images/common-verso_180.png");
-	public Tuile Td_r90 = new Tuile("/images/common-verso_-90.png");
-	public Tuile Td_x = new Tuile("/images/JosephLane-verso.png");
+	public Tuile Td = new Tuile("/images/common-verso.png", "retournee");
+	public Tuile Td_90  = new Tuile("/images/common-verso_90.png", "retournee");
+	public Tuile Td_180 = new Tuile("/images/common-verso_180.png", "retournee");
+	public Tuile Td_r90 = new Tuile("/images/common-verso_-90.png", "retournee");
+	public Tuile Td_x = new Tuile("/images/JosephLane-verso.png", "retournee");
 
 	
 	public int tChange1; //Indice de la première tuile que l'on veut changer
@@ -193,17 +193,17 @@ public class Scene extends JPanel {
 
 															// Alibi \\
 		// On instancie tout nos Alibis
-		this.InspLestrade = new Alibi("/images/InspLestrade-alibi.png");
-		this.JeremyBert = new Alibi("/images/JeremyBert-alibi.png");
-		this.JohnPizer = new Alibi("/images/JohnPizer-alibi.png");
-		this.JohnSmith = new Alibi("/images/JohnSmith-alibi.png");
-		this.JosephLane = new Alibi("/images/JosephLane-alibi.png");
-		this.Madame = new Alibi("/images/Madame-alibi.png");
-		this.MissStealthy = new Alibi("/images/MissStealthy-alibi.png");
-		this.SgtGoodley = new Alibi("/images/SgtGoodley-alibi.png");
-		this.WilliamGull = new Alibi("/images/WilliamGull-alibi.png");
+		this.InspLestrade = new Alibi("/images/InspLestrade-alibi.png", "lestrade");
+		this.JeremyBert = new Alibi("/images/JeremyBert-alibi.png", "jeremybert");
+		this.JohnPizer = new Alibi("/images/JohnPizer-alibi.png", "johnpizer");
+		this.JohnSmith = new Alibi("/images/JohnSmith-alibi.png", "johnsmith");
+		this.JosephLane = new Alibi("/images/JosephLane-alibi.png", "josephlane");
+		this.Madame = new Alibi("/images/Madame-alibi.png", "madame");
+		this.MissStealthy = new Alibi("/images/MissStealthy-alibi.png", "missstealthy");
+		this.SgtGoodley = new Alibi("/images/SgtGoodley-alibi.png", "sgtgoodley");
+		this.WilliamGull = new Alibi("/images/WilliamGull-alibi.png", "williamgull");
 
-		this.alibiCarte = new Alibi("/images/alibi-card.png"); //Carte Alibi Face caché
+		this.alibiCarte = new Alibi("/images/alibi-card.png", "retourne"); //Carte Alibi Face caché
 		
 		this.idJack = false;
 		
@@ -547,5 +547,60 @@ public class Scene extends JPanel {
 
 		}
 	}
+	
+	public void appelATemoin() {
+		
+		Tuile tuile1 = tabShuffleTuile[0][0];
+		tuile1.setLigneGrille(2);
+		tuile1.setColonneGrille(2);
+		Tuile tuile2 = tabShuffleTuile[1][0];
+		tuile2.setLigneGrille(2);
+		tuile2.setColonneGrille(3);
+		Tuile tuile3 = tabShuffleTuile[2][0];
+		tuile3.setLigneGrille(2);
+		tuile3.setColonneGrille(4);
+		Tuile tuile4 = tabShuffleTuile[3][0];
+		tuile4.setLigneGrille(3);
+		tuile4.setColonneGrille(2);
+		Tuile tuile5 = tabShuffleTuile[4][0];
+		tuile5.setLigneGrille(3);
+		tuile5.setColonneGrille(3);
+		Tuile tuile6 = tabShuffleTuile[5][0];
+		tuile6.setLigneGrille(3);
+		tuile6.setColonneGrille(4);
+		Tuile tuile7 = tabShuffleTuile[6][0];
+		tuile7.setLigneGrille(4);
+		tuile7.setColonneGrille(2);
+		Tuile tuile8 = tabShuffleTuile[7][0];
+		tuile8.setLigneGrille(4);
+		tuile8.setColonneGrille(3);
+		Tuile tuile9 = tabShuffleTuile[8][0];
+		tuile9.setLigneGrille(4);
+		tuile9.setColonneGrille(4);
+		
+		// Recuperation tuile de Jack en fonction de son alibi
+		
+		Tuile tuileJack = null;
+		
+		Tuile[] grilleTuiles = {tuile1, tuile2, tuile3, tuile4, tuile5, tuile6, tuile7, tuile8, tuile9};
+		
+		for (int i = 0; i < grilleTuiles.length; i++) {
+			if (grilleTuiles[i].getName() == tabShuffleAlibi[0].getName()) {
+				tuileJack = grilleTuiles[i];
+				break;
+			}
+		}
+		
+		//System.out.println(tuileJack.getName());
+		
+		Sherlock.updatePositionGrille();
+		Watson.updatePositionGrille();
+		Tobi.updatePositionGrille();
+		
+		System.out.println("Sherlock est en "+ Sherlock.ligneGrille +"," + Sherlock.colonneGrille);
+		System.out.println("Watson est en "+ Watson.ligneGrille +"," + Watson.colonneGrille);
+		System.out.println("Tobi est en "+ Tobi.ligneGrille +"," + Tobi.colonneGrille);
+		System.out.println("Jack est en "+ tuileJack.ligneGrille +"," + tuileJack.colonneGrille);
 
 	}
+}
