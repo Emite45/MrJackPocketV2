@@ -315,40 +315,6 @@ public class Scene extends JPanel {
 
 	// Methodes
 	
-	public void retournerTuile(int tTurn) {								//Retourne la tuile en fonction de son orientation
-		
-		if (tabShuffleTuile[tTurn][0] == T1 || tabShuffleTuile[tTurn][0] == T2 || tabShuffleTuile[tTurn][0] == T3 || tabShuffleTuile[tTurn][0] == T4 || tabShuffleTuile[tTurn][0] == T5 || tabShuffleTuile[tTurn][0] == T6 || tabShuffleTuile[tTurn][0] == T7 || tabShuffleTuile[tTurn][0] == T8) {
-			
-			tabShuffleTuile[tTurn][0]= Td;
-			
-		}
-			
-		else if (tabShuffleTuile[tTurn][0] == T1_90 || tabShuffleTuile[tTurn][0] == T2_90 || tabShuffleTuile[tTurn][0] == T3_90 || tabShuffleTuile[tTurn][0] == T4_90 || tabShuffleTuile[tTurn][0] == T5_90 ||tabShuffleTuile[tTurn][0] == T6_90 || tabShuffleTuile[tTurn][0] == T7_90 || tabShuffleTuile[tTurn][0] == T8_90) {
-			
-			tabShuffleTuile[tTurn][0]= Td_90;
-			
-		}
-			
-		else if (tabShuffleTuile[tTurn][0] == T1_180 || tabShuffleTuile[tTurn][0] == T2_180 || tabShuffleTuile[tTurn][0] == T3_180 || tabShuffleTuile[tTurn][0] == T4_180 || tabShuffleTuile[tTurn][0] == T5_180 || tabShuffleTuile[tTurn][0] == T6_180 || tabShuffleTuile[tTurn][0] == T7_180 || tabShuffleTuile[tTurn][0] == T8_180) {
-			
-			tabShuffleTuile[tTurn][0]= Td_180;
-			
-		}
-			
-		else if (tabShuffleTuile[tTurn][0] == T1_r90 || tabShuffleTuile[tTurn][0] == T2_r90 || tabShuffleTuile[tTurn][0] == T3_r90 || tabShuffleTuile[tTurn][0] == T4_r90 || tabShuffleTuile[tTurn][0] == T5_r90 || tabShuffleTuile[tTurn][0] == T6_r90 || tabShuffleTuile[tTurn][0] == T7_r90 || tabShuffleTuile[tTurn][0] == T8_r90) {
-			
-			tabShuffleTuile[tTurn][0]= Td_r90;
-			
-		}
-		
-		else if(tabShuffleTuile[tTurn][0] == T9 || tabShuffleTuile[tTurn][0] == T9_90 || tabShuffleTuile[tTurn][0] == T9_180 || tabShuffleTuile[tTurn][0] == T9_r90) {
-			
-			tabShuffleTuile[tTurn][0]= Td_x;
-		
-		}
-		
-	}
-	
 	public void echangerTuile(int tChange1, int tChange2) {  // Echange deux grandes listes du tableaux
 		List<Tuile []> listTuile = Arrays.asList(tabShuffleTuile);
 		Collections.swap(listTuile, tChange1, tChange2);
@@ -429,42 +395,42 @@ public class Scene extends JPanel {
 
 		if (tabShuffleAlibi[nAlibi] == Madame) {
 			for(int i= 0; i<9; i++) {
-				if(tabShuffleTuile[i][0] == T1 || tabShuffleTuile[i][0] == T1_90 || tabShuffleTuile[i][0] == T1_180 || tabShuffleTuile[i][0] == T1_r90) {this.retournerTuile(i);}}
+				if(tabShuffleTuile[i][0] == T1 || tabShuffleTuile[i][0] == T1_90 || tabShuffleTuile[i][0] == T1_180 || tabShuffleTuile[i][0] == T1_r90) {this.tabShuffleTuile[i][0].retourner();}}
 			}
 		else if (tabShuffleAlibi[nAlibi] == SgtGoodley) {
 			for(int i= 0; i<9; i++) {
-				if(tabShuffleTuile[i][0] == T2 || tabShuffleTuile[i][0] == T2_90 || tabShuffleTuile[i][0] == T2_180 || tabShuffleTuile[i][0] == T2_r90) {this.retournerTuile(i);}}
+				if(tabShuffleTuile[i][0] == T2 || tabShuffleTuile[i][0] == T2_90 || tabShuffleTuile[i][0] == T2_180 || tabShuffleTuile[i][0] == T2_r90) {this.tabShuffleTuile[i][0].retourner();}}
 			}
 		else if (tabShuffleAlibi[nAlibi] == JeremyBert) {
 			for(int i= 0; i<9; i++) {
-				if(tabShuffleTuile[i][0] == T3 || tabShuffleTuile[i][0] == T3_90 || tabShuffleTuile[i][0] == T3_180 || tabShuffleTuile[i][0] == T3_r90) {this.retournerTuile(i);}}
+				if(tabShuffleTuile[i][0] == T3 || tabShuffleTuile[i][0] == T3_90 || tabShuffleTuile[i][0] == T3_180 || tabShuffleTuile[i][0] == T3_r90) {this.tabShuffleTuile[i][0].retourner();}}
 			}
 		else if (tabShuffleAlibi[nAlibi] == WilliamGull) {
 			for(int i= 0; i<9; i++) {
-				if(tabShuffleTuile[i][0] == T4 || tabShuffleTuile[i][0] == T4_90 || tabShuffleTuile[i][0] == T4_180 || tabShuffleTuile[i][0] == T4_r90) {this.retournerTuile(i);}}
+				if(tabShuffleTuile[i][0] == T4 || tabShuffleTuile[i][0] == T4_90 || tabShuffleTuile[i][0] == T4_180 || tabShuffleTuile[i][0] == T4_r90) {this.tabShuffleTuile[i][0].retourner();}}
 			}
 		else if (tabShuffleAlibi[nAlibi] == MissStealthy) {
 			for(int i= 0; i<9; i++) {
-				if(tabShuffleTuile[i][0] == T5 || tabShuffleTuile[i][0] == T5_90 || tabShuffleTuile[i][0] == T5_180 || tabShuffleTuile[i][0] == T5_r90) {this.retournerTuile(i);}}
+				if(tabShuffleTuile[i][0] == T5 || tabShuffleTuile[i][0] == T5_90 || tabShuffleTuile[i][0] == T5_180 || tabShuffleTuile[i][0] == T5_r90) {this.tabShuffleTuile[i][0].retourner();}}
 			}
 		else if (tabShuffleAlibi[nAlibi] == JohnSmith) {
 			for(int i= 0; i<9; i++) {
-				if(tabShuffleTuile[i][0] == T6 || tabShuffleTuile[i][0] == T6_90 || tabShuffleTuile[i][0] == T6_180 || tabShuffleTuile[i][0] == T6_r90) {this.retournerTuile(i);}}
+				if(tabShuffleTuile[i][0] == T6 || tabShuffleTuile[i][0] == T6_90 || tabShuffleTuile[i][0] == T6_180 || tabShuffleTuile[i][0] == T6_r90) {this.tabShuffleTuile[i][0].retourner();}}
 			}
 		else if (tabShuffleAlibi[nAlibi] == InspLestrade) {
 			for(int i= 0; i<9; i++) {
-				if(tabShuffleTuile[i][0] == T7 || tabShuffleTuile[i][0] == T7_90 || tabShuffleTuile[i][0] == T7_180 || tabShuffleTuile[i][0] == T7_r90) {this.retournerTuile(i);}}
+				if(tabShuffleTuile[i][0] == T7 || tabShuffleTuile[i][0] == T7_90 || tabShuffleTuile[i][0] == T7_180 || tabShuffleTuile[i][0] == T7_r90) {this.tabShuffleTuile[i][0].retourner();}}
 			}
 		else if (tabShuffleAlibi[nAlibi] == JohnPizer) {
 			for(int i= 0; i<9; i++) {
-				if(tabShuffleTuile[i][0] == T8 || tabShuffleTuile[i][0] == T8_90 || tabShuffleTuile[i][0] == T8_180 || tabShuffleTuile[i][0] == T8_r90) {this.retournerTuile(i);}}
+				if(tabShuffleTuile[i][0] == T8 || tabShuffleTuile[i][0] == T8_90 || tabShuffleTuile[i][0] == T8_180 || tabShuffleTuile[i][0] == T8_r90) {this.tabShuffleTuile[i][0].retourner();}}
 			}
 		else if (tabShuffleAlibi[nAlibi] == JosephLane) {
 			for(int i= 0; i<9; i++) {
-				if(tabShuffleTuile[i][0] == T9 || tabShuffleTuile[i][0] == T9_90 || tabShuffleTuile[i][0] == T9_180 || tabShuffleTuile[i][0] == T9_r90) {this.retournerTuile(i);}}
+				if(tabShuffleTuile[i][0] == T9 || tabShuffleTuile[i][0] == T9_90 || tabShuffleTuile[i][0] == T9_180 || tabShuffleTuile[i][0] == T9_r90) {this.tabShuffleTuile[i][0].retourner();}}
 			}
 		
-	}
+	} 
 
 	public void paintComponent(Graphics g) {
 

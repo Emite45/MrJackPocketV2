@@ -20,6 +20,8 @@ public class Tuile {
 	@SuppressWarnings("unused")
 	private int hauteur;
 	
+	public int ligneGrille;
+	public int colonneGrille;
 	
 	// Constructeurs
 
@@ -69,4 +71,44 @@ public class Tuile {
 			return tabShuffleTuile; //retourne le tableau m�lang�
 		}
 
+		public void retourner() {								//Retourne la tuile en fonction de son orientation
+			
+			if (this.str == "/images/tuile_de_rue_face_suspect1.png" || this.str == "/images/tuile_de_rue_face_suspect2.png" || this.str == "/images/tuile_de_rue_face_suspect3.png" || this.str == "/images/tuile_de_rue_face_suspect4.png" || this.str == "/images/tuile_de_rue_face_suspect5.png" || this.str == "/images/tuile_de_rue_face_suspect6.png" || this.str == "/images/tuile_de_rue_face_suspect7.png" || this.str == "/images/tuile_de_rue_face_suspect8.png") {
+				
+				this.icoTuile = new ImageIcon(getClass().getResource("/images/common-verso.png"));
+				this.imgTuile = this.icoTuile.getImage();
+				
+			}
+				
+			else if (this.str == "/images/tuile_de_rue_face_suspect1_90.png" || this.str == "/images/tuile_de_rue_face_suspect2_90.png" || this.str == "/images/tuile_de_rue_face_suspect3_90.png" || this.str == "/images/tuile_de_rue_face_suspect4_90.png" || this.str == "/images/tuile_de_rue_face_suspect5_90.png" || this.str == "/images/tuile_de_rue_face_suspect6_90.png" || this.str == "/images/tuile_de_rue_face_suspect7_90.png" || this.str == "/images/tuile_de_rue_face_suspect8_90.png") {
+				
+				this.icoTuile = new ImageIcon(getClass().getResource("/images/common-verso_90.png"));
+				this.imgTuile = this.icoTuile.getImage();
+				
+			}
+				
+			else if (this.str == "/images/tuile_de_rue_face_suspect1_180.png" || this.str == "/images/tuile_de_rue_face_suspect2_180.png" || this.str == "/images/tuile_de_rue_face_suspect3_180.png" || this.str == "/images/tuile_de_rue_face_suspect4_180.png" || this.str == "/images/tuile_de_rue_face_suspect5_180.png" || this.str == "/images/tuile_de_rue_face_suspect6_180.png" || this.str == "/images/tuile_de_rue_face_suspect7_180.png" || this.str == "/images/tuile_de_rue_face_suspect8_180.png") {
+				
+				this.icoTuile = new ImageIcon(getClass().getResource("/images/common-verso_180.png"));
+				this.imgTuile = this.icoTuile.getImage();
+				
+			}
+				
+			else if (this.str == "/images/tuile_de_rue_face_suspect1_90-.png" || this.str == "/images/tuile_de_rue_face_suspect2_-90.png" || this.str == "/images/tuile_de_rue_face_suspect3_-90.png" || this.str == "/images/tuile_de_rue_face_suspect4_-90.png" || this.str == "/images/tuile_de_rue_face_suspect5_-90.png" || this.str == "/images/tuile_de_rue_face_suspect6_m90.png" || this.str == "/images/tuile_de_rue_face_suspect7_-90.png" || this.str == "/images/tuile_de_rue_face_suspect8_-90.png") {
+				
+				this.icoTuile = new ImageIcon(getClass().getResource("/images/common-verso_-90.png"));
+				this.imgTuile = this.icoTuile.getImage();
+				
+			}
+			
+			else if(this.str == "/images/tuile_de_rue_face_suspect9.png" || this.str == "/images/tuile_de_rue_face_suspect9_90.png" || this.str == "/images/tuile_de_rue_face_suspect9_180.png" || this.str == "/images/tuile_de_rue_face_suspect9_m90.png") {
+				
+				this.icoTuile = new ImageIcon(getClass().getResource("/images/JosephLane-verso.png"));
+				this.imgTuile = this.icoTuile.getImage();
+			
+			}
+			
+		}
 }
+
+

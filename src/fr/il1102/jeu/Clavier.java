@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Clavier implements KeyListener{
-
+	
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
@@ -54,7 +54,8 @@ public class Clavier implements KeyListener{
 		
 		else if((e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5|| e.getKeyCode() == KeyEvent.VK_6  || e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_9)) {
 			Main.scene.tTurn = e.getKeyCode() - 49;
-			Main.scene.retournerTuile(Main.scene.tTurn);
+			//Main.scene.retournerTuile(Main.scene.tTurn);
+			Main.scene.tabShuffleTuile[Main.scene.tTurn][0].retourner();
 			Main.scene.repaint();
 		}
 
