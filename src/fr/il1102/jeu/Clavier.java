@@ -51,6 +51,7 @@ public class Clavier implements KeyListener{
 		
 		else if (e.getKeyCode() == KeyEvent.VK_N) {
 			Main.scene.appelATemoin();
+			Main.scene.repaint();
 		}
 		
 

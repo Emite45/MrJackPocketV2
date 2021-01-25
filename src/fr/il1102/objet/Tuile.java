@@ -20,7 +20,7 @@ public class Tuile {
 	private int largeur;
 	@SuppressWarnings("unused")
 	private int hauteur;
-	
+	public boolean visible = false;
 	public int ligneGrille;
 	public int colonneGrille;
 	
@@ -48,6 +48,10 @@ public class Tuile {
 			return name;
 		}
 		
+		public boolean getVisible() {
+			return visible;
+		}
+		
 		public int getColonneGrille() {
 			return colonneGrille;
 		}
@@ -62,6 +66,9 @@ public class Tuile {
 
 		public void setColonneGrille(int colonneGrille) {
 			this.colonneGrille = colonneGrille;
+		}
+		public void setVisible(boolean visibilite) {
+			this.visible = visibilite;
 		}
 	
 		
@@ -100,6 +107,7 @@ public class Tuile {
 				
 				this.icoTuile = new ImageIcon(getClass().getResource("/images/common-verso.png"));
 				this.imgTuile = this.icoTuile.getImage();
+				this.name = "retournee_0";
 				
 			}
 				
@@ -107,6 +115,7 @@ public class Tuile {
 				
 				this.icoTuile = new ImageIcon(getClass().getResource("/images/common-verso_90.png"));
 				this.imgTuile = this.icoTuile.getImage();
+				this.name = "retournee_90";
 				
 			}
 				
@@ -114,6 +123,7 @@ public class Tuile {
 				
 				this.icoTuile = new ImageIcon(getClass().getResource("/images/common-verso_180.png"));
 				this.imgTuile = this.icoTuile.getImage();
+				this.name = "retournee_180";
 				
 			}
 				
@@ -121,6 +131,7 @@ public class Tuile {
 				
 				this.icoTuile = new ImageIcon(getClass().getResource("/images/common-verso_-90.png"));
 				this.imgTuile = this.icoTuile.getImage();
+				this.name = "retournee_-90";
 				
 			}
 			
@@ -128,6 +139,7 @@ public class Tuile {
 				
 				this.icoTuile = new ImageIcon(getClass().getResource("/images/JosephLane-verso.png"));
 				this.imgTuile = this.icoTuile.getImage();
+				this.name = "retournee_x";
 			
 			}
 			

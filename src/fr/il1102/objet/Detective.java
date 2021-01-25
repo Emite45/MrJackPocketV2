@@ -8,6 +8,7 @@ public class Detective {
 
 	// Variables
 
+	public String name;
 	public ImageIcon icoDetec;
 	public Image imgDetec;
 	private String str;
@@ -38,11 +39,11 @@ public class Detective {
 	// Constructeur
 	
 
-	public Detective( String str, int xPositionDepart, int yPositionDepart) {
+	public Detective( String str, int xPositionDepart, int yPositionDepart, String name) {
 		
 		this.largeur = 80;
 		this.hauteur = 80;
-		
+		this.name = name;
 		this.str = str;
 		
 		this.icoDetec = new ImageIcon(getClass().getResource(this.str));
@@ -114,6 +115,10 @@ public class Detective {
 	
 	public int getLigneGrille() {
 		return ligneGrille;
+	}
+	
+	public String getName() {
+		return name;
 	}
 	
 	//Setters

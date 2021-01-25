@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import java.util.Collections;
@@ -12,6 +13,8 @@ import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+
+import com.sun.org.apache.xpath.internal.axes.OneStepIterator;
 
 import fr.il1102.objet.Alibi;
 import fr.il1102.objet.Detective;
@@ -33,57 +36,58 @@ public class Scene extends JPanel {
 
 															// Tuile \\ 
 	// Initialisation des tuiles
-	public Tuile T1 = new Tuile("/images/tuile_de_rue_face_suspect1.png", "madame");
-	public Tuile T1_90 = new Tuile("/images/tuile_de_rue_face_suspect1_90.png", "madame");
-	public Tuile T1_180 = new Tuile("/images/tuile_de_rue_face_suspect1_180.png","madame");
-	public Tuile T1_r90 = new Tuile("/images/tuile_de_rue_face_suspect1_-90.png","madame");
+	public Tuile T1 = new Tuile("/images/tuile_de_rue_face_suspect1.png", "madame_0");
+	public Tuile T1_90 = new Tuile("/images/tuile_de_rue_face_suspect1_90.png", "madame_90");
+	public Tuile T1_180 = new Tuile("/images/tuile_de_rue_face_suspect1_180.png","madame_180");
+	public Tuile T1_r90 = new Tuile("/images/tuile_de_rue_face_suspect1_-90.png","madame_-90");
 
-	public Tuile T2 = new Tuile("/images/tuile_de_rue_face_suspect2.png", "sgtgoodley");
-	public Tuile T2_90 = new Tuile("/images/tuile_de_rue_face_suspect2_90.png", "sgtgoodley");
-	public Tuile T2_180 = new Tuile("/images/tuile_de_rue_face_suspect2_180.png", "sgtgoodley");
-	public Tuile T2_r90 = new Tuile("/images/tuile_de_rue_face_suspect2_-90.png", "sgtgoodley");
+	public Tuile T2 = new Tuile("/images/tuile_de_rue_face_suspect2.png", "sgtgoodley_0");
+	public Tuile T2_90 = new Tuile("/images/tuile_de_rue_face_suspect2_90.png", "sgtgoodley_90");
+	public Tuile T2_180 = new Tuile("/images/tuile_de_rue_face_suspect2_180.png", "sgtgoodley_180");
+	public Tuile T2_r90 = new Tuile("/images/tuile_de_rue_face_suspect2_-90.png", "sgtgoodley_-90");
 	
-	public Tuile T3 = new Tuile("/images/tuile_de_rue_face_suspect3.png", "jeremybert");
-	public Tuile T3_90  = new Tuile("/images/tuile_de_rue_face_suspect3_90.png", "jeremybert");
-	public Tuile T3_180 = new Tuile("/images/tuile_de_rue_face_suspect3_180.png", "jeremybert");
-	public Tuile T3_r90 = new Tuile("/images/tuile_de_rue_face_suspect3_-90.png", "jeremybert");
+	public Tuile T3 = new Tuile("/images/tuile_de_rue_face_suspect3.png", "jeremybert_0");
+	public Tuile T3_90  = new Tuile("/images/tuile_de_rue_face_suspect3_90.png", "jeremybert_90");
+	public Tuile T3_180 = new Tuile("/images/tuile_de_rue_face_suspect3_180.png", "jeremybert_180");
+	public Tuile T3_r90 = new Tuile("/images/tuile_de_rue_face_suspect3_-90.png", "jeremybert_-90");
 	
-	public Tuile T4 = new Tuile("/images/tuile_de_rue_face_suspect4.png", "williamgull");
-	public Tuile T4_90 = new Tuile("/images/tuile_de_rue_face_suspect4_90.png", "williamgull");
-	public Tuile T4_180 = new Tuile("/images/tuile_de_rue_face_suspect4_180.png", "williamgull");
-	public Tuile T4_r90 = new Tuile("/images/tuile_de_rue_face_suspect4_-90.png", "williamgull");
+	public Tuile T4 = new Tuile("/images/tuile_de_rue_face_suspect4.png", "williamgull_0");
+	public Tuile T4_90 = new Tuile("/images/tuile_de_rue_face_suspect4_90.png", "williamgull_90");
+	public Tuile T4_180 = new Tuile("/images/tuile_de_rue_face_suspect4_180.png", "williamgull_180");
+	public Tuile T4_r90 = new Tuile("/images/tuile_de_rue_face_suspect4_-90.png", "williamgull_-90");
 	
-	public Tuile T5 = new Tuile("/images/tuile_de_rue_face_suspect5.png", "missstealthy");
-	public Tuile T5_90 = new Tuile("/images/tuile_de_rue_face_suspect5_90.png", "missstealthy");
-	public Tuile T5_180 = new Tuile("/images/tuile_de_rue_face_suspect5_180.png", "missstealthy");
-	public Tuile T5_r90 = new Tuile("/images/tuile_de_rue_face_suspect5_-90.png", "missstealthy");
+	public Tuile T5 = new Tuile("/images/tuile_de_rue_face_suspect5.png", "missstealthy_0");
+	public Tuile T5_90 = new Tuile("/images/tuile_de_rue_face_suspect5_90.png", "missstealthy_90");
+	public Tuile T5_180 = new Tuile("/images/tuile_de_rue_face_suspect5_180.png", "missstealthy_180");
+	public Tuile T5_r90 = new Tuile("/images/tuile_de_rue_face_suspect5_-90.png", "missstealthy_-90");
 
-	public Tuile T6 = new Tuile("/images/tuile_de_rue_face_suspect6.png", "johnsmith");
-	public Tuile T6_90  = new Tuile("/images/tuile_de_rue_face_suspect6_90.png", "johnsmith");
-	public Tuile T6_180  = new Tuile("/images/tuile_de_rue_face_suspect6_180.png", "johnsmith");
-	public Tuile T6_r90  = new Tuile("/images/tuile_de_rue_face_suspect6_m90.png", "johnsmith");
+	public Tuile T6 = new Tuile("/images/tuile_de_rue_face_suspect6.png", "johnsmith_0");
+	public Tuile T6_90  = new Tuile("/images/tuile_de_rue_face_suspect6_90.png", "johnsmith_90");
+	public Tuile T6_180  = new Tuile("/images/tuile_de_rue_face_suspect6_180.png", "johnsmith_180");
+	public Tuile T6_r90  = new Tuile("/images/tuile_de_rue_face_suspect6_m90.png", "johnsmith_-90");
 
-	public Tuile T7  = new Tuile("/images/tuile_de_rue_face_suspect7.png", "lestrade");
-	public Tuile T7_90 = new Tuile("/images/tuile_de_rue_face_suspect7_90.png", "lestrade");
-	public Tuile T7_180 = new Tuile("/images/tuile_de_rue_face_suspect7_180.png", "lestrade");
-	public Tuile T7_r90 = new Tuile("/images/tuile_de_rue_face_suspect7_-90.png", "lestrade");
+	public Tuile T7  = new Tuile("/images/tuile_de_rue_face_suspect7.png", "lestrade_0");
+	public Tuile T7_90 = new Tuile("/images/tuile_de_rue_face_suspect7_90.png", "lestrade_90");
+	public Tuile T7_180 = new Tuile("/images/tuile_de_rue_face_suspect7_180.png", "lestrade_180");
+	public Tuile T7_r90 = new Tuile("/images/tuile_de_rue_face_suspect7_-90.png", "lestrade_-90");
 
-	public Tuile T8 = new Tuile("/images/tuile_de_rue_face_suspect8.png", "johnpizer");
-	public Tuile T8_90 = new Tuile("/images/tuile_de_rue_face_suspect8_90.png","johnpizer");
-	public Tuile T8_180 = new Tuile("/images/tuile_de_rue_face_suspect8_180.png", "johnpizer");
+	public Tuile T8 = new Tuile("/images/tuile_de_rue_face_suspect8.png", "johnpizer_0");
+	public Tuile T8_90 = new Tuile("/images/tuile_de_rue_face_suspect8_90.png","johnpizer_90");
+	public Tuile T8_180 = new Tuile("/images/tuile_de_rue_face_suspect8_180.png", "johnpizer_180");
 	public Tuile T8_r90 = new Tuile("/images/tuile_de_rue_face_suspect8_-90.png", "johnpizer");
 
-	public Tuile T9 = new Tuile("/images/tuile_de_rue_face_suspect9.png", "josephlane");
-	public Tuile T9_90 = new Tuile("/images/tuile_de_rue_face_suspect9_90.png", "josephlane");
-	public Tuile T9_180 = new Tuile("/images/tuile_de_rue_face_suspect9_180.png", "josephlane");
-	public Tuile T9_r90 = new Tuile("/images/tuile_de_rue_face_suspect9_m90.png", "josephlane");
+	public Tuile T9 = new Tuile("/images/tuile_de_rue_face_suspect9.png", "josephlane_0");
+	public Tuile T9_90 = new Tuile("/images/tuile_de_rue_face_suspect9_90.png", "josephlane_90");
+	public Tuile T9_180 = new Tuile("/images/tuile_de_rue_face_suspect9_180.png", "josephlane_180");
+	public Tuile T9_r90 = new Tuile("/images/tuile_de_rue_face_suspect9_m90.png", "josephlane_-90");
 	
-	public Tuile Td = new Tuile("/images/common-verso.png", "retournee");
-	public Tuile Td_90  = new Tuile("/images/common-verso_90.png", "retournee");
-	public Tuile Td_180 = new Tuile("/images/common-verso_180.png", "retournee");
-	public Tuile Td_r90 = new Tuile("/images/common-verso_-90.png", "retournee");
+	/*
+	public Tuile Td = new Tuile("/images/common-verso.png", "retournee_0");
+	public Tuile Td_90  = new Tuile("/images/common-verso_90.png", "retournee_90");
+	public Tuile Td_180 = new Tuile("/images/common-verso_180.png", "retournee_180");
+	public Tuile Td_r90 = new Tuile("/images/common-verso_-90.png", "retournee_-90");
 	public Tuile Td_x = new Tuile("/images/JosephLane-verso.png", "retournee");
-
+	*/
 	
 	public int tChange1; //Indice de la première tuile que l'on veut changer
 	public int tChange2;
@@ -218,9 +222,9 @@ public class Scene extends JPanel {
 
 														// Detective \\
 		//On instancie nos 3 detectives
-		this.Sherlock = new Detective("/images/Sherlock.png", 210, 155);
-		this.Watson = new Detective ("/images/Watson.png", 880, 155);
-		this.Tobi = new Detective ("/images/Tobi.png", 545, 680);
+		this.Sherlock = new Detective("/images/Sherlock.png", 210, 155, "Sherlock");
+		this.Watson = new Detective ("/images/Watson.png", 880, 155, "Watson");
+		this.Tobi = new Detective ("/images/Tobi.png", 545, 680, "Tobi");
 		
 
 												//Jeton Action \\
@@ -553,30 +557,39 @@ public class Scene extends JPanel {
 		Tuile tuile1 = tabShuffleTuile[0][0];
 		tuile1.setLigneGrille(2);
 		tuile1.setColonneGrille(2);
+		tuile1.setVisible(false);
 		Tuile tuile2 = tabShuffleTuile[1][0];
 		tuile2.setLigneGrille(2);
 		tuile2.setColonneGrille(3);
+		tuile2.setVisible(false);
 		Tuile tuile3 = tabShuffleTuile[2][0];
 		tuile3.setLigneGrille(2);
 		tuile3.setColonneGrille(4);
+		tuile3.setVisible(false);
 		Tuile tuile4 = tabShuffleTuile[3][0];
 		tuile4.setLigneGrille(3);
 		tuile4.setColonneGrille(2);
+		tuile4.setVisible(false);
 		Tuile tuile5 = tabShuffleTuile[4][0];
 		tuile5.setLigneGrille(3);
 		tuile5.setColonneGrille(3);
+		tuile5.setVisible(false);
 		Tuile tuile6 = tabShuffleTuile[5][0];
 		tuile6.setLigneGrille(3);
 		tuile6.setColonneGrille(4);
+		tuile6.setVisible(false);
 		Tuile tuile7 = tabShuffleTuile[6][0];
 		tuile7.setLigneGrille(4);
 		tuile7.setColonneGrille(2);
+		tuile7.setVisible(false);
 		Tuile tuile8 = tabShuffleTuile[7][0];
 		tuile8.setLigneGrille(4);
 		tuile8.setColonneGrille(3);
+		tuile8.setVisible(false);
 		Tuile tuile9 = tabShuffleTuile[8][0];
 		tuile9.setLigneGrille(4);
 		tuile9.setColonneGrille(4);
+		tuile9.setVisible(false);
 		
 		// Recuperation tuile de Jack en fonction de son alibi
 		
@@ -584,23 +597,239 @@ public class Scene extends JPanel {
 		
 		Tuile[] grilleTuiles = {tuile1, tuile2, tuile3, tuile4, tuile5, tuile6, tuile7, tuile8, tuile9};
 		
-		for (int i = 0; i < grilleTuiles.length; i++) {
-			if (grilleTuiles[i].getName() == tabShuffleAlibi[0].getName()) {
-				tuileJack = grilleTuiles[i];
-				break;
-			}
-		}
-		
 		//System.out.println(tuileJack.getName());
 		
 		Sherlock.updatePositionGrille();
 		Watson.updatePositionGrille();
 		Tobi.updatePositionGrille();
 		
-		System.out.println("Sherlock est en "+ Sherlock.ligneGrille +"," + Sherlock.colonneGrille);
-		System.out.println("Watson est en "+ Watson.ligneGrille +"," + Watson.colonneGrille);
-		System.out.println("Tobi est en "+ Tobi.ligneGrille +"," + Tobi.colonneGrille);
-		System.out.println("Jack est en "+ tuileJack.ligneGrille +"," + tuileJack.colonneGrille);
+		//System.out.println("Sherlock est en "+ Sherlock.ligneGrille +"," + Sherlock.colonneGrille);
+		//System.out.println("Watson est en "+ Watson.ligneGrille +"," + Watson.colonneGrille);
+		//System.out.println("Tobi est en "+ Tobi.ligneGrille +"," + Tobi.colonneGrille);
+		//System.out.println("Jack est en "+ tuileJack.ligneGrille +"," + tuileJack.colonneGrille);
 
+		// Premiere etape pour savoir si Jack est visible : on compare sa position et celle des detectives
+		
+		Detective[] listeDetectives = {Sherlock, Tobi, Watson};
+		
+		for(int i = 0; i<listeDetectives.length; i++) {
+			
+			if (listeDetectives[i].getLigneGrille() == 1 && listeDetectives[i].getColonneGrille() == 2) { //Si détective en position 1,2
+				for (int j = 0; j < 7; j+=3) {
+					if(grilleTuiles[j].getName().contains("_90") || grilleTuiles[j].getName().contains("_-90") || grilleTuiles[j].getName().contains("_x")) {
+						grilleTuiles[j].setVisible(true);
+					}
+					else if (grilleTuiles[j].getName().contains("_0")) {
+						grilleTuiles[j].setVisible(true);
+						break;
+					}
+					else {
+						break;
+					}
+				}
+			}
+			
+			else if (listeDetectives[i].getLigneGrille() == 1 && listeDetectives[i].getColonneGrille() == 3) { //Si détective en position 1,3
+				for (int j = 1; j < 8; j+=3) {
+					if(grilleTuiles[j].getName().contains("_90") || grilleTuiles[j].getName().contains("_-90") || grilleTuiles[j].getName().contains("_x")) {
+						grilleTuiles[j].setVisible(true);
+					}
+					else if (grilleTuiles[j].getName().contains("_0")) {
+						grilleTuiles[j].setVisible(true);
+						break;
+					}
+					else {
+						break;
+					}
+				}
+			}
+
+			else if (listeDetectives[i].getLigneGrille() == 1 && listeDetectives[i].getColonneGrille() == 4) { //Si détective en position 1,4
+				for (int j = 2; j < 9; j+=3) {
+					if(grilleTuiles[j].getName().contains("_90") || grilleTuiles[j].getName().contains("_-90") || grilleTuiles[j].getName().contains("_x")) {
+						grilleTuiles[j].setVisible(true);
+					}
+					else if (grilleTuiles[j].getName().contains("_0")) {
+						grilleTuiles[j].setVisible(true);
+						break;
+					}
+					else {
+						break;
+					}
+				}
+			}
+			
+			else if (listeDetectives[i].getLigneGrille() == 2 && listeDetectives[i].getColonneGrille() == 5) { //Si détective en position 2,5
+				for (int j = 2; j >= 0; j--) {
+					if(grilleTuiles[j].getName().contains("_0") || grilleTuiles[j].getName().contains("_180") || grilleTuiles[j].getName().contains("_x")) {
+						grilleTuiles[j].setVisible(true);
+					}
+					else if (grilleTuiles[j].getName().contains("_-90")) {
+						grilleTuiles[j].setVisible(true);
+						break;
+					}
+					else {
+						break;
+					}
+				}
+			}
+
+			else if (listeDetectives[i].getLigneGrille() == 3 && listeDetectives[i].getColonneGrille() == 5) { //Si détective en position 3,5
+				for (int j = 5; j > 2; j--) {
+					if(grilleTuiles[j].getName().contains("_0") || grilleTuiles[j].getName().contains("_180") || grilleTuiles[j].getName().contains("_x")) {
+						grilleTuiles[j].setVisible(true);
+					}
+					else if (grilleTuiles[j].getName().contains("_-90")) {
+						grilleTuiles[j].setVisible(true);
+						break;
+					}
+					else {
+						break;
+					}
+				}
+			}
+			
+			else if (listeDetectives[i].getLigneGrille() == 4 && listeDetectives[i].getColonneGrille() == 5) { //Si détective en position 4,5
+				for (int j = 8; j > 5; j--) {
+					if(grilleTuiles[j].getName().contains("_0") || grilleTuiles[j].getName().contains("_180") || grilleTuiles[j].getName().contains("_x")) {
+						grilleTuiles[j].setVisible(true);
+					}
+					else if (grilleTuiles[j].getName().contains("_-90")) {
+						grilleTuiles[j].setVisible(true);
+						break;
+					}
+					else {
+						break;
+					}
+				}
+			}
+			
+			else if (listeDetectives[i].getLigneGrille() == 5 && listeDetectives[i].getColonneGrille() == 4) { //Si détective en position 5,4
+				for (int j = 8; j > 1; j-=3) {
+					if(grilleTuiles[j].getName().contains("_90") || grilleTuiles[j].getName().contains("_-90") || grilleTuiles[j].getName().contains("_x")) {
+						grilleTuiles[j].setVisible(true);
+					}
+					else if (grilleTuiles[j].getName().contains("_180")) {
+						grilleTuiles[j].setVisible(true);
+						break;
+					}
+					else {
+						break;
+					}
+				}
+			}
+
+			else if (listeDetectives[i].getLigneGrille() == 5 && listeDetectives[i].getColonneGrille() == 3) { //Si détective en position 5,3
+				for (int j = 7; j > 0; j-=3) {
+					if(grilleTuiles[j].getName().contains("_90") || grilleTuiles[j].getName().contains("_-90") || grilleTuiles[j].getName().contains("_x")) {
+						grilleTuiles[j].setVisible(true);
+					}
+					else if (grilleTuiles[j].getName().contains("_180")) {
+						grilleTuiles[j].setVisible(true);
+						break;
+					}
+					else {
+						break;
+					}
+				}
+			}
+			
+			else if (listeDetectives[i].getLigneGrille() == 5 && listeDetectives[i].getColonneGrille() == 2) { //Si détective en position 5,2
+				for (int j = 6; j >=0 ; j-=3) {
+					if(grilleTuiles[j].getName().contains("_90") || grilleTuiles[j].getName().contains("_-90") || grilleTuiles[j].getName().contains("_x")) {
+						grilleTuiles[j].setVisible(true);
+					}
+					else if (grilleTuiles[j].getName().contains("_180")) {
+						grilleTuiles[j].setVisible(true);
+						break;
+					}
+					else {
+						break;
+					}
+				}
+			}
+			
+			else if (listeDetectives[i].getLigneGrille() == 4 && listeDetectives[i].getColonneGrille() == 1) { //Si détective en position 4,1
+				for (int j = 6; j < 9; j++) {
+					if(grilleTuiles[j].getName().contains("_0") || grilleTuiles[j].getName().contains("_180") || grilleTuiles[j].getName().contains("_x")) {
+						grilleTuiles[j].setVisible(true);
+					}
+					else if (grilleTuiles[j].getName().contains("_90")) {
+						grilleTuiles[j].setVisible(true);
+						break;
+					}
+					else {
+						break;
+					}
+				}
+			}
+
+			else if (listeDetectives[i].getLigneGrille() == 3 && listeDetectives[i].getColonneGrille() == 1) { //Si détective en position 3,1
+				for (int j = 3; j < 6; j++) {
+					if(grilleTuiles[j].getName().contains("_0") || grilleTuiles[j].getName().contains("_180") || grilleTuiles[j].getName().contains("_x")) {
+						grilleTuiles[j].setVisible(true);
+					}
+					else if (grilleTuiles[j].getName().contains("_90")) {
+						grilleTuiles[j].setVisible(true);
+						break;
+					}
+					else {
+						break;
+					}
+				}
+			}
+			
+			else if (listeDetectives[i].getLigneGrille() == 2 && listeDetectives[i].getColonneGrille() == 1) { //Si détective en position 2,1
+				for (int j = 0; j < 3; j++) {
+					if(grilleTuiles[j].getName().contains("_0") || grilleTuiles[j].getName().contains("_180") || grilleTuiles[j].getName().contains("_x")) {
+						grilleTuiles[j].setVisible(true);
+					}
+					else if (grilleTuiles[j].getName().contains("_90")) {
+						grilleTuiles[j].setVisible(true);
+						break;
+					}
+					else {
+						break;
+					}
+				}
+			}
+			
+			System.out.println("verification terminee pour" + listeDetectives[i].getName());
+		}
+		System.out.println("on cherche la carte de jack");
+		
+		for (int i = 0; i < grilleTuiles.length; i++) {
+			if (grilleTuiles[i].getName().contains(tabShuffleAlibi[0].getName())) {
+				tuileJack = grilleTuiles[i];
+				System.out.println("jack est : " + tuileJack.getName());
+				break;
+			}
+		}
+		
+		if (tuileJack.getVisible()) { //si jack est visible
+			System.out.println("jack est visible");
+			for (int i = 0; i < grilleTuiles.length; i++) {
+				if(!grilleTuiles[i].getVisible()) {	
+					tabShuffleTuile[i][0].retourner();
+					System.out.println(tabShuffleTuile[i][0].getName() + " a ete retournee");
+				}
+				else if (grilleTuiles[i].getVisible()) {
+					System.out.println(tabShuffleTuile[i][0].getName() + " n'a pas ete retournee");
+				}
+			}
+		}
+		else { //si jack n'est pas visible
+			System.out.println("jack n'est pas visible");
+			for (int i = 0; i < grilleTuiles.length; i++) {
+				if(grilleTuiles[i].getVisible()) {	
+					tabShuffleTuile[i][0].retourner();
+					System.out.println(tabShuffleTuile[i][0].getName() + " a ete retournee");
+				}
+				else if (!grilleTuiles[i].getVisible()) {
+					System.out.println(tabShuffleTuile[i][0].getName() + " n'a pas ete retournee");
+				}
+			}
+		}
+		
 	}
 }
