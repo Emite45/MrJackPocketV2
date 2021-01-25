@@ -127,7 +127,7 @@ public class Tuile {
 				
 			}
 				
-			else if (this.str == "/images/tuile_de_rue_face_suspect1_90-.png" || this.str == "/images/tuile_de_rue_face_suspect2_-90.png" || this.str == "/images/tuile_de_rue_face_suspect3_-90.png" || this.str == "/images/tuile_de_rue_face_suspect4_-90.png" || this.str == "/images/tuile_de_rue_face_suspect5_-90.png" || this.str == "/images/tuile_de_rue_face_suspect6_m90.png" || this.str == "/images/tuile_de_rue_face_suspect7_-90.png" || this.str == "/images/tuile_de_rue_face_suspect8_-90.png") {
+			else if (this.str == "/images/tuile_de_rue_face_suspect1_-90-.png" || this.str == "/images/tuile_de_rue_face_suspect2_-90.png" || this.str == "/images/tuile_de_rue_face_suspect3_-90.png" || this.str == "/images/tuile_de_rue_face_suspect4_-90.png" || this.str == "/images/tuile_de_rue_face_suspect5_-90.png" || this.str == "/images/tuile_de_rue_face_suspect6_m90.png" || this.str == "/images/tuile_de_rue_face_suspect7_-90.png" || this.str == "/images/tuile_de_rue_face_suspect8_-90.png") {
 				
 				this.icoTuile = new ImageIcon(getClass().getResource("/images/common-verso_-90.png"));
 				this.imgTuile = this.icoTuile.getImage();

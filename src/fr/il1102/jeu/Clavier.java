@@ -23,14 +23,15 @@ public class Clavier implements KeyListener{
 			Main.scene.idJack = true;
 			Main.scene.repaint();
 		}
-		else if(e.getKeyCode() == KeyEvent.VK_SPACE) { //Permet de changer d'ecran en modifiant la variable ecranAlibi
+		else if(Main.scene.idJack == true && Main.scene.ecranAlibi == true && Main.scene.isEcranAccueil() == false  && e.getKeyCode() == KeyEvent.VK_SPACE) { //Permet de changer d'ecran en modifiant la variable ecranAlibi
 			Main.scene.setEcranAlibi(false);
 			Main.scene.repaint();
 		}
 		else if(e.getKeyCode() == KeyEvent.VK_LEFT) { //Permet d'afficher mon deck de  carte alibi
 			Main.scene.nAlibi ++;
 			Main.scene.nAlibiFC --;
-			Main.scene.alibiJack(Main.scene.nAlibi);
+			//Main.scene.alibiJack(Main.scene.nAlibi);
+			Main.scene.alibiInspecteur();
 			Main.scene.repaint();
 		}
 		
@@ -57,12 +58,12 @@ public class Clavier implements KeyListener{
 
 		//retourner
 		
-		else if((e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5|| e.getKeyCode() == KeyEvent.VK_6  || e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_9)) {
-			Main.scene.tTurn = e.getKeyCode() - 49;
-			//Main.scene.retournerTuile(Main.scene.tTurn);
-			Main.scene.tabShuffleTuile[Main.scene.tTurn][0].retourner();
-			Main.scene.repaint();
-		}
+//		else if((e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5|| e.getKeyCode() == KeyEvent.VK_6  || e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_9)) {
+//			Main.scene.tTurn = e.getKeyCode() - 49;
+//			//Main.scene.retournerTuile(Main.scene.tTurn);
+//			Main.scene.tabShuffleTuile[Main.scene.tTurn][0].retourner();
+//			Main.scene.repaint();
+//		}
 
 		
 
@@ -88,6 +89,7 @@ public class Clavier implements KeyListener{
 					Main.scene.setSelect(false);
 					Main.scene.JA1 = false;
 					Main.scene.nJA1 = false;
+					Main.scene.action++;
 				}
 		
 		
@@ -99,6 +101,7 @@ public class Clavier implements KeyListener{
 					Main.scene.repaint();
 					Main.scene.JA1 = true;
 					Main.scene.nJA1 = false;
+					Main.scene.action++;
 			}
 		
 		//JETON 2
@@ -108,7 +111,7 @@ public class Clavier implements KeyListener{
 			
 			//JETON 2_1
 		
-				else if( Main.scene.tabShuffleJA[1][0] == Main.scene.jA2_1 && Main.scene.JA2 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2)) {
+				else if( Main.scene.tabShuffleJA[1][0] == Main.scene.jA2_1 && Main.scene.JA2 == true && Main.scene.nJA2 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2)) {
 					Main.scene.nbr_depla = (e.getKeyCode() - 48);
 					if (Main.scene.nbr_depla == 1) {
 						Main.scene.Tobi.Mouvement();
@@ -121,9 +124,10 @@ public class Clavier implements KeyListener{
 					}
 					Main.scene.JA2 = false;
 					Main.scene.nJA2 = false;
+					Main.scene.action++;
 				}
 			//JETON 2_2
-				else if( Main.scene.tabShuffleJA[1][0] == Main.scene.jA2_2 && Main.scene.JA2 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false) {
+				else if( Main.scene.tabShuffleJA[1][0] == Main.scene.jA2_2 && Main.scene.JA2 == true && Main.scene.nJA2 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2)) {
 					Main.scene.nbr_depla = (e.getKeyCode() - 48);
 					if (Main.scene.nbr_depla == 1) {
 						Main.scene.Watson.Mouvement();
@@ -136,6 +140,7 @@ public class Clavier implements KeyListener{
 					}
 					Main.scene.JA2 = false;
 					Main.scene.nJA2 = false;
+					Main.scene.action++;
 				}
 		
 		//JETON 3
@@ -146,23 +151,80 @@ public class Clavier implements KeyListener{
 		
 			// JETON 3_1
 		
-			else if( Main.scene.tabShuffleJA[2][0] == Main.scene.jA3_1 && Main.scene.JA3 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2)) {
-				Main.scene.nbr_depla = (e.getKeyCode() - 48);
-				if (Main.scene.nbr_depla == 1) {
-					Main.scene.Sherlock.Mouvement();
-					Main.scene.repaint();
-				}
-				if (Main.scene.nbr_depla == 2) {
-					Main.scene.Sherlock.Mouvement();
-					Main.scene.Sherlock.Mouvement();
-					Main.scene.repaint();
-				}
-				Main.scene.JA3 = false;
-				Main.scene.nJA3 = false;
-				}
-			
+				else if( Main.scene.tabShuffleJA[2][0] == Main.scene.jA3_1 && Main.scene.JA3 == true && Main.scene.nJA3 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2)) {
+					Main.scene.nbr_depla = (e.getKeyCode() - 48);
+					if (Main.scene.nbr_depla == 1) {
+						Main.scene.Sherlock.Mouvement();
+						Main.scene.repaint();
+					}
+					if (Main.scene.nbr_depla == 2) {
+						Main.scene.Sherlock.Mouvement();
+						Main.scene.Sherlock.Mouvement();
+						Main.scene.repaint();
+					}
+					Main.scene.JA3 = false;
+					Main.scene.nJA3 = false;
+					Main.scene.action++;
+					}
+	
 			// JETON 3_2
+				else if( Main.scene.tabShuffleJA[2][0] == Main.scene.jA3_2 && Main.scene.JA3 == true && Main.scene.nJA3 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && e.getKeyCode() == KeyEvent.VK_ENTER ) {
+
+
+					if (Main.scene.joueur == 'D') {
+						Main.scene.nAlibi ++;
+						Main.scene.nAlibiFC --;
+						Main.scene.alibiInspecteur();
+						Main.scene.repaint();
+						
+					}
+					else if (Main.scene.joueur == 'J') {
+						Main.scene.nAlibi ++;
+						Main.scene.nAlibiFC --;
+						Main.scene.alibiJack(Main.scene.nAlibi);
+						Main.scene.repaint();
+						
+					}
+					Main.scene.JA3 = false;
+					Main.scene.nJA3 = false;
+					Main.scene.action++;
+				}
 		
+		//JETON 4
+		if ( Main.scene.JA4 == false && Main.scene.nJA4 == true && e.getKeyCode()== KeyEvent.VK_R) {
+			Main.scene.JA4 = true;
+		}	
+		
+				//JETON 4_1
+			else if(Main.scene.tabShuffleJA[3][0] == Main.scene.jA4_1 && Main.scene.JA4 == true && Main.scene.nJA4 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3)) {
+				Main.scene.nbr_depla = (e.getKeyCode() - 48);
+				if(Main.scene.nbr_depla == 1) {
+					Main.scene.Sherlock.Mouvement();
+					Main.scene.repaint();
+				}
+				if(Main.scene.nbr_depla == 2) {
+					Main.scene.Watson.Mouvement();
+					Main.scene.repaint();
+				}
+				if(Main.scene.nbr_depla == 3) {
+					Main.scene.Tobi.Mouvement();
+					Main.scene.repaint();
+				}
+				Main.scene.JA4 = true;
+				Main.scene.nJA4 = false;
+				Main.scene.action++;
+			}
+		
+				//JETON 4_2
+			else if(Main.scene.tabShuffleJA[3][0] == Main.scene.jA4_2 && Main.scene.JA4 == true && Main.scene.nJA4 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5|| e.getKeyCode() == KeyEvent.VK_6  || e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_9)) {
+				Main.scene.settRotat(e.getKeyCode() - 49);
+				Main.scene.rotateTuile(Main.scene.gettRotat());
+				Main.scene.repaint();
+				Main.scene.JA4 = true;
+				Main.scene.nJA4 = false;
+				Main.scene.action++;
+			}
+
 		
 		}
 	

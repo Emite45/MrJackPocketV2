@@ -5,7 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.util.ArrayList;
+
 import java.util.Arrays;
 
 import java.util.Collections;
@@ -14,7 +14,6 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import com.sun.org.apache.xpath.internal.axes.OneStepIterator;
 
 import fr.il1102.objet.Alibi;
 import fr.il1102.objet.Detective;
@@ -165,6 +164,10 @@ public class Scene extends JPanel {
 	public boolean ecranAlibi;  // deuxième écran de découverte de l'alibi de Jack
 	
 	public boolean ecranAccueil;
+	
+	public int tour;
+	public char joueur;
+	public int action;
 
 	
 
@@ -250,6 +253,10 @@ public class Scene extends JPanel {
 		this.nJA4 = true;
 		
 		this.nbr_depla = 0;
+		
+		this.tour = 1;
+		this.joueur = 'D';
+		this.action = 1;
 		
 												// Jeton Temps \\
 		
@@ -397,6 +404,7 @@ public class Scene extends JPanel {
 	
 	public void alibiInspecteur() {
 
+
 		if (tabShuffleAlibi[nAlibi] == Madame) {
 			for(int i= 0; i<9; i++) {
 				if(tabShuffleTuile[i][0] == T1 || tabShuffleTuile[i][0] == T1_90 || tabShuffleTuile[i][0] == T1_180 || tabShuffleTuile[i][0] == T1_r90) {this.tabShuffleTuile[i][0].retourner();}}
@@ -435,122 +443,6 @@ public class Scene extends JPanel {
 			}
 		
 	} 
-
-	public void paintComponent(Graphics g) {
-
-		super.paintComponent(g);
-		Graphics g2 = (Graphics2D) g; // Ameliore les graphismes en 2D
-		
-		
-		if (ecranAccueil == true && ecranAlibi == false) { //Ecran d'accueil 
-			
-			g2.drawImage( this.imgFondLondres, 0, 0, null);
-
-			Font police = new Font("Simsun", Font.BOLD, 50);
-			Font police2 = new Font("Simsun", Font.BOLD, 30);
-			Font police3 = new Font("Simsun", Font.BOLD, 20);
-			g2.setColor(Color.white);
-			g2.setFont(police);
-			g2.drawString("Bienvenue sur le Jeu Mr Jack Pocket : ", 350, 150);
-			g2.setFont(police2);
-			g2.drawString("Pour commencer à vous faufiler dans les ruelles de Londres : ", 300, 650);	
-			g2.drawString("Appuyez sur ENTRER", 600, 680);
-
-			g2.setFont(police3);
-			g2.drawString("Elias Dève    Aymeric Lefebvre    Léonie Petit", 100, 800);
-			
-		} else if (ecranAlibi == true && ecranAccueil == false ){  //Ecran du Menu pour Mr Jack
-			
-			if(idJack == false) {
-				//g2.drawImage(this.imgFond, 0, 0, null);
-				g2.drawImage( this.imgFondLondres, 0, 0, null);
-				Font police = new Font("Simsun", Font.BOLD, 20);
-				g2.setColor(Color.white);
-				g2.setFont(police);
-				g2.drawString("Pour découvrir l'identité de MrJack appuyez sur ENTRER" , 300, 250);
-				g2.drawString("(Ps Mr Jack: Faites attention que l'inspecteur ne puisse pas voir votre identité) " , 300, 270);
-			}
-			else if(idJack == true) {  //Affichage de l'identité de Mr.Jack
-				g2.drawImage( this.imgFondLondres, 0, 0, null);
-				Font police2 = new Font("Simsun", Font.BOLD, 50);
-				g2.setColor(Color.white);
-				g2.setFont(police2);
-				g2.drawString("Bonsoir..., Mr Jack : ", 450, 250);
-				g2.drawImage(tabShuffleAlibi[0].getImgAlibi(), 700, 300, null); // ID de Mr Jack
-				g2.drawString("(Appuyez sur ESPACE pour commencer à jouer)", 250, 700);}
-
-			
-			
-		} else if (ecranAlibi == false && ecranAccueil == false ) { //ecran du plateau de jeu
-			
-
-			//g2.drawImage(this.imgFond, 0, 0, null); // Affichage du fond noir
-			g2.drawImage( this.imgFondLondres, 0, 0, null); // Affichage du fond
-
-			Font police = new Font("Simsun", Font.BOLD, 20);
-			g2.setColor(Color.white);
-			g2.setFont(police); 
-			g2.drawString("le nombre de sablier de Jack est " + this.sablierJack , 0, 100);
-
-			g2.drawImage(tabShuffleTuile[6][0].getImgTuile(), 300, 480, null); // Affichage de la tuile en Position (1) 7 ou 4,2
-			g2.drawImage(tabShuffleTuile[7][0].getImgTuile(), 490, 480, null); // Affichage de la tuile en Position (2) 8 4,3
-			g2.drawImage(tabShuffleTuile[8][0].getImgTuile(), 680, 480, null); // Affichage de la tuile en Position (3) 9 ou 4,4
-			g2.drawImage(tabShuffleTuile[3][0].getImgTuile(), 300, 290, null); // Affichage de la tuile en Position 4 ou 3,2
-			g2.drawImage(tabShuffleTuile[4][0].getImgTuile(), 490, 290, null); // Affichage de la tuile en Position 5 ou 3,3
-			g2.drawImage(tabShuffleTuile[5][0].getImgTuile(), 680, 290, null); // Affichage de la tuile en Position 6 ou 3,4
-			g2.drawImage(tabShuffleTuile[0][0].getImgTuile(), 300, 100, null); // Affichage de la tuile en Position (7) 1 ou 2,2
-			g2.drawImage(tabShuffleTuile[1][0].getImgTuile(), 490, 100, null); // Affichage de la tuile en Position (8) 2 ou 2,3
-			g2.drawImage(tabShuffleTuile[2][0].getImgTuile(), 680, 100, null); // Affichage de la tuile en Position (9) 3 ou 2,4
-
-
-
-			g2.drawImage(this.Sherlock.getImgDetec(), this.Sherlock.getxPosition(), this.Sherlock.getyPosition(), null);
-			g2.drawImage(this.Tobi.getImgDetec(), this.Tobi.getxPosition(), this.Tobi.getyPosition(), null);
-			g2.drawImage(this.Watson.getImgDetec(), this.Watson.getxPosition() , this.Watson.getyPosition(), null);
-
-			
-			// Jeton Action 
-			
-			if (nJA1 == true || nJA2 == true || nJA3 == true || nJA4 == true) {
-				if(nJA1 == true) {g2.drawImage(tabShuffleJA[0][0].getImgJA(), 1100, 450, null); }// Affichage du Jeton 1
-				else if(nJA2 == true) {g2.drawImage(tabShuffleJA[1][0].getImgJA(), 1100, 520, null);} // Affichage du Jeton 2
-				else if(nJA3 == true) {g2.drawImage(tabShuffleJA[2][0].getImgJA(), 1100, 590, null);} // Affichage du Jeton 3
-				else if(nJA4 == true) {g2.drawImage(tabShuffleJA[3][0].getImgJA(), 1100, 660, null);} // Affichage du Jeton 4
-			}
-			else if (nJA1 == false & nJA2 == false && nJA3 == false && nJA4 == false) {
-				g2.drawImage(tabShuffleJA[0][1].getImgJA(), 1100, 450, null); // Affichage du Jeton 1
-				g2.drawImage(tabShuffleJA[1][1].getImgJA(), 1100, 520, null); // Affichage du Jeton 2
-				g2.drawImage(tabShuffleJA[2][1].getImgJA(), 1100, 590, null); // Affichage du Jeton 3
-				g2.drawImage(tabShuffleJA[3][1].getImgJA(), 1100, 660, null); // Affichage du Jeton 4
-			}
-			
-	
-			// Jeton temps
-
-
-//			g2.drawImage(this.imgJT1, 100, 300, null);
-//			g2.drawImage(this.imgJT2, 100, 360, null);
-//			g2.drawImage(this.imgJT3, 100, 420, null);
-//			g2.drawImage(this.imgJT4, 100, 480, null);
-//			g2.drawImage(this.imgJT5, 100, 540, null);
-//			g2.drawImage(this.imgJT6, 100, 600, null);
-//			g2.drawImage(this.imgJT7, 100, 660, null);
-//			g2.drawImage(this.imgJT8, 100, 720, null);
-
-		
-			// Alibi
-			
-
-			
-			for (int i = 1; i <= nAlibiFC ; i++) {
-				if(nAlibiFC != 0) {g2.drawImage(this.alibiCarte.getImgAlibi(), 1000 + 20 * i, 20 * i, null);}}
-			if (nAlibiFC < 8) {
-				g2.drawImage(tabShuffleAlibi[nAlibi].getImgAlibi(), 1140, 200, null);
-				
-			}
-
-		}
-	}
 	
 	public void appelATemoin() {
 		
@@ -832,4 +724,142 @@ public class Scene extends JPanel {
 		}
 		
 	}
+
+	public void tourJoueur() {
+		if(tour%2 == 0 && (action == 1 || action ==4) ) {
+			this.joueur = 'J';
+		}
+		else if (tour%2 == 0 && (action == 2 || action ==3)) {
+			this.joueur = 'D';
+		}
+		if(tour%2 == 1 && (action == 1 || action ==4 )) {
+			this.joueur = 'D';
+		}
+		else if (tour%2 == 1 && (action == 2 || action ==3)) {
+			this.joueur = 'J';
+		}
+	}
+	
+	public void paintComponent(Graphics g) {
+
+		super.paintComponent(g);
+		Graphics g2 = (Graphics2D) g; // Ameliore les graphismes en 2D
+		
+		tourJoueur(); // On fait appel a tour joueur pour savoir qui joue
+		System.out.println( joueur);
+		
+		if (ecranAccueil == true && ecranAlibi == false) { //Ecran d'accueil 
+			
+			g2.drawImage( this.imgFondLondres, 0, 0, null);
+
+			Font police = new Font("Simsun", Font.BOLD, 50);
+			Font police2 = new Font("Simsun", Font.BOLD, 30);
+			Font police3 = new Font("Simsun", Font.BOLD, 20);
+			g2.setColor(Color.white);
+			g2.setFont(police);
+			g2.drawString("Bienvenue sur le Jeu Mr Jack Pocket : ", 350, 150);
+			g2.setFont(police2);
+			g2.drawString("Pour commencer à vous faufiler dans les ruelles de Londres : ", 300, 650);	
+			g2.drawString("Appuyez sur ENTRER", 600, 680);
+
+			g2.setFont(police3);
+			g2.drawString("Elias Dève    Aymeric Lefebvre    Léonie Petit", 100, 800);
+			
+		} else if (ecranAlibi == true && ecranAccueil == false ){  //Ecran du Menu pour Mr Jack
+			
+			if(idJack == false) {
+				//g2.drawImage(this.imgFond, 0, 0, null);
+				g2.drawImage( this.imgFondLondres, 0, 0, null);
+				Font police = new Font("Simsun", Font.BOLD, 20);
+				g2.setColor(Color.white);
+				g2.setFont(police);
+				g2.drawString("Pour découvrir l'identité de MrJack appuyez sur ENTRER" , 300, 250);
+				g2.drawString("(Ps Mr Jack: Faites attention que l'inspecteur ne puisse pas voir votre identité) " , 300, 270);
+			}
+			else if(idJack == true) {  //Affichage de l'identité de Mr.Jack
+				g2.drawImage( this.imgFondLondres, 0, 0, null);
+				Font police2 = new Font("Simsun", Font.BOLD, 50);
+				g2.setColor(Color.white);
+				g2.setFont(police2);
+				g2.drawString("Bonsoir..., Mr Jack : ", 450, 250);
+				g2.drawImage(tabShuffleAlibi[0].getImgAlibi(), 700, 300, null); // ID de Mr Jack
+				g2.drawString("(Appuyez sur ESPACE pour commencer à jouer)", 250, 700);}
+
+			
+			
+		} else if (ecranAlibi == false && ecranAccueil == false ) { //ecran du plateau de jeu
+			
+
+			//g2.drawImage(this.imgFond, 0, 0, null); // Affichage du fond noir
+			g2.drawImage( this.imgFondLondres, 0, 0, null); // Affichage du fond
+
+			Font police = new Font("Simsun", Font.BOLD, 20);
+			g2.setColor(Color.white);
+			g2.setFont(police); 
+			g2.drawString("le nombre de sablier de Jack est " + this.sablierJack , 0, 100);
+
+			g2.drawImage(tabShuffleTuile[6][0].getImgTuile(), 300, 480, null); // Affichage de la tuile en Position (1) 7 ou 4,2
+			g2.drawImage(tabShuffleTuile[7][0].getImgTuile(), 490, 480, null); // Affichage de la tuile en Position (2) 8 4,3
+			g2.drawImage(tabShuffleTuile[8][0].getImgTuile(), 680, 480, null); // Affichage de la tuile en Position (3) 9 ou 4,4
+			g2.drawImage(tabShuffleTuile[3][0].getImgTuile(), 300, 290, null); // Affichage de la tuile en Position 4 ou 3,2
+			g2.drawImage(tabShuffleTuile[4][0].getImgTuile(), 490, 290, null); // Affichage de la tuile en Position 5 ou 3,3
+			g2.drawImage(tabShuffleTuile[5][0].getImgTuile(), 680, 290, null); // Affichage de la tuile en Position 6 ou 3,4
+			g2.drawImage(tabShuffleTuile[0][0].getImgTuile(), 300, 100, null); // Affichage de la tuile en Position (7) 1 ou 2,2
+			g2.drawImage(tabShuffleTuile[1][0].getImgTuile(), 490, 100, null); // Affichage de la tuile en Position (8) 2 ou 2,3
+			g2.drawImage(tabShuffleTuile[2][0].getImgTuile(), 680, 100, null); // Affichage de la tuile en Position (9) 3 ou 2,4
+
+
+
+			g2.drawImage(this.Sherlock.getImgDetec(), this.Sherlock.getxPosition(), this.Sherlock.getyPosition(), null);
+			g2.drawImage(this.Tobi.getImgDetec(), this.Tobi.getxPosition(), this.Tobi.getyPosition(), null);
+			g2.drawImage(this.Watson.getImgDetec(), this.Watson.getxPosition() , this.Watson.getyPosition(), null);
+
+			
+			// Jeton Action 
+			
+			if (nJA1 == true || nJA2 == true || nJA3 == true || nJA4 == true) {
+				if(nJA1 == true) {g2.drawImage(tabShuffleJA[0][0].getImgJA(), 1100, 450, null); }// Affichage du Jeton 1
+				if(nJA2 == true) {g2.drawImage(tabShuffleJA[1][0].getImgJA(), 1100, 520, null);} // Affichage du Jeton 2
+				if(nJA3 == true) {g2.drawImage(tabShuffleJA[2][0].getImgJA(), 1100, 590, null);} // Affichage du Jeton 3
+				if(nJA4 == true) {g2.drawImage(tabShuffleJA[3][0].getImgJA(), 1100, 660, null);} // Affichage du Jeton 4
+			}
+			else if (nJA1 == false & nJA2 == false && nJA3 == false && nJA4 == false) {
+				g2.drawImage(tabShuffleJA[0][1].getImgJA(), 1100, 450, null); // Affichage du Jeton 1
+				System.out.println("ok");
+				g2.drawImage(tabShuffleJA[1][1].getImgJA(), 1100, 520, null); // Affichage du Jeton 2
+				System.out.println("ok2");
+				g2.drawImage(tabShuffleJA[2][1].getImgJA(), 1100, 590, null); // Affichage du Jeton 3
+				System.out.println("ok3");
+				g2.drawImage(tabShuffleJA[3][1].getImgJA(), 1100, 660, null); // Affichage du Jeton 4
+			}
+			
+	
+			// Jeton temps
+
+
+//			g2.drawImage(this.imgJT1, 100, 300, null);
+//			g2.drawImage(this.imgJT2, 100, 360, null);
+//			g2.drawImage(this.imgJT3, 100, 420, null);
+//			g2.drawImage(this.imgJT4, 100, 480, null);
+//			g2.drawImage(this.imgJT5, 100, 540, null);
+//			g2.drawImage(this.imgJT6, 100, 600, null);
+//			g2.drawImage(this.imgJT7, 100, 660, null);
+//			g2.drawImage(this.imgJT8, 100, 720, null);
+
+		
+			// Alibi
+			
+
+			
+			for (int i = 1; i <= nAlibiFC ; i++) {
+				if(nAlibiFC != 0) {g2.drawImage(this.alibiCarte.getImgAlibi(), 1000 + 20 * i, 20 * i, null);}}
+			if (nAlibiFC < 8) {
+				g2.drawImage(tabShuffleAlibi[nAlibi].getImgAlibi(), 1140, 200, null);
+				
+			}
+
+		}
+	}
+	
+
 }
