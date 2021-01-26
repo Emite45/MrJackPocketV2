@@ -38,15 +38,15 @@ public class Clavier implements KeyListener{
 		//Deplacement des detectives
 
 		else if(e.getKeyCode() == KeyEvent.VK_S) { 		//Sherlock
-			Main.scene.Sherlock.Mouvement();;
+			Main.scene.Sherlock.Mouvement(Main.scene.Tobi, Main.scene.Watson);;
 			Main.scene.repaint();
 		}
 		else if(e.getKeyCode() == KeyEvent.VK_W) { 		//Watson
-			Main.scene.Watson.Mouvement();
+			Main.scene.Watson.Mouvement(Main.scene.Tobi, Main.scene.Sherlock);
 			Main.scene.repaint();
 		}
 		else if(e.getKeyCode() == KeyEvent.VK_T) { 		//Tobi
-			Main.scene.Tobi.Mouvement();
+			Main.scene.Tobi.Mouvement(Main.scene.Sherlock, Main.scene.Tobi);
 			Main.scene.repaint();
 		}
 		
@@ -114,12 +114,12 @@ public class Clavier implements KeyListener{
 				else if( Main.scene.tabShuffleJA[1][0] == Main.scene.jA2_1 && Main.scene.JA2 == true && Main.scene.nJA2 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2)) {
 					Main.scene.nbr_depla = (e.getKeyCode() - 48);
 					if (Main.scene.nbr_depla == 1) {
-						Main.scene.Tobi.Mouvement();
+						Main.scene.Tobi.Mouvement(Main.scene.Sherlock, Main.scene.Watson);
 						Main.scene.repaint();
 					}
 					if (Main.scene.nbr_depla == 2) {
-						Main.scene.Tobi.Mouvement();
-						Main.scene.Tobi.Mouvement();
+						Main.scene.Tobi.Mouvement(Main.scene.Sherlock, Main.scene.Watson);
+						Main.scene.Tobi.Mouvement(Main.scene.Sherlock, Main.scene.Watson);
 						Main.scene.repaint();
 					}
 					Main.scene.JA2 = false;
@@ -130,12 +130,12 @@ public class Clavier implements KeyListener{
 				else if( Main.scene.tabShuffleJA[1][0] == Main.scene.jA2_2 && Main.scene.JA2 == true && Main.scene.nJA2 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2)) {
 					Main.scene.nbr_depla = (e.getKeyCode() - 48);
 					if (Main.scene.nbr_depla == 1) {
-						Main.scene.Watson.Mouvement();
+						Main.scene.Watson.Mouvement(Main.scene.Sherlock, Main.scene.Tobi);
 						Main.scene.repaint();
 					}
 					if (Main.scene.nbr_depla == 2) {
-						Main.scene.Watson.Mouvement();
-						Main.scene.Watson.Mouvement();
+						Main.scene.Watson.Mouvement(Main.scene.Sherlock, Main.scene.Tobi);
+						Main.scene.Watson.Mouvement(Main.scene.Sherlock, Main.scene.Tobi);
 						Main.scene.repaint();
 					}
 					Main.scene.JA2 = false;
@@ -154,12 +154,12 @@ public class Clavier implements KeyListener{
 				else if( Main.scene.tabShuffleJA[2][0] == Main.scene.jA3_1 && Main.scene.JA3 == true && Main.scene.nJA3 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2)) {
 					Main.scene.nbr_depla = (e.getKeyCode() - 48);
 					if (Main.scene.nbr_depla == 1) {
-						Main.scene.Sherlock.Mouvement();
+						Main.scene.Sherlock.Mouvement(Main.scene.Watson, Main.scene.Tobi);
 						Main.scene.repaint();
 					}
 					if (Main.scene.nbr_depla == 2) {
-						Main.scene.Sherlock.Mouvement();
-						Main.scene.Sherlock.Mouvement();
+						Main.scene.Sherlock.Mouvement(Main.scene.Watson, Main.scene.Tobi);
+						Main.scene.Sherlock.Mouvement(Main.scene.Watson, Main.scene.Tobi);
 						Main.scene.repaint();
 					}
 					Main.scene.JA3 = false;
@@ -199,15 +199,15 @@ public class Clavier implements KeyListener{
 			else if(Main.scene.tabShuffleJA[3][0] == Main.scene.jA4_1 && Main.scene.JA4 == true && Main.scene.nJA4 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3)) {
 				Main.scene.nbr_depla = (e.getKeyCode() - 48);
 				if(Main.scene.nbr_depla == 1) {
-					Main.scene.Sherlock.Mouvement();
+					Main.scene.Sherlock.Mouvement(Main.scene.Watson, Main.scene.Tobi);
 					Main.scene.repaint();
 				}
 				if(Main.scene.nbr_depla == 2) {
-					Main.scene.Watson.Mouvement();
+					Main.scene.Watson.Mouvement(Main.scene.Sherlock, Main.scene.Tobi);
 					Main.scene.repaint();
 				}
 				if(Main.scene.nbr_depla == 3) {
-					Main.scene.Tobi.Mouvement();
+					Main.scene.Tobi.Mouvement(Main.scene.Watson, Main.scene.Sherlock);
 					Main.scene.repaint();
 				}
 				Main.scene.JA4 = true;
