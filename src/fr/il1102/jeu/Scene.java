@@ -171,7 +171,10 @@ public class Scene extends JPanel {
 	public char joueur;
 	public int action;
 	
+	public boolean isAppel;  // Determine si l'appel à temoins à été effectué
+	
 	public String strCommande;
+	public String strJack;
 
 	
 
@@ -262,7 +265,9 @@ public class Scene extends JPanel {
 		this.joueur = 'D';
 		this.action = 1;
 		
-		this.strCommande = " ";
+		this.isAppel = false;
+		
+		
 		
 												// Jeton Temps \\
 		
@@ -291,7 +296,11 @@ public class Scene extends JPanel {
 		this.ecranAlibi = false ;
 		
 
+		// ECRITURE
 		
+		this.strCommande = " ";
+		
+
 
 		
 	}
@@ -732,7 +741,7 @@ public class Scene extends JPanel {
 				}
 			}
 		}
-		
+		this.isAppel = true;
 	}
 
 	public void tourJoueur() {
@@ -757,7 +766,8 @@ public class Scene extends JPanel {
 
 			}
 		
-		if (action == 5) {
+		if (action == 5 && isAppel == true) {
+
 			tour++;
 			action = 1;
 			for (int i = 0; i<4; i++ ) {
@@ -777,7 +787,9 @@ public class Scene extends JPanel {
 				this.tabShuffleJA = JetonAction.jetonShuffle(jA1_1, jA1_2,jA2_1, jA2_2, jA3_1, jA3_2, jA4_1, jA4_2);
 
 			}
+			
 		}
+		Main.scene.isAppel = false;
 	}
 	
 	
