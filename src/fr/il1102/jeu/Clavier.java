@@ -21,34 +21,25 @@ public class Clavier implements KeyListener{
 		}
 		else if(Main.scene.idJack == false && Main.scene.ecranAlibi == true && e.getKeyCode() == KeyEvent.VK_ENTER) { //Permet de changer d'ecran en modifiant la variable ecranAlibi
 			Main.scene.idJack = true;
+			Main.scene.alibiJack(Main.scene.nAlibi);
 			Main.scene.repaint();
 		}
 		else if(Main.scene.idJack == true && Main.scene.ecranAlibi == true && Main.scene.isEcranAccueil() == false  && e.getKeyCode() == KeyEvent.VK_SPACE) { //Permet de changer d'ecran en modifiant la variable ecranAlibi
 			Main.scene.setEcranAlibi(false);
+			Main.scene.idJack = false;
 			Main.scene.repaint();
 		}
-		else if(e.getKeyCode() == KeyEvent.VK_LEFT) { //Permet d'afficher mon deck de  carte alibi
-			Main.scene.nAlibi ++;
-			Main.scene.nAlibiFC --;
-			//Main.scene.alibiJack(Main.scene.nAlibi);
-			Main.scene.alibiInspecteur();
-			Main.scene.repaint();
-		}
+//		else if(e.getKeyCode() == KeyEvent.VK_LEFT) { //Permet d'afficher mon deck de  carte alibi
+//			Main.scene.nAlibi ++;
+//			Main.scene.nAlibiFC --;
+//			//Main.scene.alibiJack(Main.scene.nAlibi);
+//			Main.scene.alibiInspecteur();
+//			Main.scene.repaint();
+//		}
 		
 		//Deplacement des detectives
 
-		else if(e.getKeyCode() == KeyEvent.VK_S) { 		//Sherlock
-			Main.scene.Sherlock.Mouvement(Main.scene.Tobi, Main.scene.Watson);;
-			Main.scene.repaint();
-		}
-		else if(e.getKeyCode() == KeyEvent.VK_W) { 		//Watson
-			Main.scene.Watson.Mouvement(Main.scene.Tobi, Main.scene.Sherlock);
-			Main.scene.repaint();
-		}
-		else if(e.getKeyCode() == KeyEvent.VK_T) { 		//Tobi
-			Main.scene.Tobi.Mouvement(Main.scene.Sherlock, Main.scene.Tobi);
-			Main.scene.repaint();
-		}
+
 		
 		else if (e.getKeyCode() == KeyEvent.VK_N) {
 			Main.scene.appelATemoin();
@@ -89,7 +80,8 @@ public class Clavier implements KeyListener{
 					Main.scene.setSelect(false);
 					Main.scene.JA1 = false;
 					Main.scene.nJA1 = false;
-					Main.scene.action++;
+					Main.scene.actionTour();
+					Main.scene.repaint();
 				}
 		
 		
@@ -101,7 +93,8 @@ public class Clavier implements KeyListener{
 					Main.scene.repaint();
 					Main.scene.JA1 = true;
 					Main.scene.nJA1 = false;
-					Main.scene.action++;
+					Main.scene.actionTour();
+					Main.scene.repaint();
 			}
 		
 		//JETON 2
@@ -124,7 +117,8 @@ public class Clavier implements KeyListener{
 					}
 					Main.scene.JA2 = false;
 					Main.scene.nJA2 = false;
-					Main.scene.action++;
+					Main.scene.actionTour();
+					Main.scene.repaint();
 				}
 			//JETON 2_2
 				else if( Main.scene.tabShuffleJA[1][0] == Main.scene.jA2_2 && Main.scene.JA2 == true && Main.scene.nJA2 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2)) {
@@ -140,13 +134,15 @@ public class Clavier implements KeyListener{
 					}
 					Main.scene.JA2 = false;
 					Main.scene.nJA2 = false;
-					Main.scene.action++;
+					Main.scene.actionTour();
+					Main.scene.repaint();
 				}
 		
 		//JETON 3
 		if ( Main.scene.JA3 == false && Main.scene.nJA3 == true && e.getKeyCode()== KeyEvent.VK_E) {
 			Main.scene.JA3 = true;
-
+			Main.scene.strCommande = "Appuyez sur ENTRER si c'est une jeton Alibi ou si c'est Sherlock appuyez sur 1 ou 2 selon le nombre de deplacement voulu ";
+			Main.scene.repaint();
 		}
 		
 			// JETON 3_1
@@ -164,12 +160,13 @@ public class Clavier implements KeyListener{
 					}
 					Main.scene.JA3 = false;
 					Main.scene.nJA3 = false;
-					Main.scene.action++;
+					Main.scene.actionTour();
+					Main.scene.repaint();
 					}
 	
 			// JETON 3_2
 				else if( Main.scene.tabShuffleJA[2][0] == Main.scene.jA3_2 && Main.scene.JA3 == true && Main.scene.nJA3 == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && e.getKeyCode() == KeyEvent.VK_ENTER ) {
-
+					Main.scene.idJack = true;
 
 					if (Main.scene.joueur == 'D') {
 						Main.scene.nAlibi ++;
@@ -181,13 +178,22 @@ public class Clavier implements KeyListener{
 					else if (Main.scene.joueur == 'J') {
 						Main.scene.nAlibi ++;
 						Main.scene.nAlibiFC --;
+						
 						Main.scene.alibiJack(Main.scene.nAlibi);
 						Main.scene.repaint();
 						
 					}
 					Main.scene.JA3 = false;
 					Main.scene.nJA3 = false;
-					Main.scene.action++;
+					Main.scene.actionTour();
+					Main.scene.strCommande = "Appuyez sur entrée une seconde fois pour faire disparaitre la carte";
+					Main.scene.repaint();
+				}
+				else if( Main.scene.JA3 == false && Main.scene.nJA3 == false && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && e.getKeyCode() == KeyEvent.VK_ENTER ) {
+					Main.scene.idJack = false;
+					Main.scene.strCommande = "";
+					
+					Main.scene.repaint();
 				}
 		
 		//JETON 4
@@ -212,7 +218,8 @@ public class Clavier implements KeyListener{
 				}
 				Main.scene.JA4 = true;
 				Main.scene.nJA4 = false;
-				Main.scene.action++;
+				Main.scene.actionTour();
+				Main.scene.repaint();
 			}
 		
 				//JETON 4_2
@@ -222,7 +229,8 @@ public class Clavier implements KeyListener{
 				Main.scene.repaint();
 				Main.scene.JA4 = true;
 				Main.scene.nJA4 = false;
-				Main.scene.action++;
+				Main.scene.actionTour();
+				Main.scene.repaint();
 			}
 
 		

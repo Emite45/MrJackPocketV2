@@ -160,6 +160,8 @@ public class Scene extends JPanel {
 	public int sablierJack;
 	
 	public boolean idJack; //Indique si Jack est prêt à découvrir son alibi
+	
+	
 
 	public boolean ecranAlibi;  // deuxième écran de découverte de l'alibi de Jack
 	
@@ -168,6 +170,8 @@ public class Scene extends JPanel {
 	public int tour;
 	public char joueur;
 	public int action;
+	
+	public String strCommande;
 
 	
 
@@ -258,6 +262,8 @@ public class Scene extends JPanel {
 		this.joueur = 'D';
 		this.action = 1;
 		
+		this.strCommande = " ";
+		
 												// Jeton Temps \\
 		
 		
@@ -283,6 +289,9 @@ public class Scene extends JPanel {
 		
 		this.ecranAccueil = true ;
 		this.ecranAlibi = false ;
+		
+
+		
 
 		
 	}
@@ -329,6 +338,7 @@ public class Scene extends JPanel {
 	public void echangerTuile(int tChange1, int tChange2) {  // Echange deux grandes listes du tableaux
 		List<Tuile []> listTuile = Arrays.asList(tabShuffleTuile);
 		Collections.swap(listTuile, tChange1, tChange2);
+		
 	}
 	
 	public void rotateTuile(int tRotat) {					// Change l'ordre des petites cases dans le bon sens pour une rotation à 90°
@@ -740,13 +750,45 @@ public class Scene extends JPanel {
 		}
 	}
 	
-	public void paintComponent(Graphics g) {
+	public void actionTour() {
+		if(action < 5) {
+			action ++;
+			System.out.println( action);
 
+			}
+		
+		if (action == 5) {
+			tour++;
+			action = 1;
+			for (int i = 0; i<4; i++ ) {
+				Collections.swap(Arrays.asList(tabShuffleJA[i]), 0, 1);
+			}
+			this.JA1 = false;
+			this.JA2 = false;
+			this.JA3 = false;
+			this.JA4 = false;
+			this.nJA1 = true;
+			this.nJA2 = true;
+			this.nJA3 = true;
+			this.nJA4 = true;
+			
+			
+			if (tour%2==1) {
+				this.tabShuffleJA = JetonAction.jetonShuffle(jA1_1, jA1_2,jA2_1, jA2_2, jA3_1, jA3_2, jA4_1, jA4_2);
+
+			}
+		}
+	}
+	
+	
+	
+	public void paintComponent(Graphics g) {
+		
 		super.paintComponent(g);
 		Graphics g2 = (Graphics2D) g; // Ameliore les graphismes en 2D
 		
 		tourJoueur(); // On fait appel a tour joueur pour savoir qui joue
-		System.out.println( joueur);
+
 		
 		if (ecranAccueil == true && ecranAlibi == false) { //Ecran d'accueil 
 			
@@ -783,6 +825,7 @@ public class Scene extends JPanel {
 				g2.setFont(police2);
 				g2.drawString("Bonsoir..., Mr Jack : ", 450, 250);
 				g2.drawImage(tabShuffleAlibi[0].getImgAlibi(), 700, 300, null); // ID de Mr Jack
+
 				g2.drawString("(Appuyez sur ESPACE pour commencer à jouer)", 250, 700);}
 
 			
@@ -796,7 +839,8 @@ public class Scene extends JPanel {
 			Font police = new Font("Simsun", Font.BOLD, 20);
 			g2.setColor(Color.white);
 			g2.setFont(police); 
-			g2.drawString("le nombre de sablier de Jack est " + this.sablierJack , 0, 100);
+			g2.drawString(" Au tour de " + joueur , 0, 50);
+			g2.drawString( strCommande, 0, 100);
 
 			g2.drawImage(tabShuffleTuile[6][0].getImgTuile(), 300, 580, null); // Affichage de la tuile en Position (1) 7 ou 4,2
 			g2.drawImage(tabShuffleTuile[7][0].getImgTuile(), 490, 580, null); // Affichage de la tuile en Position (2) 8 4,3
@@ -823,15 +867,7 @@ public class Scene extends JPanel {
 				if(nJA3 == true) {g2.drawImage(tabShuffleJA[2][0].getImgJA(), 1100, 590, null);} // Affichage du Jeton 3
 				if(nJA4 == true) {g2.drawImage(tabShuffleJA[3][0].getImgJA(), 1100, 660, null);} // Affichage du Jeton 4
 			}
-			else if (nJA1 == false & nJA2 == false && nJA3 == false && nJA4 == false) {
-				g2.drawImage(tabShuffleJA[0][1].getImgJA(), 1100, 450, null); // Affichage du Jeton 1
-				System.out.println("ok");
-				g2.drawImage(tabShuffleJA[1][1].getImgJA(), 1100, 520, null); // Affichage du Jeton 2
-				System.out.println("ok2");
-				g2.drawImage(tabShuffleJA[2][1].getImgJA(), 1100, 590, null); // Affichage du Jeton 3
-				System.out.println("ok3");
-				g2.drawImage(tabShuffleJA[3][1].getImgJA(), 1100, 660, null); // Affichage du Jeton 4
-			}
+
 			
 	
 			// Jeton temps
@@ -852,9 +888,12 @@ public class Scene extends JPanel {
 
 			
 			for (int i = 1; i <= nAlibiFC ; i++) {
-				if(nAlibiFC != 0) {g2.drawImage(this.alibiCarte.getImgAlibi(), 1000 + 20 * i, 20 * i, null);}}
+				if(nAlibiFC != 0) {
+						g2.drawImage(this.alibiCarte.getImgAlibi(), 1000 + 20 * i, 20 * i, null);}}
 			if (nAlibiFC < 8) {
+				if(idJack == true) {
 				g2.drawImage(tabShuffleAlibi[nAlibi].getImgAlibi(), 1140, 200, null);
+				}
 				
 			}
 

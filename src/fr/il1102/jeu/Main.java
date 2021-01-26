@@ -29,7 +29,7 @@ public class Main {
 		fenetre.setContentPane(scene); // On associe la scene � la fenetre de l'application
 		fenetre.setVisible(true);
 
-		System.out.println( Main.scene.joueur);
+
 		
 	}
 }
