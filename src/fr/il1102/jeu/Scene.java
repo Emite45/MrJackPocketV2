@@ -229,9 +229,9 @@ public class Scene extends JPanel {
 
 														// Detective \\
 		//On instancie nos 3 detectives
-		this.Sherlock = new Detective("/images/Sherlock.png", 210, 155, "Sherlock");
-		this.Watson = new Detective ("/images/Watson.png", 880, 155, "Watson");
-		this.Tobi = new Detective ("/images/Tobi.png", 545, 680, "Tobi");
+		this.Sherlock = new Detective("/images/Sherlock.png", 210, 255, "Sherlock");
+		this.Watson = new Detective ("/images/Watson.png", 880, 255, "Watson");
+		this.Tobi = new Detective ("/images/Tobi.png", 545, 780, "Tobi");
 		
 
 												//Jeton Action \\
@@ -842,15 +842,15 @@ public class Scene extends JPanel {
 			g2.drawString(" Au tour de " + joueur , 0, 50);
 			g2.drawString( strCommande, 0, 100);
 
-			g2.drawImage(tabShuffleTuile[6][0].getImgTuile(), 300, 480, null); // Affichage de la tuile en Position (1) 7 ou 4,2
-			g2.drawImage(tabShuffleTuile[7][0].getImgTuile(), 490, 480, null); // Affichage de la tuile en Position (2) 8 4,3
-			g2.drawImage(tabShuffleTuile[8][0].getImgTuile(), 680, 480, null); // Affichage de la tuile en Position (3) 9 ou 4,4
-			g2.drawImage(tabShuffleTuile[3][0].getImgTuile(), 300, 290, null); // Affichage de la tuile en Position 4 ou 3,2
-			g2.drawImage(tabShuffleTuile[4][0].getImgTuile(), 490, 290, null); // Affichage de la tuile en Position 5 ou 3,3
-			g2.drawImage(tabShuffleTuile[5][0].getImgTuile(), 680, 290, null); // Affichage de la tuile en Position 6 ou 3,4
-			g2.drawImage(tabShuffleTuile[0][0].getImgTuile(), 300, 100, null); // Affichage de la tuile en Position (7) 1 ou 2,2
-			g2.drawImage(tabShuffleTuile[1][0].getImgTuile(), 490, 100, null); // Affichage de la tuile en Position (8) 2 ou 2,3
-			g2.drawImage(tabShuffleTuile[2][0].getImgTuile(), 680, 100, null); // Affichage de la tuile en Position (9) 3 ou 2,4
+			g2.drawImage(tabShuffleTuile[6][0].getImgTuile(), 300, 580, null); // Affichage de la tuile en Position (1) 7 ou 4,2
+			g2.drawImage(tabShuffleTuile[7][0].getImgTuile(), 490, 580, null); // Affichage de la tuile en Position (2) 8 4,3
+			g2.drawImage(tabShuffleTuile[8][0].getImgTuile(), 680, 580, null); // Affichage de la tuile en Position (3) 9 ou 4,4
+			g2.drawImage(tabShuffleTuile[3][0].getImgTuile(), 300, 390, null); // Affichage de la tuile en Position 4 ou 3,2
+			g2.drawImage(tabShuffleTuile[4][0].getImgTuile(), 490, 390, null); // Affichage de la tuile en Position 5 ou 3,3
+			g2.drawImage(tabShuffleTuile[5][0].getImgTuile(), 680, 390, null); // Affichage de la tuile en Position 6 ou 3,4
+			g2.drawImage(tabShuffleTuile[0][0].getImgTuile(), 300, 200, null); // Affichage de la tuile en Position (7) 1 ou 2,2
+			g2.drawImage(tabShuffleTuile[1][0].getImgTuile(), 490, 200, null); // Affichage de la tuile en Position (8) 2 ou 2,3
+			g2.drawImage(tabShuffleTuile[2][0].getImgTuile(), 680, 200, null); // Affichage de la tuile en Position (9) 3 ou 2,4
 
 
 
