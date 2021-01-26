@@ -61,13 +61,20 @@ public class Clavier implements KeyListener{
 		//JETON 1
 		if ( Main.scene.JA1 == false && Main.scene.nJA1 == true && e.getKeyCode()== KeyEvent.VK_A) {
 			Main.scene.JA1 = true;
+			Main.scene.strCommande = "Appuyez sur Q pour quitter la sélection";
+			Main.scene.repaint();
 
 		}
+		if(Main.scene.JA1 == true && Main.scene.nJA1 == true  &&  Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && e.getKeyCode() == KeyEvent.VK_Q ) {
+			Main.scene.JA1 = false;  //Permet de cancel le choix du jeton
+			Main.scene.strCommande = " Choissisez un Jeton ";
+			Main.scene.repaint();
+}
 		
 			// JETON 1_1
 		
 					//Selec 1
-				else if( Main.scene.JA1 == true && Main.scene.nJA1 == true  && Main.scene.nJA1 == true && Main.scene.tabShuffleJA[0][0] == Main.scene.jA1_1  && Main.scene.isChangeSelect() == false &&  Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5|| e.getKeyCode() == KeyEvent.VK_6  || e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_9)){
+				else if( Main.scene.JA1 == true  && Main.scene.nJA1 == true && Main.scene.tabShuffleJA[0][0] == Main.scene.jA1_1  && Main.scene.isChangeSelect() == false &&  Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5|| e.getKeyCode() == KeyEvent.VK_6  || e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_9)){
 					Main.scene.settChange1(e.getKeyCode() - 49); //car c'est le numéro ascii
 					Main.scene.settChange( Main.scene.tChange1);
 					Main.scene.setSelect(true);
@@ -81,6 +88,7 @@ public class Clavier implements KeyListener{
 					Main.scene.JA1 = false;
 					Main.scene.nJA1 = false;
 					Main.scene.actionTour();
+					Main.scene.strCommande = " Choissisez un Jeton ";
 					Main.scene.repaint();
 				}
 		
@@ -94,6 +102,8 @@ public class Clavier implements KeyListener{
 					Main.scene.JA1 = true;
 					Main.scene.nJA1 = false;
 					Main.scene.actionTour();
+					Main.scene.strCommande = " Choissisez un Jeton ";
+
 					Main.scene.repaint();
 			}
 		
