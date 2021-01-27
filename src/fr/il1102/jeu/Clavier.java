@@ -275,10 +275,12 @@ public class Clavier implements KeyListener{
 			}
 		
 		if (Main.scene.action == 5 && Main.scene.nJA3 == false) {
-			Main.scene.strCommande = " Appuyez sur entré pour effectuer l'appel à témoins";
-			if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+			Main.scene.strCommande = " Appuyez sur T pour effectuer l'appel à témoins";
+			if(e.getKeyCode() == KeyEvent.VK_T) {
 				Main.scene.appelATemoin();
 				Main.scene.actionTour();
+				Main.scene.nbrTR();
+				Main.scene.finDuJeu();
 				Main.scene.strCommande = " Choissisez un Jeton ";
 				Main.scene.repaint();
 				

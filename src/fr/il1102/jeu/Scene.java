@@ -33,6 +33,9 @@ public class Scene extends JPanel {
 	private ImageIcon icoFond; // ecran noir en fond
 	@SuppressWarnings("unused")
 	private Image imgFond;
+	
+	private ImageIcon icoFondDetec;
+	private Image imgFondDetec;
 
 															// Tuile \\ 
 	// Initialisation des tuiles
@@ -96,6 +99,8 @@ public class Scene extends JPanel {
 	public boolean changeSelect;
 	public int tRotat;
 	public boolean JTrot;
+	
+	public int nbrRetourne;
 	
 	public int tTurn;
 	
@@ -175,6 +180,8 @@ public class Scene extends JPanel {
 	
 	public boolean idJack; //Indique si Jack est prêt à découvrir son alibi
 	
+	public boolean jackVisible;
+	
 	
 
 	public boolean ecranAlibi;  // deuxième écran de découverte de l'alibi de Jack
@@ -207,6 +214,9 @@ public class Scene extends JPanel {
 		icoFondLondres = new ImageIcon(getClass().getResource("/images/fondJackWelcome.png"));
 		this.imgFondLondres = this.icoFondLondres.getImage();
 		
+		icoFondDetec = new ImageIcon(getClass().getResource("/images/fond_detec.png"));
+		this.imgFondDetec = this.icoFondDetec.getImage();
+		
 		// Tableau de tuile que l'on mélange
 		this.tabShuffleTuile = Tuile.tuileMelange(T1, T1_90, T1_180, T1_r90, T2, T2_90, T2_180, T2_r90, T3, T3_90, T3_180,
 				T3_r90, T4, T4_90, T4_180, T4_r90, T5, T5_90, T5_180, T5_r90, T6, T6_90, T6_180, T6_r90, T7, T7_90,
@@ -221,6 +231,8 @@ public class Scene extends JPanel {
 		this.tRotat = 0;
 		this.JTrot = false;
 		this.tTurn= 0;
+		
+		this.nbrRetourne = 0; //indique le nombre de tuile retournée
 
 															// Alibi \\
 		// On instancie tout nos Alibis
@@ -237,6 +249,8 @@ public class Scene extends JPanel {
 		this.alibiCarte = new Alibi("/images/alibi-card.png", "retourne"); //Carte Alibi Face caché
 		
 		this.idJack = false;
+		
+		this.jackVisible = false;
 		
 		this.nAlibi = 0;
 		this.nAlibiFC = 8;
@@ -728,45 +742,57 @@ public class Scene extends JPanel {
 				}
 			}
 			
-			System.out.println("verification terminee pour" + listeDetectives[i].getName());
+
 		}
-		System.out.println("on cherche la carte de jack");
+
 		
 		for (int i = 0; i < grilleTuiles.length; i++) {
 			if (grilleTuiles[i].getName().contains(tabShuffleAlibi[0].getName())) {
 				tuileJack = grilleTuiles[i];
-				System.out.println("jack est : " + tuileJack.getName());
+
 				break;
 			}
 		}
 		
 		if (tuileJack.getVisible()) { //si jack est visible
-			System.out.println("jack est visible");
+			this.jackVisible = true;
 			for (int i = 0; i < grilleTuiles.length; i++) {
 				if(!grilleTuiles[i].getVisible()) {	
 					tabShuffleTuile[i][0].retourner();
-					System.out.println(tabShuffleTuile[i][0].getName() + " a ete retournee");
+
 				}
 				else if (grilleTuiles[i].getVisible()) {
-					System.out.println(tabShuffleTuile[i][0].getName() + " n'a pas ete retournee");
+
 				}
 			}
 		}
 		else { //si jack n'est pas visible
-			System.out.println("jack n'est pas visible");
+			this.jackVisible = false;
 			for (int i = 0; i < grilleTuiles.length; i++) {
 				if(grilleTuiles[i].getVisible()) {	
 					tabShuffleTuile[i][0].retourner();
-					System.out.println(tabShuffleTuile[i][0].getName() + " a ete retournee");
+
 				}
 				else if (!grilleTuiles[i].getVisible()) {
-					System.out.println(tabShuffleTuile[i][0].getName() + " n'a pas ete retournee");
+
 				}
 			}
 		}
 		this.isAppel = true;
 	}
-
+	
+	public void nbrTR() {
+		for (int i=0; i<9; i++) {
+			if(tabShuffleTuile[i][0].getName() == "retournee_0" || tabShuffleTuile[i][0].getName() == "retournee_90" || tabShuffleTuile[i][0].getName() == "retournee_-90" || tabShuffleTuile[i][0].getName() == "retournee_180" || tabShuffleTuile[i][0].getName() == "retournee_x") {
+				this.nbrRetourne++;
+			}	
+		}
+		if (nbrRetourne != 8) {
+			this.nbrRetourne = 0;
+		}
+	
+	}
+	
 	public void tourJoueur() {
 		if(tour%2 == 0 && (action == 1 || action ==4) ) {
 			this.joueur = 'J';
@@ -792,6 +818,9 @@ public class Scene extends JPanel {
 		if (action == 5 && isAppel == true) {
 
 			tour++;
+			if(this.jackVisible == false) {
+				this.sablierJack++;
+			}
 			action = 1;
 			for (int i = 0; i<4; i++ ) {
 				Collections.swap(Arrays.asList(tabShuffleJA[i]), 0, 1);
@@ -816,10 +845,23 @@ public class Scene extends JPanel {
 	}
 	
 	public void finDuJeu() {
-		if(this.sablierJack == 6) {
+		if(this.sablierJack == 6) {  //si jack possède 6 sabliers
 			finJack = true;
 		}
-//		else if(this.sab)
+		if(this.nbrRetourne == 8) { // s'il ne reste qu'un seul suspect après l'appel à temoin
+			finDetec = true;
+		}
+		if(this.jackVisible == true  && this.finJack == true && this.finDetec == true) { // Si les deux gagnent et Jack est visible
+			finDetec = true;
+			finJack = false;
+		}
+		if(this.jackVisible == false && this.tour == 8 && this.finJack == true && this.finDetec == true) { // Si les deux gagnent et Jack est invisible
+			finDetec = false;
+			finJack = true;
+		}
+		if(this.tour == 8 && this.finJack == false && this.finDetec == false) {
+			this.finJack = true;
+		}
 	}
 	
 	public void paintComponent(Graphics g) {
@@ -870,7 +912,7 @@ public class Scene extends JPanel {
 
 			
 			
-		} else if (ecranAlibi == false && ecranAccueil == false ) { //ecran du plateau de jeu
+		} else if (ecranAlibi == false && ecranAccueil == false && finJack ==false && finDetec == false) { //ecran du plateau de jeu
 			
 
 			//g2.drawImage(this.imgFond, 0, 0, null); // Affichage du fond noir
@@ -932,6 +974,26 @@ public class Scene extends JPanel {
 				
 			}
 
+		}
+		
+		else if( ecranAlibi == false && ecranAccueil == false && finJack == true && finDetec == false ) { //JACK GAGNE
+			g2.drawImage( this.imgFondLondres, 0, 0, null); // Affichage du fond
+			
+			Font police = new Font("Simsun", Font.BOLD, 50);
+			g2.setColor(Color.white);
+			g2.setFont(police);
+			g2.drawString(" Mr.Jack c'est enfuit... ", 350, 150);
+			
+		}
+		
+		else if( ecranAlibi == false && ecranAccueil == false && finJack == false && finDetec == true ) { //DETECTIVE GAGNE
+			g2.drawImage( this.imgFondDetec, 0, 0, null); // Affichage du fond
+			
+			Font police = new Font("Simsun", Font.BOLD, 50);
+			g2.setColor(Color.white);
+			g2.setFont(police);
+			g2.drawString(" Vous avez attrapez Jack ! ", 350, 150);
+			
 		}
 	}
 	
