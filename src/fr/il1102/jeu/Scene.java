@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 import fr.il1102.objet.Alibi;
 import fr.il1102.objet.Detective;
 import fr.il1102.objet.JetonAction;
+import fr.il1102.objet.JetonTemps;
 import fr.il1102.objet.Tuile;
 
 
@@ -132,6 +133,19 @@ public class Scene extends JPanel {
 	public boolean nJA4;
 	
 	public int nbr_depla;
+	
+														// Jeton Temps \\
+	public JetonTemps jT1;
+	public JetonTemps jT2;
+	public JetonTemps jT3;
+	public JetonTemps jT4;
+	public JetonTemps jT5;
+	public JetonTemps jT6;
+	public JetonTemps jT7;
+	public JetonTemps jT8;
+	
+
+	public JetonTemps[] tabJT ;
 
 															// Alibi \\
 	
@@ -175,6 +189,9 @@ public class Scene extends JPanel {
 	
 	public String strCommande;
 	public String strJack;
+	
+	public boolean finJack;
+	public boolean finDetec;
 
 	
 
@@ -272,21 +289,19 @@ public class Scene extends JPanel {
 												// Jeton Temps \\
 		
 		
-//		icoJT1 = new ImageIcon(getClass().getResource("/images/Jeton_Temps1_face_Tour_de_jeu.png"));
-//		this.imgJT1 = this.icoJT1.getImage();
-//		icoJT2 = new ImageIcon(getClass().getResource("/images/Jeton_Temps2_face_Tour_de_jeu.png"));
-//		this.imgJT2 = this.icoJT2.getImage();
-//		icoJT3 = new ImageIcon(getClass().getResource("/images/Jeton_Temps3_face_Tour_de_jeu.png"));
-//		this.imgJT3 = this.icoJT3.getImage();
-//		icoJT4 = new ImageIcon(getClass().getResource("/images/Jeton_Temps4_face_Tour_de_jeu.png"));
-//		this.imgJT4 = this.icoJT4.getImage();
-//		icoJT5 = new ImageIcon(getClass().getResource("/images/Jeton_Temps5_face_Tour_de_jeu.png"));
-//		this.imgJT5 = this.icoJT5.getImage();
-//		icoJT6 = new ImageIcon(getClass().getResource("/images/Jeton_Temps6_face_Tour_de_jeu.png"));
-//		this.imgJT6 = this.icoJT6.getImage();
-//		icoJT7 = new ImageIcon(getClass().getResource("/images/Jeton_Temps7_face_Tour_de_jeu.png"));
-//		this.imgJT7 = this.icoJT7.getImage();
-//		icoJT8 = new ImageIcon(getClass().getResource("/images/Jeton_Temps8_face_Tour_de_jeu.png"));
+		this.jT1 = new JetonTemps ("/images/Jeton_Temps1_face_Tour_de_jeu.png");
+		this.jT2 = new JetonTemps ("/images/Jeton_Temps2_face_Tour_de_jeu.png");
+		this.jT3 = new JetonTemps ("/images/Jeton_Temps3_face_Tour_de_jeu.png");
+		this.jT4 = new JetonTemps ("/images/Jeton_Temps4_face_Tour_de_jeu.png");
+		this.jT5 = new JetonTemps ("/images/Jeton_Temps5_face_Tour_de_jeu.png");
+		this.jT6 = new JetonTemps ("/images/Jeton_Temps6_face_Tour_de_jeu.png");
+		this.jT7 = new JetonTemps ("/images/Jeton_Temps7_face_Tour_de_jeu.png");
+		this.jT8 = new JetonTemps ("/images/Jeton_Temps8_face_Tour_de_jeu.png");
+		
+		this.tabJT = JetonTemps.tabTemps(jT1, jT2, jT3, jT4, jT5, jT6, jT7, jT8);
+		
+	
+
 
 		this.setFocusable(true);  // Permet d'utiliser la classe clavier
 		this.requestFocusInWindow();
@@ -295,10 +310,18 @@ public class Scene extends JPanel {
 		this.ecranAccueil = true ;
 		this.ecranAlibi = false ;
 		
+		
+		
 
 		// ECRITURE
 		
 		this.strCommande = " ";
+		
+		
+		//Fin du Jeu
+		
+		this.finJack = false;
+		this.finDetec = false;
 		
 
 
@@ -792,7 +815,12 @@ public class Scene extends JPanel {
 		Main.scene.isAppel = false;
 	}
 	
-	
+	public void finDuJeu() {
+		if(this.sablierJack == 6) {
+			finJack = true;
+		}
+//		else if(this.sab)
+	}
 	
 	public void paintComponent(Graphics g) {
 		
@@ -885,14 +913,9 @@ public class Scene extends JPanel {
 			// Jeton temps
 
 
-//			g2.drawImage(this.imgJT1, 100, 300, null);
-//			g2.drawImage(this.imgJT2, 100, 360, null);
-//			g2.drawImage(this.imgJT3, 100, 420, null);
-//			g2.drawImage(this.imgJT4, 100, 480, null);
-//			g2.drawImage(this.imgJT5, 100, 540, null);
-//			g2.drawImage(this.imgJT6, 100, 600, null);
-//			g2.drawImage(this.imgJT7, 100, 660, null);
-//			g2.drawImage(this.imgJT8, 100, 720, null);
+			for(int i = tour -1 ; i<8; i++) {
+				g2.drawImage(this.tabJT[i].getImgJT(), 100 , 300 + 60 * i, null);
+			}
 
 		
 			// Alibi
