@@ -14,6 +14,7 @@ public class Alibi {
 	public ImageIcon icoAlibi;
 	public Image imgAlibi;
 	private String str;
+	public String name;
 	@SuppressWarnings("unused")
 	private int largeur;
 	@SuppressWarnings("unused")
@@ -24,10 +25,10 @@ public class Alibi {
 	// Constructeur
 	
 
-	public Alibi( String str) {
+	public Alibi( String str, String name) {
 		this.largeur = 120;
 		this.hauteur = 200;
-		
+		this.name = name;
 		this.str = str;
 		
 		this.icoAlibi = new ImageIcon(getClass().getResource(this.str));
@@ -41,6 +42,10 @@ public class Alibi {
 
 	public Image getImgAlibi() {
 		return imgAlibi;
+	}
+	
+	public String getName() {
+		return name;
 	}
 	
 	
