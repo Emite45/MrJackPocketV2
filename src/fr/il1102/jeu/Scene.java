@@ -14,6 +14,7 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import fr.il1102.audio.Audio;
 
 import fr.il1102.objet.Alibi;
 import fr.il1102.objet.Detective;
@@ -199,6 +200,14 @@ public class Scene extends JPanel {
 	
 	public boolean finJack;
 	public boolean finDetec;
+	
+	//Audio
+	
+	public Audio musiqueFond = new Audio ("/audios/sonFond.wav");
+	public Audio musiqueMenu = new Audio ("/audios/menuSound.wav");
+	
+	boolean son1;
+	
 
 	
 
@@ -339,6 +348,7 @@ public class Scene extends JPanel {
 		
 
 
+		boolean son1 = true;
 		
 	}
 
@@ -384,6 +394,7 @@ public class Scene extends JPanel {
 	public void echangerTuile(int tChange1, int tChange2) {  // Echange deux grandes listes du tableaux
 		List<Tuile []> listTuile = Arrays.asList(tabShuffleTuile);
 		Collections.swap(listTuile, tChange1, tChange2);
+		Audio.playSound("/audios/run.wav");
 		
 	}
 	
@@ -443,6 +454,7 @@ public class Scene extends JPanel {
 			else if (tabShuffleTuile[tRotat][0] == T9_180) {tabShuffleTuile[tRotat][0] = T9_90; tabShuffleTuile[tRotat][1] = T9; tabShuffleTuile[tRotat][2] = T9_r90; tabShuffleTuile[tRotat][3] = T9_180;} 
 			else if (tabShuffleTuile[tRotat][0] == T9_r90) {tabShuffleTuile[tRotat][0] = T9_180; tabShuffleTuile[tRotat][1] = T9_90; tabShuffleTuile[tRotat][2] = T9; tabShuffleTuile[tRotat][3] = T9_r90;} 
 		}
+		Audio.playSound("/audios/rotationSound.wav");
 	}
 	
 	public void alibiJack(int nAlibi) {				// Quand jack choisi le jeton Alibi
@@ -456,6 +468,7 @@ public class Scene extends JPanel {
 		else if (tabShuffleAlibi[nAlibi] == MissStealthy) {sablierJack++;}
 		else if (tabShuffleAlibi[nAlibi] == SgtGoodley) {}
 		else if (tabShuffleAlibi[nAlibi] == WilliamGull) {sablierJack++;}
+		Audio.playSound("/audios/cardSound.wav");
 	}
 	
 	public void alibiInspecteur() {
@@ -497,7 +510,7 @@ public class Scene extends JPanel {
 			for(int i= 0; i<9; i++) {
 				if(tabShuffleTuile[i][0] == T9 || tabShuffleTuile[i][0] == T9_90 || tabShuffleTuile[i][0] == T9_180 || tabShuffleTuile[i][0] == T9_r90) {this.tabShuffleTuile[i][0].retourner();}}
 			}
-		
+		Audio.playSound("/audios/cardSound.wav");
 	} 
 	
 	public void appelATemoin() {
@@ -559,7 +572,7 @@ public class Scene extends JPanel {
 		// Premiere etape pour savoir si Jack est visible : on compare sa position et celle des detectives
 		
 		Detective[] listeDetectives = {Sherlock, Tobi, Watson};
-		
+		Audio.playSound("/audios/appelSound.wav");
 		for(int i = 0; i<listeDetectives.length; i++) {
 			
 			if (listeDetectives[i].getLigneGrille() == 1 && listeDetectives[i].getColonneGrille() == 2) { //Si détective en position 1,2
@@ -874,6 +887,7 @@ public class Scene extends JPanel {
 		
 		if (ecranAccueil == true && ecranAlibi == false) { //Ecran d'accueil 
 			
+			this.musiqueMenu.play();
 			g2.drawImage( this.imgFondLondres, 0, 0, null);
 
 			Font police = new Font("Simsun", Font.BOLD, 50);
@@ -914,7 +928,12 @@ public class Scene extends JPanel {
 			
 		} else if (ecranAlibi == false && ecranAccueil == false && finJack ==false && finDetec == false) { //ecran du plateau de jeu
 			
+			this.musiqueMenu.stop();
+			
+			this.musiqueFond.play();
 
+
+			
 			//g2.drawImage(this.imgFond, 0, 0, null); // Affichage du fond noir
 			g2.drawImage( this.imgFondLondres, 0, 0, null); // Affichage du fond
 
@@ -979,22 +998,34 @@ public class Scene extends JPanel {
 		else if( ecranAlibi == false && ecranAccueil == false && finJack == true && finDetec == false ) { //JACK GAGNE
 			g2.drawImage( this.imgFondLondres, 0, 0, null); // Affichage du fond
 			
+			
+			
+			
+
+			
 			Font police = new Font("Simsun", Font.BOLD, 50);
 			g2.setColor(Color.white);
 			g2.setFont(police);
-			g2.drawString(" Mr.Jack s'est enfuit... ", 350, 150);
+			g2.drawString(" Mr.Jack c'est enfuit... ", 350, 150);
 			
+			if(son1 == true) {
+			Audio.playSound("/audios/jackSound.wav");
+			son1 = false;
+			}
 		}
 		
 		else if( ecranAlibi == false && ecranAccueil == false && finJack == false && finDetec == true ) { //DETECTIVE GAGNE
 			g2.drawImage( this.imgFondDetec, 0, 0, null); // Affichage du fond
 			
+			this.musiqueFond.stop();
+			
 			Font police = new Font("Simsun", Font.BOLD, 50);
 			g2.setColor(Color.white);
 			g2.setFont(police);
-			g2.drawString(" Vous avez attrape Jack ! ", 350, 150);
+			g2.drawString(" Vous avez attrapez Jack ! ", 350, 150);
 			
 		}
 	}
 	
+
 }
