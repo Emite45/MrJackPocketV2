@@ -3,6 +3,8 @@ package fr.il1102.jeu;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import fr.il1102.audio.Audio;
+
 public class Clavier implements KeyListener{
 	
 	@Override
@@ -15,6 +17,7 @@ public class Clavier implements KeyListener{
 	public void keyPressed(KeyEvent e) {
 		
 		if(e.getKeyCode() == KeyEvent.VK_ENTER && Main.scene.isEcranAccueil() == true && Main.scene.isEcranAlibi() == false) { //Permet de passer l'écran d'accueil
+			
 			Main.scene.setEcranAccueil(false);
 			Main.scene.setEcranAlibi(true);
 			Main.scene.repaint();
@@ -26,6 +29,7 @@ public class Clavier implements KeyListener{
 		}
 		else if(Main.scene.idJack == true && Main.scene.ecranAlibi == true && Main.scene.isEcranAccueil() == false  && e.getKeyCode() == KeyEvent.VK_SPACE) { //Permet de changer d'ecran en modifiant la variable ecranAlibi
 			Main.scene.setEcranAlibi(false);
+			Audio.playSound("/audios/doorSound.wav");
 			Main.scene.idJack = false;
 			Main.scene.repaint();
 		}
@@ -39,12 +43,6 @@ public class Clavier implements KeyListener{
 		
 		//Deplacement des detectives
 
-
-		
-		else if (e.getKeyCode() == KeyEvent.VK_N) {
-			Main.scene.appelATemoin();
-			Main.scene.repaint();
-		}
 		
 
 		//retourner
@@ -129,11 +127,13 @@ public class Clavier implements KeyListener{
 					Main.scene.nbr_depla = (e.getKeyCode() - 48);
 					if (Main.scene.nbr_depla == 1) {
 						Main.scene.Tobi.Mouvement(Main.scene.Sherlock, Main.scene.Watson);
+						Audio.playSound("/audios/tobiSound.wav");
 						Main.scene.repaint();
 					}
 					if (Main.scene.nbr_depla == 2) {
 						Main.scene.Tobi.Mouvement(Main.scene.Sherlock, Main.scene.Watson);
 						Main.scene.Tobi.Mouvement(Main.scene.Sherlock, Main.scene.Watson);
+						Audio.playSound("/audios/tobiSound.wav");
 						Main.scene.repaint();
 					}
 					Main.scene.JA2 = false;
@@ -147,11 +147,13 @@ public class Clavier implements KeyListener{
 					Main.scene.nbr_depla = (e.getKeyCode() - 48);
 					if (Main.scene.nbr_depla == 1) {
 						Main.scene.Watson.Mouvement(Main.scene.Sherlock, Main.scene.Tobi);
+						Audio.playSound("/audios/watsonSound.wav");
 						Main.scene.repaint();
 					}
 					if (Main.scene.nbr_depla == 2) {
 						Main.scene.Watson.Mouvement(Main.scene.Sherlock, Main.scene.Tobi);
 						Main.scene.Watson.Mouvement(Main.scene.Sherlock, Main.scene.Tobi);
+						Audio.playSound("/audios/watsonSound.wav");
 						Main.scene.repaint();
 					}
 					Main.scene.JA2 = false;
@@ -181,11 +183,13 @@ public class Clavier implements KeyListener{
 					Main.scene.nbr_depla = (e.getKeyCode() - 48);
 					if (Main.scene.nbr_depla == 1) {
 						Main.scene.Sherlock.Mouvement(Main.scene.Watson, Main.scene.Tobi);
+						Audio.playSound("/audios/sherlockSound.wav");
 						Main.scene.repaint();
 					}
 					if (Main.scene.nbr_depla == 2) {
 						Main.scene.Sherlock.Mouvement(Main.scene.Watson, Main.scene.Tobi);
 						Main.scene.Sherlock.Mouvement(Main.scene.Watson, Main.scene.Tobi);
+						Audio.playSound("/audios/sherlockSound.wav");
 						Main.scene.repaint();
 					}
 					Main.scene.JA3 = false;
@@ -245,14 +249,17 @@ public class Clavier implements KeyListener{
 				Main.scene.nbr_depla = (e.getKeyCode() - 48);
 				if(Main.scene.nbr_depla == 1) {
 					Main.scene.Sherlock.Mouvement(Main.scene.Watson, Main.scene.Tobi);
+					Audio.playSound("/audios/sherlockSound.wav");
 					Main.scene.repaint();
 				}
 				if(Main.scene.nbr_depla == 2) {
 					Main.scene.Watson.Mouvement(Main.scene.Sherlock, Main.scene.Tobi);
+					Audio.playSound("/audios/watsonSound.wav");
 					Main.scene.repaint();
 				}
 				if(Main.scene.nbr_depla == 3) {
 					Main.scene.Tobi.Mouvement(Main.scene.Watson, Main.scene.Sherlock);
+					Audio.playSound("/audios/tobiSound.wav");
 					Main.scene.repaint();
 				}
 				Main.scene.JA4 = true;
