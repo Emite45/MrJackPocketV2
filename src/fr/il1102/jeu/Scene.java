@@ -997,5 +997,4 @@ public class Scene extends JPanel {
 		}
 	}
 	
-
 }
