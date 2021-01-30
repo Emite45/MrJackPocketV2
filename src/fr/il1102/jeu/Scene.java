@@ -14,6 +14,8 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import com.sun.org.apache.xpath.internal.axes.OneStepIterator;
+
 import fr.il1102.audio.Audio;
 
 import fr.il1102.objet.Alibi;
@@ -515,72 +517,68 @@ public class Scene extends JPanel {
 	
 	public void appelATemoin() {
 		
-		Tuile tuile1 = tabShuffleTuile[0][0];
-		tuile1.setLigneGrille(2);
+		// On reprend les cartes de tabShuffleTuile en leur donnant un nouveau nom, pour simplifier la comprehension par la suite
+		Tuile tuile1 = tabShuffleTuile[0][0]; // tuile en position 2,2
+		tuile1.setLigneGrille(2); 
 		tuile1.setColonneGrille(2);
 		tuile1.setVisible(false);
-		Tuile tuile2 = tabShuffleTuile[1][0];
+		Tuile tuile2 = tabShuffleTuile[1][0]; // tuile en position 2,3
 		tuile2.setLigneGrille(2);
 		tuile2.setColonneGrille(3);
 		tuile2.setVisible(false);
-		Tuile tuile3 = tabShuffleTuile[2][0];
+		Tuile tuile3 = tabShuffleTuile[2][0]; // tuile en position 2,4
 		tuile3.setLigneGrille(2);
 		tuile3.setColonneGrille(4);
 		tuile3.setVisible(false);
-		Tuile tuile4 = tabShuffleTuile[3][0];
+		Tuile tuile4 = tabShuffleTuile[3][0]; // tuile en position 3,2
 		tuile4.setLigneGrille(3);
 		tuile4.setColonneGrille(2);
 		tuile4.setVisible(false);
-		Tuile tuile5 = tabShuffleTuile[4][0];
+		Tuile tuile5 = tabShuffleTuile[4][0]; // tuile en position 3,3
 		tuile5.setLigneGrille(3);
 		tuile5.setColonneGrille(3);
 		tuile5.setVisible(false);
-		Tuile tuile6 = tabShuffleTuile[5][0];
+		Tuile tuile6 = tabShuffleTuile[5][0]; // tuile en position 3,4
 		tuile6.setLigneGrille(3);
 		tuile6.setColonneGrille(4);
 		tuile6.setVisible(false);
-		Tuile tuile7 = tabShuffleTuile[6][0];
+		Tuile tuile7 = tabShuffleTuile[6][0]; // tuile en position 4,2
 		tuile7.setLigneGrille(4);
 		tuile7.setColonneGrille(2);
 		tuile7.setVisible(false);
-		Tuile tuile8 = tabShuffleTuile[7][0];
+		Tuile tuile8 = tabShuffleTuile[7][0]; // tuile en position 4,3
 		tuile8.setLigneGrille(4);
 		tuile8.setColonneGrille(3);
 		tuile8.setVisible(false);
-		Tuile tuile9 = tabShuffleTuile[8][0];
+		Tuile tuile9 = tabShuffleTuile[8][0]; // tuile en position 4,4
 		tuile9.setLigneGrille(4);
 		tuile9.setColonneGrille(4);
 		tuile9.setVisible(false);
 		
-		// Recuperation tuile de Jack en fonction de son alibi
-		
-		Tuile tuileJack = null;
-		
 		Tuile[] grilleTuiles = {tuile1, tuile2, tuile3, tuile4, tuile5, tuile6, tuile7, tuile8, tuile9};
 		
-		//System.out.println(tuileJack.getName());
+		// Tuile occupée par Jack, pour l'instant inconnue
+		Tuile tuileJack = null;
 		
+		// On met a jour les variables de positions dans la grille des detectives
 		Sherlock.updatePositionGrille();
 		Watson.updatePositionGrille();
 		Tobi.updatePositionGrille();
-		
-		//System.out.println("Sherlock est en "+ Sherlock.ligneGrille +"," + Sherlock.colonneGrille);
-		//System.out.println("Watson est en "+ Watson.ligneGrille +"," + Watson.colonneGrille);
-		//System.out.println("Tobi est en "+ Tobi.ligneGrille +"," + Tobi.colonneGrille);
-		//System.out.println("Jack est en "+ tuileJack.ligneGrille +"," + tuileJack.colonneGrille);
-
-		// Premiere etape pour savoir si Jack est visible : on compare sa position et celle des detectives
-		
 		Detective[] listeDetectives = {Sherlock, Tobi, Watson};
 		Audio.playSound("/audios/appelSound.wav");
+		
+		// Boucle principale de l'appel a temoin, s'execute pour chaque detective
 		for(int i = 0; i<listeDetectives.length; i++) {
 			
 			if (listeDetectives[i].getLigneGrille() == 1 && listeDetectives[i].getColonneGrille() == 2) { //Si détective en position 1,2
+				// on parcourt la liste de tuile sur la 2e colonne, donc de 3 en 3 entre la tuile1 et la tuile 7
 				for (int j = 0; j < 7; j+=3) {
-					if(grilleTuiles[j].getName().contains("_90") || grilleTuiles[j].getName().contains("_-90") || grilleTuiles[j].getName().contains("_x")) {
+					// si la tuile a une rotation à 90 ou -90 degres, ou s'il s'agit de celle de joseph lane retournee
+					if(grilleTuiles[j].getName().contains("_90") || grilleTuiles[j].getName().contains("_-90") || grilleTuiles[j].getName().contains("_x")) { 
 						grilleTuiles[j].setVisible(true);
 					}
-					else if (grilleTuiles[j].getName().contains("_0")) {
+					//si sa rotation est nulle, alors elle sera visible mais les suivante ne le seront pas à cause du mur
+					else if (grilleTuiles[j].getName().contains("_0")) { 
 						grilleTuiles[j].setVisible(true);
 						break;
 					}
@@ -758,7 +756,7 @@ public class Scene extends JPanel {
 
 		}
 
-		
+		// on verifie quelle tuile est celle de jack en parcourant la liste de tuiles et en comparant leurs noms a celui de l'alibi de jack
 		for (int i = 0; i < grilleTuiles.length; i++) {
 			if (grilleTuiles[i].getName().contains(tabShuffleAlibi[0].getName())) {
 				tuileJack = grilleTuiles[i];
@@ -767,8 +765,9 @@ public class Scene extends JPanel {
 			}
 		}
 		
-		if (tuileJack.getVisible()) { //si jack est visible
+		if (tuileJack.getVisible()) { //si la tuile de jack est visible
 			this.jackVisible = true;
+			// on retourne toutes les tuiles non visibles
 			for (int i = 0; i < grilleTuiles.length; i++) {
 				if(!grilleTuiles[i].getVisible()) {	
 					tabShuffleTuile[i][0].retourner();
@@ -779,8 +778,9 @@ public class Scene extends JPanel {
 				}
 			}
 		}
-		else { //si jack n'est pas visible
+		else { //si la tuile de jack n'est pas visible
 			this.jackVisible = false;
+			// on retourne toutes les tuiles visibles
 			for (int i = 0; i < grilleTuiles.length; i++) {
 				if(grilleTuiles[i].getVisible()) {	
 					tabShuffleTuile[i][0].retourner();

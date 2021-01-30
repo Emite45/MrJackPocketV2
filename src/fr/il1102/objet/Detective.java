@@ -145,11 +145,13 @@ public class Detective {
 	public void Mouvement(Detective autreDetective1, Detective autreDetective2) {
 		if(xPosition == xDetec1 || xPosition == xDetec1 -90) { //si le detective est sur la premiere colonne
 			if (yPosition == yDetec2) { // s'il est sur la 2e ligne
-				if (autreDetective1.getxPosition() == xDetec2 && autreDetective1.getyPosition() == yDetec1 || autreDetective2.getxPosition() == xDetec2 && autreDetective2.getyPosition() == yDetec1) {
+				if (autreDetective1.getxPosition() == xDetec2 && autreDetective1.getyPosition() == yDetec1 || autreDetective2.getxPosition() == xDetec2 && autreDetective2.getyPosition() == yDetec1) {  //si un autre detective est sur la case suivante
+					//Changement de position vers la case suivante avec un leger decalage pour eviter de superposer les jetons
 					xPosition =xDetec2; 
 					yPosition =yDetec1 - 90;
 				}
 				else {
+					//changement de position sans decalage
 					xPosition =xDetec2; 
 					yPosition =yDetec1;
 				}
