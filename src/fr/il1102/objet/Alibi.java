@@ -15,19 +15,11 @@ public class Alibi {
 	public Image imgAlibi;
 	private String str;
 	public String name;
-	@SuppressWarnings("unused")
-	private int largeur;
-	@SuppressWarnings("unused")
-	private int hauteur;
-	
-
 
 	// Constructeur
 	
 
 	public Alibi( String str, String name) {
-		this.largeur = 120;
-		this.hauteur = 200;
 		this.name = name;
 		this.str = str;
 		

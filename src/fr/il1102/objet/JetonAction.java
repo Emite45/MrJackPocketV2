@@ -13,19 +13,12 @@ public class JetonAction {
 	public ImageIcon icoJA;
 	public Image imgJA;
 	private String str;
-	@SuppressWarnings("unused")
-	private int largeur;
-	@SuppressWarnings("unused")
-	private int hauteur;
-	
 
 
 	// Constructeur
 	
 
 	public JetonAction( String str) {
-		this.largeur = 70;
-		this.hauteur = 70;
 		
 		this.str = str;
 		

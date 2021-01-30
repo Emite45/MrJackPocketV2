@@ -10,10 +10,6 @@ public class JetonTemps {
 	public ImageIcon icoJT;
 	public Image imgJT;
 	private String str;
-	@SuppressWarnings("unused")
-	private int largeur;
-	@SuppressWarnings("unused")
-	private int hauteur;
 	
 
 
@@ -21,8 +17,6 @@ public class JetonTemps {
 	
 
 	public JetonTemps( String str) {
-		this.largeur = 70;
-		this.hauteur = 70;
 		
 		this.str = str;
 		

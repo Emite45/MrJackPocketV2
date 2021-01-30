@@ -12,10 +12,6 @@ public class Detective {
 	public ImageIcon icoDetec;
 	public Image imgDetec;
 	private String str;
-	@SuppressWarnings("unused")
-	private int largeur;
-	@SuppressWarnings("unused")
-	private int hauteur;
 	public int xPosition;
 	public int yPosition;
 	
@@ -40,9 +36,7 @@ public class Detective {
 	
 
 	public Detective( String str, int xPositionDepart, int yPositionDepart, String name) {
-		
-		this.largeur = 80;
-		this.hauteur = 80;
+
 		this.name = name;
 		this.str = str;
 		

@@ -16,10 +16,6 @@ public class Tuile {
 	public Image imgTuile;
 	private String str;
 	public String name;
-	@SuppressWarnings("unused")
-	private int largeur;
-	@SuppressWarnings("unused")
-	private int hauteur;
 	public boolean visible = false;
 	public int ligneGrille;
 	public int colonneGrille;
@@ -28,10 +24,8 @@ public class Tuile {
 
 	
 	public Tuile(String str, String name) {
-		this.largeur = 190;
-		this.hauteur = 190;
-		this.name = name;
 
+		this.name = name;
 		this.str = str;
 		this.icoTuile = new ImageIcon(getClass().getResource(this.str));
 		this.imgTuile = this.icoTuile.getImage();
