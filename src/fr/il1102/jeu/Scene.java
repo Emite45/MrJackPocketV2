@@ -1006,7 +1006,7 @@ public class Scene extends JPanel {
 			Font police = new Font("Simsun", Font.BOLD, 50);
 			g2.setColor(Color.white);
 			g2.setFont(police);
-			g2.drawString(" Mr.Jack c'est enfuit... ", 350, 150);
+			g2.drawString(" Mr.Jack s'est enfuit... ", 350, 150);
 			
 			if(son1 == true) {
 			Audio.playSound("/audios/jackSound.wav");
@@ -1022,7 +1022,7 @@ public class Scene extends JPanel {
 			Font police = new Font("Simsun", Font.BOLD, 50);
 			g2.setColor(Color.white);
 			g2.setFont(police);
-			g2.drawString(" Vous avez attrapez Jack ! ", 350, 150);
+			g2.drawString(" Vous avez attrapé Jack ! ", 350, 150);
 			
 		}
 	}
