@@ -14,7 +14,7 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import com.sun.org.apache.xpath.internal.axes.OneStepIterator;
+
 
 import fr.il1102.audio.Audio;
 
@@ -39,7 +39,11 @@ public class Scene extends JPanel {
 	
 	private ImageIcon icoFondDetec;
 	private Image imgFondDetec;
+	
+	private ImageIcon icoFondJack;
+	private Image imgFondJack;
 
+	
 															// Tuile \\ 
 	// Initialisation des tuiles
 	public Tuile T1 = new Tuile("/images/tuile_de_rue_face_suspect1.png", "madame_0");
@@ -198,7 +202,9 @@ public class Scene extends JPanel {
 	public boolean isAppel;  // Determine si l'appel à temoins à été effectué
 	
 	public String strCommande;
+	public String strCommande2;
 	public String strJack;
+	public boolean strSablier;
 	
 	public boolean finJack;
 	public boolean finDetec;
@@ -227,6 +233,9 @@ public class Scene extends JPanel {
 		
 		icoFondDetec = new ImageIcon(getClass().getResource("/images/fond_detec.png"));
 		this.imgFondDetec = this.icoFondDetec.getImage();
+		
+		icoFondJack = new ImageIcon(getClass().getResource("/images/fondJack.png"));
+		this.imgFondJack = this.icoFondJack.getImage();
 		
 		// Tableau de tuile que l'on mélange
 		this.tabShuffleTuile = Tuile.tuileMelange(T1, T1_90, T1_180, T1_r90, T2, T2_90, T2_180, T2_r90, T3, T3_90, T3_180,
@@ -342,6 +351,8 @@ public class Scene extends JPanel {
 		
 		this.strCommande = " ";
 		
+		this.strSablier = false;
+		
 		
 		//Fin du Jeu
 		
@@ -350,7 +361,7 @@ public class Scene extends JPanel {
 		
 
 
-		boolean son1 = true;
+
 		
 	}
 
@@ -462,14 +473,14 @@ public class Scene extends JPanel {
 	public void alibiJack(int nAlibi) {				// Quand jack choisi le jeton Alibi
 
 		if (tabShuffleAlibi[nAlibi] == InspLestrade) {}
-		else if (tabShuffleAlibi[nAlibi] == JeremyBert) {sablierJack++;}
-		else if (tabShuffleAlibi[nAlibi] == JohnPizer) {sablierJack++;}
-		else if (tabShuffleAlibi[nAlibi] == JohnSmith) {sablierJack++;}
-		else if (tabShuffleAlibi[nAlibi] == JosephLane) {sablierJack++;}
-		else if (tabShuffleAlibi[nAlibi] == Madame) {sablierJack = sablierJack +2;}
-		else if (tabShuffleAlibi[nAlibi] == MissStealthy) {sablierJack++;}
+		else if (tabShuffleAlibi[nAlibi] == JeremyBert) {this.sablierJack++;}
+		else if (tabShuffleAlibi[nAlibi] == JohnPizer) {this.sablierJack++;}
+		else if (tabShuffleAlibi[nAlibi] == JohnSmith) {this.sablierJack++;}
+		else if (tabShuffleAlibi[nAlibi] == JosephLane) {this.sablierJack++;}
+		else if (tabShuffleAlibi[nAlibi] == Madame) {this.sablierJack = sablierJack +2;}
+		else if (tabShuffleAlibi[nAlibi] == MissStealthy) {this.sablierJack++;}
 		else if (tabShuffleAlibi[nAlibi] == SgtGoodley) {}
-		else if (tabShuffleAlibi[nAlibi] == WilliamGull) {sablierJack++;}
+		else if (tabShuffleAlibi[nAlibi] == WilliamGull) {this.sablierJack++;}
 		Audio.playSound("/audios/cardSound.wav");
 	}
 	
@@ -766,7 +777,7 @@ public class Scene extends JPanel {
 		}
 		
 		if (tuileJack.getVisible()) { //si la tuile de jack est visible
-			this.jackVisible = true;
+
 			// on retourne toutes les tuiles non visibles
 			for (int i = 0; i < grilleTuiles.length; i++) {
 				if(!grilleTuiles[i].getVisible()) {	
@@ -779,7 +790,7 @@ public class Scene extends JPanel {
 			}
 		}
 		else { //si la tuile de jack n'est pas visible
-			this.jackVisible = false;
+			this.sablierJack++;
 			// on retourne toutes les tuiles visibles
 			for (int i = 0; i < grilleTuiles.length; i++) {
 				if(grilleTuiles[i].getVisible()) {	
@@ -824,7 +835,7 @@ public class Scene extends JPanel {
 	public void actionTour() {
 		if(action < 5) {
 			action ++;
-			System.out.println( action);
+			
 
 			}
 		
@@ -860,22 +871,102 @@ public class Scene extends JPanel {
 	public void finDuJeu() {
 		if(this.sablierJack == 6) {  //si jack possède 6 sabliers
 			finJack = true;
+			Audio.playSound("/audios/jackSound.wav");
 		}
 		if(this.nbrRetourne == 8) { // s'il ne reste qu'un seul suspect après l'appel à temoin
 			finDetec = true;
+			Audio.playSound("/audios/finInspecteur.wav");
 		}
 		if(this.jackVisible == true  && this.finJack == true && this.finDetec == true) { // Si les deux gagnent et Jack est visible
 			finDetec = true;
 			finJack = false;
+			Audio.playSound("/audios/finInspecteur.wav");
 		}
 		if(this.jackVisible == false && this.tour == 8 && this.finJack == true && this.finDetec == true) { // Si les deux gagnent et Jack est invisible
 			finDetec = false;
 			finJack = true;
+			Audio.playSound("/audios/jackSound.wav");
 		}
 		if(this.tour == 8 && this.finJack == false && this.finDetec == false) {
 			this.finJack = true;
+			Audio.playSound("/audios/jackSound.wav");
 		}
 	}
+	
+	public void restart() {
+	
+			Main.scene.tabShuffleTuile = Tuile.tuileMelange(T1, T1_90, T1_180, T1_r90, T2, T2_90, T2_180, T2_r90, T3, T3_90, T3_180,
+					T3_r90, T4, T4_90, T4_180, T4_r90, T5, T5_90, T5_180, T5_r90, T6, T6_90, T6_180, T6_r90, T7, T7_90,
+					T7_180, T7_r90, T8, T8_90, T8_180, T8_r90, T9, T9_90, T9_180, T9_r90);
+			this.tChange = 0;
+			this.tChange1 = 0;
+			this.tChange2 = 0;
+			this.changeSelect = false;
+			this.JTchange = false;
+			
+			this.tRotat = 0;
+			this.JTrot = false;
+			this.tTurn= 0;
+			
+			this.nbrRetourne = 0;
+			
+			this.idJack = false;
+			
+			this.jackVisible = false;
+			
+			this.nAlibi = 0;
+			this.nAlibiFC = 8;
+			
+			this.sablierJack = 0;
+
+			//tableau des cartes Alibis que l'on mélange
+			this.tabShuffleAlibi = Alibi.shuffleAlibi(InspLestrade, JeremyBert, JohnPizer, JohnSmith, JosephLane, Madame,
+					MissStealthy, SgtGoodley, WilliamGull);
+			
+			this.tabShuffleJA = JetonAction.jetonShuffle(jA1_1, jA1_2,jA2_1, jA2_2, jA3_1, jA3_2, jA4_1, jA4_2 );
+			
+			this.JA1 = false;
+			this.JA2 = false;
+			this.JA3 = false;
+			this.JA4 = false;
+			this.nJA1 = true;
+			this.nJA2 = true;
+			this.nJA3 = true;
+			this.nJA4 = true;
+			
+			this.nbr_depla = 0;
+			
+			this.tour = 1;
+			this.joueur = 'D';
+			this.action = 1;
+			
+			this.isAppel = false;
+			
+			this.tabJT = JetonTemps.tabTemps(jT1, jT2, jT3, jT4, jT5, jT6, jT7, jT8);
+			
+			this.ecranAccueil = true ;
+			this.ecranAlibi = false ;
+			
+			
+			
+
+			// ECRITURE
+			
+			this.strCommande = " ";
+			
+			this.strSablier = false;
+			
+			
+			//Fin du Jeu
+			
+			this.finJack = false;
+			this.finDetec = false;
+			
+			Audio.playSound("/audios/restartSound.wav");
+			
+			
+	}
+	
 	
 	public void paintComponent(Graphics g) {
 		
@@ -942,6 +1033,8 @@ public class Scene extends JPanel {
 			g2.setFont(police); 
 			g2.drawString(" Au tour de " + joueur , 0, 50);
 			g2.drawString( strCommande, 0, 100);
+			g2.drawString( strCommande2, 0, 120);
+			g2.drawString( "Appuyez sur ENTRER à n'importe quel moment du jeu pour afficher les sabliers de Jack", 0, 900);
 
 			g2.drawImage(tabShuffleTuile[6][0].getImgTuile(), 300, 580, null); // Affichage de la tuile en Position (1) 7 ou 4,2
 			g2.drawImage(tabShuffleTuile[7][0].getImgTuile(), 490, 580, null); // Affichage de la tuile en Position (2) 8 4,3
@@ -963,10 +1056,10 @@ public class Scene extends JPanel {
 			// Jeton Action 
 			
 			if (nJA1 == true || nJA2 == true || nJA3 == true || nJA4 == true) {
-				if(nJA1 == true) {g2.drawImage(tabShuffleJA[0][0].getImgJA(), 1100, 450, null); }// Affichage du Jeton 1
-				if(nJA2 == true) {g2.drawImage(tabShuffleJA[1][0].getImgJA(), 1100, 520, null);} // Affichage du Jeton 2
-				if(nJA3 == true) {g2.drawImage(tabShuffleJA[2][0].getImgJA(), 1100, 590, null);} // Affichage du Jeton 3
-				if(nJA4 == true) {g2.drawImage(tabShuffleJA[3][0].getImgJA(), 1100, 660, null);} // Affichage du Jeton 4
+				if(nJA1 == true) {g2.drawImage(tabShuffleJA[0][0].getImgJA(), 1100, 450, null); g2.drawString(" A ", 1180, 470);}// Affichage du Jeton 1
+				if(nJA2 == true) {g2.drawImage(tabShuffleJA[1][0].getImgJA(), 1100, 520, null); g2.drawString(" Z ", 1180, 540);} // Affichage du Jeton 2
+				if(nJA3 == true) {g2.drawImage(tabShuffleJA[2][0].getImgJA(), 1100, 590, null); g2.drawString(" E ", 1180, 610);} // Affichage du Jeton 3
+				if(nJA4 == true) {g2.drawImage(tabShuffleJA[3][0].getImgJA(), 1100, 660, null); g2.drawString(" R ", 1180, 680);} // Affichage du Jeton 4
 			}
 
 			
@@ -996,7 +1089,7 @@ public class Scene extends JPanel {
 		}
 		
 		else if( ecranAlibi == false && ecranAccueil == false && finJack == true && finDetec == false ) { //JACK GAGNE
-			g2.drawImage( this.imgFondLondres, 0, 0, null); // Affichage du fond
+			g2.drawImage( this.imgFondJack, 0, 0, null); // Affichage du fond
 			
 			
 			
@@ -1007,22 +1100,22 @@ public class Scene extends JPanel {
 			g2.setColor(Color.white);
 			g2.setFont(police);
 			g2.drawString(" Mr.Jack s'est enfuit... ", 350, 150);
+			g2.drawString(" Appuyez sur R pour recommencer la partie ", 350, 300);
 			
-			if(son1 == true) {
-			Audio.playSound("/audios/jackSound.wav");
-			son1 = false;
-			}
+			
+		
 		}
 		
 		else if( ecranAlibi == false && ecranAccueil == false && finJack == false && finDetec == true ) { //DETECTIVE GAGNE
 			g2.drawImage( this.imgFondDetec, 0, 0, null); // Affichage du fond
 			
-			this.musiqueFond.stop();
 			
 			Font police = new Font("Simsun", Font.BOLD, 50);
 			g2.setColor(Color.white);
 			g2.setFont(police);
 			g2.drawString(" Vous avez attrapé Jack ! ", 350, 150);
+			g2.drawString(" Appuyez sur R pour recommencer la partie ", 350, 300);
+			
 			
 		}
 	}

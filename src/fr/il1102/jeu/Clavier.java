@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import fr.il1102.audio.Audio;
+import fr.il1102.objet.Tuile;
 
 public class Clavier implements KeyListener{
 	
@@ -31,6 +32,8 @@ public class Clavier implements KeyListener{
 			Main.scene.setEcranAlibi(false);
 			Audio.playSound("/audios/doorSound.wav");
 			Main.scene.idJack = false;
+			Main.scene.strCommande = " Choissisez un Jeton ";
+			Main.scene.strCommande2 = " ";
 			Main.scene.repaint();
 		}
 //		else if(e.getKeyCode() == KeyEvent.VK_LEFT) { //Permet d'afficher mon deck de  carte alibi
@@ -59,7 +62,8 @@ public class Clavier implements KeyListener{
 		//JETON 1
 		if ( Main.scene.JA1 == false && Main.scene.nJA1 == true && e.getKeyCode()== KeyEvent.VK_A) {
 			Main.scene.JA1 = true;
-			Main.scene.strCommande = "Appuyez sur Q pour quitter la sélection sinon choisissez les tuiles a tourner ou echanger ";
+			Main.scene.strCommande = " Appuyez sur Q pour quitter la sélection  ";
+			Main.scene.strCommande2 = " sinon choisissez les tuiles a tourner ou echanger ";
 			Main.scene.repaint();
 			
 
@@ -67,6 +71,7 @@ public class Clavier implements KeyListener{
 		if(Main.scene.JA1 == true && Main.scene.nJA1 == true  &&  Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && e.getKeyCode() == KeyEvent.VK_Q ) {
 			Main.scene.JA1 = false;  //Permet de cancel le choix du jeton
 			Main.scene.strCommande = " Choissisez un Jeton ";
+			Main.scene.strCommande2 = " ";
 			Main.scene.repaint();
 }
 		
@@ -78,6 +83,7 @@ public class Clavier implements KeyListener{
 					Main.scene.settChange( Main.scene.tChange1);
 					Main.scene.setSelect(true);
 					Main.scene.strCommande = " Choissisez une deuxième tuile ";
+					Main.scene.strCommande2 = " ";
 					Main.scene.repaint();
 				}
 					//Selec 2
@@ -90,6 +96,7 @@ public class Clavier implements KeyListener{
 					Main.scene.nJA1 = false;
 					Main.scene.actionTour();
 					Main.scene.strCommande = " Choissisez un Jeton ";
+					Main.scene.strCommande2 = " ";
 					Main.scene.repaint();
 				}
 		
@@ -104,6 +111,7 @@ public class Clavier implements KeyListener{
 					Main.scene.nJA1 = false;
 					Main.scene.actionTour();
 					Main.scene.strCommande = " Choissisez un Jeton ";
+					Main.scene.strCommande2 = " ";
 
 					Main.scene.repaint();
 			}
@@ -111,13 +119,15 @@ public class Clavier implements KeyListener{
 		//JETON 2
 		if (Main.scene.nJA2 == true && e.getKeyCode()== KeyEvent.VK_Z) {
 			Main.scene.JA2 = true;
-			Main.scene.strCommande = "Appuyez sur Q pour quitter la sélection sinon choisissez 1 ou 2 deplacement pour le detective ";
+			Main.scene.strCommande = "Appuyez sur Q pour quitter la sélection sinon  ";
+			Main.scene.strCommande2 = " choisissez 1 ou 2 deplacement pour le detective ";
 			Main.scene.repaint();
 		}
 		
 		if(Main.scene.JA2 == true && Main.scene.nJA2 == true  &&  Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && e.getKeyCode() == KeyEvent.VK_Q ) {
 			Main.scene.JA2 = false;  //Permet de cancel le choix du jeton
 			Main.scene.strCommande = " Choissisez un Jeton ";
+			Main.scene.strCommande2 = " ";
 			Main.scene.repaint();
 		}
 			
@@ -140,6 +150,7 @@ public class Clavier implements KeyListener{
 					Main.scene.nJA2 = false;
 					Main.scene.actionTour();
 					Main.scene.strCommande = " Choissisez un Jeton ";
+					Main.scene.strCommande2 = " ";
 					Main.scene.repaint();
 				}
 			//JETON 2_2
@@ -160,6 +171,7 @@ public class Clavier implements KeyListener{
 					Main.scene.nJA2 = false;
 					Main.scene.actionTour();
 					Main.scene.strCommande = " Choissisez un Jeton ";
+					Main.scene.strCommande2 = " ";
 
 					Main.scene.repaint();
 				}
@@ -167,13 +179,15 @@ public class Clavier implements KeyListener{
 		//JETON 3
 		if ( Main.scene.JA3 == false && Main.scene.nJA3 == true && e.getKeyCode()== KeyEvent.VK_E) {
 			Main.scene.JA3 = true;
-			Main.scene.strCommande = "Appuyez sur ENTRER si c'est une jeton Alibi ou si c'est Sherlock appuyez sur 1 ou 2 selon le nombre de deplacement voulu ";
+			Main.scene.strCommande = "Appuyez sur ENTRER si c'est une jeton Alibi ou  ";
+			Main.scene.strCommande2 = " si c'est Sherlock appuyez sur 1 ou 2 selon le nombre de deplacement voulu ";
 			Main.scene.repaint();
 		}
 		
 		if(Main.scene.JA3 == true && Main.scene.nJA3 == true  &&  Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && e.getKeyCode() == KeyEvent.VK_Q ) {
 			Main.scene.JA3 = false;  //Permet de cancel le choix du jeton
 			Main.scene.strCommande = " Choissisez un Jeton ";
+			Main.scene.strCommande2 = " ";
 			Main.scene.repaint();
 		}
 		
@@ -196,6 +210,7 @@ public class Clavier implements KeyListener{
 					Main.scene.nJA3 = false;
 					Main.scene.actionTour();
 					Main.scene.strCommande = " Choissisez un Jeton ";
+					Main.scene.strCommande2 = " ";
 					Main.scene.repaint();
 					}
 	
@@ -222,11 +237,13 @@ public class Clavier implements KeyListener{
 					Main.scene.nJA3 = false;
 					Main.scene.actionTour();
 					Main.scene.strCommande = "Appuyez sur entrée une seconde fois pour faire disparaitre la carte";
+					Main.scene.strCommande2 = " ";
 					Main.scene.repaint();
 				}
 				else if( Main.scene.JA3 == false && Main.scene.nJA3 == false && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && e.getKeyCode() == KeyEvent.VK_ENTER ) {
 					Main.scene.idJack = false;
 					Main.scene.strCommande = " Choissisez un Jeton ";
+					Main.scene.strCommande2 = " ";
 					
 					Main.scene.repaint();
 				}
@@ -234,13 +251,15 @@ public class Clavier implements KeyListener{
 		//JETON 4
 		if ( Main.scene.JA4 == false && Main.scene.nJA4 == true && e.getKeyCode()== KeyEvent.VK_R) {
 			Main.scene.JA4 = true;
-			Main.scene.strCommande = " Choissisez 1 (Sherlock), 2 (Watson), 3 (Tobi) pour le deplacer d'une case ou une tuile à tourner ";
+			Main.scene.strCommande = " Choissisez 1 (Sherlock), 2 (Watson), ";
+			Main.scene.strCommande2 = " 3 (Tobi) pour le deplacer d'une case ou une tuile à tourner";
 			Main.scene.repaint();
 		}	
 		
 		if(Main.scene.JA4 == true && Main.scene.nJA4 == true  &&  Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && e.getKeyCode() == KeyEvent.VK_Q ) {
 			Main.scene.JA4 = false;  //Permet de cancel le choix du jeton
 			Main.scene.strCommande = " Choissisez un Jeton ";
+			Main.scene.strCommande2 = " ";
 			Main.scene.repaint();
 		}
 		
@@ -266,6 +285,7 @@ public class Clavier implements KeyListener{
 				Main.scene.nJA4 = false;
 				Main.scene.actionTour();
 				Main.scene.strCommande = " Choissisez un Jeton ";
+				Main.scene.strCommande2 = " ";
 				Main.scene.repaint();
 			}
 		
@@ -278,24 +298,49 @@ public class Clavier implements KeyListener{
 				Main.scene.nJA4 = false;
 				Main.scene.actionTour();
 				Main.scene.strCommande = " Choissisez un Jeton ";
+				Main.scene.strCommande2 = " ";
 				Main.scene.repaint();
 			}
 		
 		if (Main.scene.action == 5 && Main.scene.nJA3 == false) {
 			Main.scene.strCommande = " Appuyez sur T pour effectuer l'appel à témoins";
+			Main.scene.strCommande2 = " ";
 			if(e.getKeyCode() == KeyEvent.VK_T) {
 				Main.scene.appelATemoin();
 				Main.scene.actionTour();
 				Main.scene.nbrTR();
 				Main.scene.finDuJeu();
 				Main.scene.strCommande = " Choissisez un Jeton ";
+				Main.scene.strCommande2 = " ";
 				Main.scene.repaint();
 				
 			}
 		}
 
-		
+		if( Main.scene.JA3 == false && Main.scene.strSablier == false &&Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && e.getKeyCode() == KeyEvent.VK_ENTER ) {
+			Main.scene.strCommande = " Jack possede " + Main.scene.sablierJack + " sabliers ";
+			Main.scene.strCommande2 = "  Appuyez sur ENTRER pour enlever le nombre de sabliers de jack ";
+			Main.scene.strSablier = true;
+			Main.scene.repaint();
+			
+
 		}
+		
+		else if( Main.scene.JA3 == false && Main.scene.strSablier == true && Main.scene.ecranAccueil == false && Main.scene.ecranAlibi == false && e.getKeyCode() == KeyEvent.VK_ENTER ) {
+			Main.scene.strCommande = " Choissisez un Jeton ";
+			Main.scene.strCommande2 = " ";
+			Main.scene.strSablier = false;
+			Main.scene.repaint();
+		}
+		
+		if ( (Main.scene.finDetec == true || Main.scene.finJack == true) && e.getKeyCode() == KeyEvent.VK_R ) {
+			Main.scene.restart();
+			Main.scene.repaint();
+		}
+
+		}
+		
+		
 	
 
 	@Override
