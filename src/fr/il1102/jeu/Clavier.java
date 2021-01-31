@@ -30,32 +30,13 @@ public class Clavier implements KeyListener{
 		}
 		else if(Main.scene.idJack == true && Main.scene.ecranAlibi == true && Main.scene.isEcranAccueil() == false  && e.getKeyCode() == KeyEvent.VK_SPACE) { //Permet de changer d'ecran en modifiant la variable ecranAlibi
 			Main.scene.setEcranAlibi(false);
-			Audio.playSound("/audios/doorSound.wav");
+			Audio.playSound("/audios/entrySound.wav");
 			Main.scene.idJack = false;
 			Main.scene.strCommande = " Choissisez un Jeton ";
 			Main.scene.strCommande2 = " ";
 			Main.scene.repaint();
 		}
-//		else if(e.getKeyCode() == KeyEvent.VK_LEFT) { //Permet d'afficher mon deck de  carte alibi
-//			Main.scene.nAlibi ++;
-//			Main.scene.nAlibiFC --;
-//			//Main.scene.alibiJack(Main.scene.nAlibi);
-//			Main.scene.alibiInspecteur();
-//			Main.scene.repaint();
-//		}
-		
-		//Deplacement des detectives
 
-		
-
-		//retourner
-		
-//		else if((e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5|| e.getKeyCode() == KeyEvent.VK_6  || e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_9)) {
-//			Main.scene.tTurn = e.getKeyCode() - 49;
-//			//Main.scene.retournerTuile(Main.scene.tTurn);
-//			Main.scene.tabShuffleTuile[Main.scene.tTurn][0].retourner();
-//			Main.scene.repaint();
-//		}
 
 		
 
