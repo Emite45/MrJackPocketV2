@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 
 public class Main {
 	
-	public static Scene scene;  //permet d'acceder à cette classe de partout 
+	public static Scene scene;  //permet d'acceder à cet objet de partout 
 	
 	public static void main(String[] args) {
 		
