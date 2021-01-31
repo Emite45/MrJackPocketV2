@@ -484,7 +484,7 @@ public class Scene extends JPanel {
 		Audio.playSound("/audios/cardSound.wav");
 	}
 	
-	public void alibiInspecteur() {
+	public void alibiInspecteur() {					// Quand detective choisi le jeton Alibi
 
 
 		if (tabShuffleAlibi[nAlibi] == Madame) {
@@ -805,7 +805,7 @@ public class Scene extends JPanel {
 		this.isAppel = true;
 	}
 	
-	public void nbrTR() {
+	public void nbrTR() {							// determine ke nombre de carte retournée
 		for (int i=0; i<9; i++) {
 			if(tabShuffleTuile[i][0].getName() == "retournee_0" || tabShuffleTuile[i][0].getName() == "retournee_90" || tabShuffleTuile[i][0].getName() == "retournee_-90" || tabShuffleTuile[i][0].getName() == "retournee_180" || tabShuffleTuile[i][0].getName() == "retournee_x") {
 				this.nbrRetourne++;
@@ -817,7 +817,7 @@ public class Scene extends JPanel {
 	
 	}
 	
-	public void tourJoueur() {
+	public void tourJoueur() {						// Determine qui doit jouer
 		if(tour%2 == 0 && (action == 1 || action ==4) ) {
 			this.joueur = 'J';
 		}
@@ -832,7 +832,7 @@ public class Scene extends JPanel {
 		}
 	}
 	
-	public void actionTour() {
+	public void actionTour() {						// Determine combien de jeton on été joué en 1 tour
 		if(action < 5) {
 			action ++;
 			
@@ -868,7 +868,7 @@ public class Scene extends JPanel {
 		Main.scene.isAppel = false;
 	}
 	
-	public void finDuJeu() {
+	public void finDuJeu() {						// Différentes fin du jeu et conditions
 		if(this.sablierJack == 6) {  //si jack possède 6 sabliers
 			finJack = true;
 			Audio.playSound("/audios/jackSound.wav");
@@ -893,7 +893,7 @@ public class Scene extends JPanel {
 		}
 	}
 	
-	public void restart() {
+	public void restart() {							// reinitialise toute les variables pour recommencer la partie
 	
 			Main.scene.tabShuffleTuile = Tuile.tuileMelange(T1, T1_90, T1_180, T1_r90, T2, T2_90, T2_180, T2_r90, T3, T3_90, T3_180,
 					T3_r90, T4, T4_90, T4_180, T4_r90, T5, T5_90, T5_180, T5_r90, T6, T6_90, T6_180, T6_r90, T7, T7_90,
