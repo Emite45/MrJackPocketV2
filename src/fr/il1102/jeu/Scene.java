@@ -895,7 +895,7 @@ public class Scene extends JPanel {
 	}
 	
 	public void finDuJeu() {						// Différentes fin du jeu et conditions
-		if(this.sablierJack == 6) {  //si jack possède 6 sabliers
+		if(this.sablierJack >= 6) {  //si jack possède 6 sabliers
 			finJack = true;
 			Audio.playSound("/audios/jackSound.wav");
 		}
@@ -1042,7 +1042,6 @@ public class Scene extends JPanel {
 				g2.drawString("(Appuyez sur ESPACE pour commencer à jouer)", 250, 700);}
 
 			
-			
 		} else if (ecranAlibi == false && ecranAccueil == false && finJack ==false && finDetec == false) { //ecran du plateau de jeu
 			
 			this.musiqueMenu.stop();
@@ -1142,7 +1141,7 @@ public class Scene extends JPanel {
 			g2.drawString(" Vous avez attrapé Jack ! ", 350, 150);
 			g2.drawString(" Appuyez sur R pour recommencer la partie ", 350, 300);
 			
-			
+		
 		}
 	}
 	
