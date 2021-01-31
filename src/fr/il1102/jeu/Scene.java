@@ -91,6 +91,9 @@ public class Scene extends JPanel {
 	public Tuile T9_180 = new Tuile("/images/tuile_de_rue_face_suspect9_180.png", "josephlane_180");
 	public Tuile T9_r90 = new Tuile("/images/tuile_de_rue_face_suspect9_m90.png", "josephlane_-90");
 	
+	public ImageIcon icoGrille;
+	public Image imgGrille;
+	
 	/*
 	public Tuile Td = new Tuile("/images/common-verso.png", "retournee_0");
 	public Tuile Td_90  = new Tuile("/images/common-verso_90.png", "retournee_90");
@@ -253,6 +256,9 @@ public class Scene extends JPanel {
 		this.tTurn= 0;
 		
 		this.nbrRetourne = 0; //indique le nombre de tuile retournée
+		
+		icoGrille = new ImageIcon(getClass().getResource("/images/grille.png"));
+		this.imgGrille = this.icoGrille.getImage();
 
 															// Alibi \\
 		// On instancie tout nos Alibis
@@ -1066,6 +1072,7 @@ public class Scene extends JPanel {
 			g2.drawImage(tabShuffleTuile[0][0].getImgTuile(), 300, 200, null); // Affichage de la tuile en Position (7) 1 ou 2,2
 			g2.drawImage(tabShuffleTuile[1][0].getImgTuile(), 490, 200, null); // Affichage de la tuile en Position (8) 2 ou 2,3
 			g2.drawImage(tabShuffleTuile[2][0].getImgTuile(), 680, 200, null); // Affichage de la tuile en Position (9) 3 ou 2,4
+			g2.drawImage(this.imgGrille, 800, 20, null);
 
 
 

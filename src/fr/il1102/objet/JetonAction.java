@@ -3,8 +3,6 @@ package fr.il1102.objet;
 import java.awt.Image;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
-
 import javax.swing.ImageIcon;
 
 public class JetonAction {
