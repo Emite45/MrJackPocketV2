@@ -4,7 +4,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import fr.il1102.audio.Audio;
-import fr.il1102.objet.Tuile;
 
 public class Clavier implements KeyListener{
 	

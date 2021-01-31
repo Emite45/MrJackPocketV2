@@ -418,25 +418,21 @@ public class Scene extends JPanel {
 			tabShuffleTuile[tRotat][0].icoTuile = new ImageIcon(getClass().getResource("/images/common-verso_-90.png"));
 			tabShuffleTuile[tRotat][0].imgTuile = tabShuffleTuile[tRotat][0].icoTuile.getImage();
 			tabShuffleTuile[tRotat][0].name = "retournee_-90";
-			System.out.println("mouv1");
 			}
 		else if (tabShuffleTuile[tRotat][0].getName() == "retournee_-90") {
 			tabShuffleTuile[tRotat][0].icoTuile = new ImageIcon(getClass().getResource("/images/common-verso_180.png"));
 			tabShuffleTuile[tRotat][0].imgTuile = tabShuffleTuile[tRotat][0].icoTuile.getImage();
 			tabShuffleTuile[tRotat][0].name = "retournee_180";
-			System.out.println("mouv2");
 		}
 		else if (tabShuffleTuile[tRotat][0].getName() == "retournee_180") {
 			tabShuffleTuile[tRotat][0].icoTuile = new ImageIcon(getClass().getResource("/images/common-verso_90.png"));
 			tabShuffleTuile[tRotat][0].imgTuile = tabShuffleTuile[tRotat][0].icoTuile.getImage();
 			tabShuffleTuile[tRotat][0].name = "retournee_90";
-			System.out.println("mouv3");
 		}
 		else if (tabShuffleTuile[tRotat][0].getName() == "retournee_90") {
 			tabShuffleTuile[tRotat][0].icoTuile = new ImageIcon(getClass().getResource("/images/common-verso.png"));
 			tabShuffleTuile[tRotat][0].imgTuile = tabShuffleTuile[tRotat][0].icoTuile.getImage();
 			tabShuffleTuile[tRotat][0].name = "retournee_0";
-			System.out.println("mouv4");
 		}
 		//Si la tuile n'est pas retournee
 		else if (listTuile.contains(T1) ==true) {
@@ -895,11 +891,11 @@ public class Scene extends JPanel {
 	}
 	
 	public void finDuJeu() {						// Différentes fin du jeu et conditions
-		if(this.sablierJack >= 6) {  //si jack possède 6 sabliers
+		if(this.sablierJack >= 6 && finDetec == false) {  //si jack possède 6 sabliers
 			finJack = true;
 			Audio.playSound("/audios/jackSound.wav");
 		}
-		if(this.nbrRetourne == 8) { // s'il ne reste qu'un seul suspect après l'appel à temoin
+		if(this.nbrRetourne == 8 && finJack == false) { // s'il ne reste qu'un seul suspect après l'appel à temoin
 			finDetec = true;
 			Audio.playSound("/audios/finInspecteur.wav");
 		}
