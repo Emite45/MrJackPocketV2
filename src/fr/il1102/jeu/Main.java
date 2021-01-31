@@ -17,16 +17,16 @@ public class Main {
 		
 		JFrame fenetre = new JFrame("Mr Jack Pocket");
 		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		fenetre.setSize(1920, 1080);
+		fenetre.setSize(1920, 1080); //taille de la fenetre, standard Full HD
 		fenetre.setLocationRelativeTo(null); // Mettre la fenetre au milieu de l'ecran
-		fenetre.setResizable(false);
+		fenetre.setResizable(false); // non redimensionnable
 		fenetre.setAlwaysOnTop(true);
 		
 	// Instanciation de l'objet scene
 		
 		scene = new Scene();
 		
-		fenetre.setContentPane(scene); // On associe la scene � la fenetre de l'application
+		fenetre.setContentPane(scene); // On associe la scene a la fenetre de l'application
 		fenetre.setVisible(true);
 
 
