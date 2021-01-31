@@ -413,7 +413,33 @@ public class Scene extends JPanel {
 	
 	public void rotateTuile(int tRotat) {					// Change l'ordre des petites cases dans le bon sens pour une rotation à 90°
 		List<Tuile> listTuile = Arrays.asList(tabShuffleTuile[tRotat]);
-		if (listTuile.contains(T1) ==true) {
+		//Si la tuile est retournee
+		if (tabShuffleTuile[tRotat][0].getName() == "retournee_0") {
+			tabShuffleTuile[tRotat][0].icoTuile = new ImageIcon(getClass().getResource("/images/common-verso_-90.png"));
+			tabShuffleTuile[tRotat][0].imgTuile = tabShuffleTuile[tRotat][0].icoTuile.getImage();
+			tabShuffleTuile[tRotat][0].name = "retournee_-90";
+			System.out.println("mouv1");
+			}
+		else if (tabShuffleTuile[tRotat][0].getName() == "retournee_-90") {
+			tabShuffleTuile[tRotat][0].icoTuile = new ImageIcon(getClass().getResource("/images/common-verso_180.png"));
+			tabShuffleTuile[tRotat][0].imgTuile = tabShuffleTuile[tRotat][0].icoTuile.getImage();
+			tabShuffleTuile[tRotat][0].name = "retournee_180";
+			System.out.println("mouv2");
+		}
+		else if (tabShuffleTuile[tRotat][0].getName() == "retournee_180") {
+			tabShuffleTuile[tRotat][0].icoTuile = new ImageIcon(getClass().getResource("/images/common-verso_90.png"));
+			tabShuffleTuile[tRotat][0].imgTuile = tabShuffleTuile[tRotat][0].icoTuile.getImage();
+			tabShuffleTuile[tRotat][0].name = "retournee_90";
+			System.out.println("mouv3");
+		}
+		else if (tabShuffleTuile[tRotat][0].getName() == "retournee_90") {
+			tabShuffleTuile[tRotat][0].icoTuile = new ImageIcon(getClass().getResource("/images/common-verso.png"));
+			tabShuffleTuile[tRotat][0].imgTuile = tabShuffleTuile[tRotat][0].icoTuile.getImage();
+			tabShuffleTuile[tRotat][0].name = "retournee_0";
+			System.out.println("mouv4");
+		}
+		//Si la tuile n'est pas retournee
+		else if (listTuile.contains(T1) ==true) {
 			if (tabShuffleTuile[tRotat][0] == T1) {tabShuffleTuile[tRotat][0] = T1_r90; tabShuffleTuile[tRotat][1] = T1_180; tabShuffleTuile[tRotat][2] = T1_r90; tabShuffleTuile[tRotat][3] = T1;} 
 			else if (tabShuffleTuile[tRotat][0] == T1_90) {tabShuffleTuile[tRotat][0] = T1; tabShuffleTuile[tRotat][1] = T1_r90; tabShuffleTuile[tRotat][2] = T1_180; tabShuffleTuile[tRotat][3] = T1_90;} 
 			else if (tabShuffleTuile[tRotat][0] == T1_180) {tabShuffleTuile[tRotat][0] = T1_90; tabShuffleTuile[tRotat][1] = T1; tabShuffleTuile[tRotat][2] = T1_r90; tabShuffleTuile[tRotat][3] = T1_180;} 
