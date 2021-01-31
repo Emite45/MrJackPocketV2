@@ -1014,11 +1014,11 @@ public class Scene extends JPanel {
 			g2.setFont(police);
 			g2.drawString("Bienvenue sur le Jeu Mr Jack Pocket : ", 350, 150);
 			g2.setFont(police2);
-			g2.drawString("Pour commencer à vous faufiler dans les ruelles de Londres : ", 300, 650);	
-			g2.drawString("Appuyez sur ENTRER", 600, 680);
+			g2.drawString("Pour commencer à vous faufiler dans les ruelles de Londres : ", 350, 750);	
+			g2.drawString("Appuyez sur ENTRER", 650, 680);
 
 			g2.setFont(police3);
-			g2.drawString("Elias Dève    Aymeric Lefebvre    Léonie Petit", 100, 800);
+			g2.drawString("Elias Dève    Aymeric Lefebvre    Léonie Petit", 650, 800);
 			
 		} else if (ecranAlibi == true && ecranAccueil == false ){  //Ecran du Menu pour Mr Jack
 			
